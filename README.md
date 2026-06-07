@@ -32,14 +32,19 @@
 
 ### 辅导计划与教材提取
 
-| 文件 | 说明 |
-|------|------|
-| [F2_Science_3天家长辅导计划.md](./F2_Science_3天家长辅导计划.md) | 三天家长辅导计划 |
-| [F2_Science_复习计划.md](./F2_Science_复习计划.md) | 复习计划 |
-| [F2_Science_Book2A_OCR_extracted.md](./F2_Science_Book2A_OCR_extracted.md) | Book 2A OCR 提取内容 |
-| [F2_Science_Book2B_OCR_extracted.md](./F2_Science_Book2B_OCR_extracted.md) | Book 2B OCR 提取内容 |
-| [F2_Science_Assignment_Book_2A_提取.md](./F2_Science_Assignment_Book_2A_提取.md) | Assignment Book 2A 提取 |
-| [F2_Science_Assignment_Book_2B_提取.md](./F2_Science_Assignment_Book_2B_提取.md) | Assignment Book 2B 提取 |
+<table>
+  <thead>
+    <tr><th>文件</th><th>说明</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><a href="./F2_Science_3天家长辅导计划.md">F2_Science_3天家长辅导计划.md</a></td><td>三天家长辅导计划</td></tr>
+    <tr><td><a href="./F2_Science_复习计划.md">F2_Science_复习计划.md</a></td><td>复习计划</td></tr>
+    <tr><td><a href="./F2_Science_Book2A_OCR_extracted.md">F2_Science_Book2A_OCR_extracted.md</a></td><td>Book 2A OCR 提取内容</td></tr>
+    <tr><td><a href="./F2_Science_Book2B_OCR_extracted.md">F2_Science_Book2B_OCR_extracted.md</a></td><td>Book 2B OCR 提取内容</td></tr>
+    <tr><td><a href="./F2_Science_Assignment_Book_2A_提取.md">F2_Science_Assignment_Book_2A_提取.md</a></td><td>Assignment Book 2A 提取</td></tr>
+    <tr><td><a href="./F2_Science_Assignment_Book_2B_提取.md">F2_Science_Assignment_Book_2B_提取.md</a></td><td>Assignment Book 2B 提取</td></tr>
+  </tbody>
+</table>
 
 ## 访问方式
 
