@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 3 - S2: Sensing the Environment</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px}
+.container{max-width:800px;margin:0 auto}
+.session-header{background:linear-gradient(135deg,#34c759,#00c7be);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.session-header h1{font-size:24px;margin-bottom:4px}
+.session-header .meta{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h2{font-size:18px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.term-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+.term-table th,.term-table td{text-align:left;padding:8px 12px;border-bottom:1px solid #f0f0f2}
+.term-table th{background:#f5f5f7;font-weight:600;font-size:13px}
+.path-box{background:#f0f5ff;border-radius:10px;padding:16px;margin:12px 0;text-align:center;font-size:15px}
+.path-box .arrow{color:#007aff;margin:0 6px}
+.q-item{background:#f9f9fb;border-radius:8px;padding:12px;margin:8px 0;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px}
+.q-item .a{color:#34c759;font-size:13px;margin-top:4px;display:none}
+.q-item.show .a{display:block}
+.tag{display:inline-block;background:#f0f0f2;padding:2px 8px;border-radius:4px;font-size:12px;color:#555}
+.tag.mustknow{background:#ffe0e0;color:#e74c3c}
+.checklist{list-style:none}
+.checklist li{padding:6px 0;display:flex;align-items:center;gap:8px;font-size:14px}
+.checklist li::before{content:"☐";font-size:18px}
+.tip-box{background:#fff5e0;border-radius:8px;padding:12px;margin:8px 0;font-size:13px}
+.tip-box strong{color:#e74c3c}
+.org-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+.org-table th{background:#f0f0f2;padding:8px;text-align:left;font-weight:600}
+.org-table td{padding:6px 8px;border-bottom:1px solid #f0f0f2}
+.brain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0}
+.brain-item{background:#f9f9fb;border-radius:8px;padding:12px;text-align:center}
+.brain-item .name{font-weight:600;font-size:13px}
+.brain-item .func{font-size:11px;color:#666}
+@media(max-width:600px){.brain-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="session-header">
+<h1>👁️ S2: Sensing the Environment（感知环境）</h1>
+<div class="meta">Day 3 — Unit 10 | 课本 2B p.76–159 | ⏱ 40 分钟</div>
+</div>
+
+<div class="card">
+<h2>📝 术语速记</h2>
+<table class="term-table">
+<tr><th>英文</th><th>中文</th><th>掌握</th></tr>
+<tr><td>sense organ</td><td>感觉器官</td><td>☐</td></tr>
+<tr><td>stimulus</td><td>刺激</td><td>☐</td></tr>
+<tr><td>cornea</td><td>角膜</td><td>☐</td></tr>
+<tr><td>pupil</td><td>瞳孔</td><td>☐</td></tr>
+<tr><td>iris</td><td>虹膜</td><td>☐</td></tr>
+<tr><td>lens</td><td>晶状体</td><td>☐</td></tr>
+<tr><td>retina</td><td>视网膜</td><td>☐</td></tr>
+<tr><td>optic nerve</td><td>视神经</td><td>☐</td></tr>
+<tr><td>eardrum</td><td>鼓膜</td><td>☐</td></tr>
+<tr><td>cochlea</td><td>耳蜗</td><td>☐</td></tr>
+<tr><td>auditory nerve</td><td>听觉神经</td><td>☐</td></tr>
+<tr><td>decibel (dB)</td><td>分贝</td><td>☐</td></tr>
+<tr><td>cerebrum</td><td>大脑皮层</td><td>☐</td></tr>
+<tr><td>cerebellum</td><td>小脑</td><td>☐</td></tr>
+<tr><td>medulla</td><td>延髓</td><td>☐</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>🔦 Sight（视觉）— 眼睛 <span class="tag mustknow">必考标注图</span></h2>
+<p><strong>光线路径（从物体到大脑）：</strong></p>
+<div class="path-box">
+Cornea（角膜） <span class="arrow">→</span> Pupil（瞳孔） <span class="arrow">→</span> Lens（晶状体） <span class="arrow">→</span> Retina（视网膜） <span class="arrow">→</span> Optic nerve（视神经） <span class="arrow">→</span> Brain（大脑）
+</div>
+
+<h3 style="margin:12px 0 6px;font-size:15px;">调节（Accommodation）</h3>
+<ul style="padding-left:20px;margin:6px 0;">
+<li><strong>看近物：</strong> ciliary muscles（睫状肌）<strong>contract</strong> → lens becomes <strong>thicker</strong></li>
+<li><strong>看远物：</strong> ciliary muscles <strong>relax</strong> → lens becomes <strong>thinner</strong></li>
+</ul>
+
+<h3 style="margin:12px 0 6px;font-size:15px;">感光细胞</h3>
+<table class="org-table">
+<tr><th>细胞类型</th><th>作用</th></tr>
+<tr><td>Cone cells（视锥细胞）</td><td>Sensitive to bright light, detect colour</td></tr>
+<tr><td>Rod cells（视杆细胞）</td><td>Sensitive to dim light, cannot detect colour</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>🎧 Hearing（听觉）— 耳朵 <span class="tag mustknow">必考标注图</span></h2>
+<p><strong>声波路径（从外到内）：</strong></p>
+<div class="path-box" style="font-size:13px;">
+Pinna（耳廓） <span class="arrow">→</span> Ear canal（耳道） <span class="arrow">→</span> Eardrum（鼓膜） <span class="arrow">→</span> Hammer, Anvil, Stirrup（听小骨） <span class="arrow">→</span> Cochlea（耳蜗） <span class="arrow">→</span> Auditory nerve（听觉神经） <span class="arrow">→</span> Brain
+</div>
+
+<p style="margin-top:8px;"><strong>Sound level（声级）：</strong> 单位 <strong>decibel (dB)</strong>。用 decibel meter 测量。</p>
+</div>
+
+<div class="card">
+<h2>🧠 The Brain and Our Senses <span class="tag exam">常考</span></h2>
+<div class="brain-grid">
+<div class="brain-item">
+<div class="name">🧠 Cerebrum</div>
+<div class="func">思考、记忆、语言、感觉处理</div>
+</div>
+<div class="brain-item">
+<div class="name">⚖️ Cerebellum</div>
+<div class="func">协调运动、平衡</div>
+</div>
+<div class="brain-item">
+<div class="name">💓 Medulla</div>
+<div class="func">心跳、呼吸等自主功能</div>
+</div>
+</div>
+
+<h3 style="margin:12px 0 6px;font-size:15px;">其他感觉</h3>
+<ul style="padding-left:20px;">
+<li><strong>Smell（嗅觉）：</strong> 鼻腔嗅觉细胞</li>
+<li><strong>Taste（味觉）：</strong> 舌头味蕾 — 酸甜苦咸鲜（umami 第五味）</li>
+<li><strong>Touch（触觉）：</strong> 皮肤感受器 — 压力、温度、疼痛</li>
+<li><strong>Balance（平衡）：</strong> 内耳前庭系统</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>✏️ 英文题目</h2>
+<div class="q-item"><div class="q">Q1: List the parts of the eye that light passes through, in order.</div><div class="a">Cornea → pupil → lens → retina → optic nerve</div></div>
+<div class="q-item"><div class="q">Q2: What happens to the lens when you look at a near object?</div><div class="a">The ciliary muscles contract, making the lens thicker.</div></div>
+<div class="q-item"><div class="q">Q3: What is the function of the cochlea?</div><div class="a">It converts sound vibrations into nerve signals.</div></div>
+<div class="q-item"><div class="q">Q4: Name the three main parts of the brain and give ONE function of each.</div><div class="a">Cerebrum (thinking/memory), Cerebellum (coordination/balance), Medulla (heartbeat/breathing).</div></div>
+<div class="q-item"><div class="q">Q5: What is the difference between rod cells and cone cells?</div><div class="a">Rod cells are sensitive to dim light (but cannot detect colour). Cone cells are sensitive to bright light and detect colour.</div></div>
+</div>
+
+<div class="card">
+<h2>✅ S2 完成检查</h2>
+<ul class="checklist">
+<li>能按顺序说出光线经过眼睛的路径</li>
+<li>知道看近物和远物时晶状体的变化</li>
+<li>能按顺序说出声音传递的路径</li>
+<li>知道 cerebrum, cerebellum, medulla 的功能</li>
+</ul>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+<h2>📘 Assignment Book 真题 — Unit 10 Sensing the Environment</h2>
+<p style="font-size:13px;color:#666;margin-bottom:8px;">以下题目来自 Assignment Book 2B。</p>
+
+<div class="q-item"><div class="q">📝 MC: Which part of the eye controls the amount of light entering?</div><div class="a">Iris / Pupil</div></div>
+<div class="q-item"><div class="q">📝 MC: Where is an image formed in the eye?</div><div class="a">Retina</div></div>
+<div class="q-item"><div class="q">📝 MC: Which part of the eye sends signals to the brain?</div><div class="a">Optic nerve</div></div>
+<div class="q-item"><div class="q">📝 MC: What is the function of the cochlea?</div><div class="a">It converts sound vibrations into nerve signals.</div></div>
+<div class="q-item"><div class="q">📝 Name the three main parts of the brain and give ONE function of each.</div><div class="a">Cerebrum (thinking/memory), Cerebellum (coordination/balance), Medulla (heartbeat/breathing).</div></div>
+<div class="q-item"><div class="q">📝 What is the unit for measuring sound level?</div><div class="a">Decibel (dB).</div></div>
+</div>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(i=>i.addEventListener('click',()=>i.classList.toggle('show')));</script>
+</body>
+</html>

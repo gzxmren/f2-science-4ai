@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 3 - S3: Force and Motion</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px}
+.container{max-width:800px;margin:0 auto}
+.session-header{background:linear-gradient(135deg,#007aff,#5856d6);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.session-header h1{font-size:24px;margin-bottom:4px}
+.session-header .meta{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h2{font-size:18px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.term-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+.term-table th,.term-table td{text-align:left;padding:8px 12px;border-bottom:1px solid #f0f0f2}
+.term-table th{background:#f5f5f7;font-weight:600;font-size:13px}
+.eq-box{background:#1d1d1f;color:#fff;border-radius:10px;padding:16px;margin:12px 0;text-align:center;font-size:16px}
+.eq-box .sub{font-size:12px;color:#8e8e93;margin-top:4px}
+.q-item{background:#f9f9fb;border-radius:8px;padding:12px;margin:8px 0;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px}
+.q-item .a{color:#34c759;font-size:13px;margin-top:4px;display:none}
+.q-item.show .a{display:block}
+.tag{display:inline-block;background:#f0f0f2;padding:2px 8px;border-radius:4px;font-size:12px;color:#555}
+.tag.mustknow{background:#ffe0e0;color:#e74c3c}
+.checklist{list-style:none}
+.checklist li{padding:6px 0;display:flex;align-items:center;gap:8px;font-size:14px}
+.checklist li::before{content:"☐";font-size:18px}
+.tip-box{background:#fff5e0;border-radius:8px;padding:12px;margin:8px 0;font-size:13px}
+.tip-box strong{color:#e74c3c}
+.example-box{background:#f0f5ff;border-radius:8px;padding:14px;margin:10px 0;font-size:14px}
+.example-box strong{color:#007aff}
+.graph-types{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.graph-item{background:#f9f9fb;border-radius:8px;padding:14px;text-align:center}
+.graph-item .icon{font-size:24px}
+.graph-item .label{font-size:13px;font-weight:600}
+.graph-item .desc{font-size:11px;color:#666}
+@media(max-width:600px){.graph-types{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="session-header">
+<h1>🏃 S3: Force and Motion（力与运动）</h1>
+<div class="meta">Day 3 — Unit 11 | 课本 2B p.160–240 | ⏱ 40 分钟</div>
+</div>
+
+<div class="card">
+<h2>📝 术语速记</h2>
+<table class="term-table">
+<tr><th>英文</th><th>中文</th><th>掌握</th></tr>
+<tr><td>force</td><td>力</td><td>☐</td></tr>
+<tr><td>motion</td><td>运动</td><td>☐</td></tr>
+<tr><td>speed</td><td>速度</td><td>☐</td></tr>
+<tr><td>average speed</td><td>平均速度</td><td>☐</td></tr>
+<tr><td>distance-time graph</td><td>距离-时间图</td><td>☐</td></tr>
+<tr><td>gravity</td><td>重力</td><td>☐</td></tr>
+<tr><td>weight</td><td>重量</td><td>☐</td></tr>
+<tr><td>mass</td><td>质量</td><td>☐</td></tr>
+<tr><td>friction</td><td>摩擦力</td><td>☐</td></tr>
+<tr><td>air resistance</td><td>空气阻力</td><td>☐</td></tr>
+<tr><td>action and reaction</td><td>作用力与反作用力</td><td>☐</td></tr>
+<tr><td>newton (N)</td><td>牛顿</td><td>☐</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>📐 速度与距离-时间图 <span class="tag mustknow">必考</span></h2>
+<div class="eq-box">
+Average speed = Total distance ÷ Total time
+<div class="sub">v = d / t</div>
+</div>
+
+<div class="example-box">
+<strong>📌 示例：</strong> A car travels 300 km in 4 hours. Average speed = ?<br>
+300 ÷ 4 = <strong>75 km/h</strong>
+</div>
+
+<div class="example-box">
+<strong>📌 示例：</strong> Usain Bolt 100 m in 9.58 s. Average speed = ?<br>
+100 ÷ 9.58 = <strong>10.4 m/s</strong>
+</div>
+
+<h3 style="margin:12px 0 6px;font-size:15px;">Distance-time graph（距离-时间图）</h3>
+<div class="graph-types">
+<div class="graph-item"><div class="icon">➡️</div><div class="label">水平线（flat）</div><div class="desc">At rest / 静止</div></div>
+<div class="graph-item"><div class="icon">↗️</div><div class="label">斜直线（straight sloping）</div><div class="desc">Uniform motion / 匀速运动</div></div>
+</div>
+<p style="font-size:13px;">线越陡（steeper）→ 速度越快</p>
+</div>
+
+<div class="card">
+<h2>📊 Force and Gravity <span class="tag mustknow">必考</span></h2>
+<p><strong>Force（力）：</strong> 推（push）或拉（pull），单位 Newton (N)。</p>
+<p><strong>效果：</strong> 改变物体的运动状态（加速、减速、改变方向）</p>
+
+<h3 style="margin:12px 0 6px;font-size:15px;">Gravity（重力）— W = mg</h3>
+<div class="eq-box">
+Weight (N) = mass (kg) × gravitational acceleration (9.8 N/kg)
+<div class="sub">W = m × g</div>
+</div>
+
+<div class="example-box">
+<strong>📌 示例：</strong> A 50 kg person on Earth. Weight = ?<br>
+W = 50 × 9.8 = <strong>490 N</strong>
+</div>
+
+<div class="tip-box">
+<strong>⚠️ 区分：</strong><br>
+<strong>Mass（质量）</strong> = 物体所含物质的量，单位 kg（不变值）<br>
+<strong>Weight（重量）</strong> = 地球对物体的引力，单位 N（随 g 变化）
+</div>
+</div>
+
+<div class="card">
+<h2>🔄 Friction, Air Resistance & Action-Reaction</h2>
+
+<h3 style="font-size:15px;margin:8px 0;">Friction（摩擦力）</h3>
+<ul style="padding-left:20px;">
+<li>方向与运动方向<strong>相反</strong></li>
+<li><strong>有益：</strong> 走路、刹车、抓握</li>
+<li><strong>有害：</strong> 机械磨损、能量损失</li>
+<li><strong>减少摩擦：</strong> 润滑油（lubricant）、滚珠轴承（ball bearing）</li>
+</ul>
+
+<h3 style="font-size:15px;margin:10px 0 6px;">Air Resistance（空气阻力）</h3>
+<p>物体在空气中运动时受到的阻力。流线型设计（streamlined）可以减少空气阻力。</p>
+
+<h3 style="font-size:15px;margin:10px 0 6px;">Action and Reaction（牛顿第三定律）</h3>
+<p><strong>作用力与反作用力：</strong> 大小相等、方向相反、作用在不同物体上。</p>
+<ul style="padding-left:20px;">
+<li>🚶 走路：脚推地面 → 地面推脚</li>
+<li>🏊 游泳：手推水 → 水推手</li>
+<li>🚀 火箭：向下喷气 → 气体向上推火箭（反冲运动）</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>✏️ 英文题目</h2>
+<div class="q-item"><div class="q">Q1: A car travels 240 km in 3 hours. Find its average speed.</div><div class="a">240 ÷ 3 = 80 km/h</div></div>
+<div class="q-item"><div class="q">Q2: What does a flat (horizontal) line on a distance-time graph mean?</div><div class="a">The object is at rest (not moving).</div></div>
+<div class="q-item"><div class="q">Q3: Calculate the weight of a 60 kg person on Earth. (g = 9.8 N/kg)</div><div class="a">W = 60 × 9.8 = 588 N</div></div>
+<div class="q-item"><div class="q">Q4: What is the difference between mass and weight?</div><div class="a">Mass is the amount of matter in an object (kg). Weight is the force of gravity on an object (N). Weight = mass × g.</div></div>
+<div class="q-item"><div class="q">Q5: Give ONE example of action and reaction forces.</div><div class="a">When walking, your foot pushes the ground backward (action), and the ground pushes your foot forward (reaction).</div></div>
+<div class="q-item"><div class="q">Q6: What is friction? When is it useful?</div><div class="a">Friction is a force that opposes motion. It is useful for walking, braking and gripping.</div></div>
+</div>
+
+<div class="card">
+<h2>✅ S3 完成检查</h2>
+<ul class="checklist">
+<li>会计算平均速度（v = d/t）</li>
+<li>能解读 distance-time graph</li>
+<li>会计算重量（W = mg）</li>
+<li>能区分 mass 和 weight</li>
+<li>理解 friction, air resistance, action-reaction</li>
+</ul>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+<h2>📘 Assignment Book 真题 — Unit 11 Force and Motion</h2>
+<p style="font-size:13px;color:#666;margin-bottom:8px;">以下题目来自 Assignment Book 2B。</p>
+
+<div class="q-item"><div class="q">📝 Calculation: A car travels 120 km in 2 hours. What is its average speed?</div><div class="a">120 ÷ 2 = 60 km/h</div></div>
+<div class="q-item"><div class="q">📝 Calculation: Find the weight of a 50 kg person. (g = 9.8 N/kg)</div><div class="a">W = 50 × 9.8 = 490 N</div></div>
+<div class="q-item"><div class="q">📝 Calculation: An object has a weight of 100 N. What is its mass? (g = 9.8 N/kg)</div><div class="a">m = 100 ÷ 9.8 = 10.2 kg</div></div>
+<div class="q-item"><div class="q">📝 MC: What does a flat (horizontal) line on a distance-time graph mean?</div><div class="a">The object is at rest (not moving).</div></div>
+<div class="q-item"><div class="q">📝 MC: Which is correct about friction?</div><div class="a">Friction acts in the opposite direction to motion.</div></div>
+<div class="q-item"><div class="q">📝 Give ONE example of action and reaction forces.</div><div class="a">Walking: foot pushes ground backward → ground pushes foot forward.</div></div>
+</div>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(i=>i.addEventListener('click',()=>i.classList.toggle('show')));</script>
+</body>
+</html>

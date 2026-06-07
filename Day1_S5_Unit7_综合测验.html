@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 - S5: Unit 7 综合复习测验</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', 'Noto Sans SC', sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.7; padding: 20px; }
+  .container { max-width: 800px; margin: 0 auto; }
+  .session-header { background: linear-gradient(135deg, #8e8e93, #636366); color: #fff; padding: 24px; border-radius: 16px; margin-bottom: 24px; }
+  .session-header h1 { font-size: 24px; margin-bottom: 4px; }
+  .session-header .meta { opacity: 0.85; font-size: 14px; }
+  .card { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .card h2 { font-size: 18px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #f0f0f2; }
+  .question { background: #f9f9fb; border-radius: 10px; padding: 14px; margin: 10px 0; border-left: 4px solid #007aff; }
+  .question .q { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .question .hint { font-size: 12px; color: #8e8e93; margin-bottom: 8px; }
+  .question textarea { width: 100%; border: 1px solid #ddd; border-radius: 6px; padding: 8px; font-size: 14px; font-family: inherit; min-height: 60px; resize: vertical; }
+  .question .a { color: #34c759; font-size: 13px; margin-top: 8px; display: none; background: #e8f5e9; border-radius: 6px; padding: 8px; }
+  .question .show-btn { background: #007aff; color: #fff; border: none; border-radius: 6px; padding: 4px 12px; font-size: 12px; cursor: pointer; margin-top: 6px; }
+  .question.show .a { display: block; }
+  .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .summary-item { background: #f9f9fb; border-radius: 8px; padding: 12px; text-align: center; }
+  .summary-item h4 { font-size: 13px; color: #007aff; margin-bottom: 4px; }
+  .summary-item .val { font-size: 14px; font-weight: 600; }
+  .tag { display: inline-block; background: #f0f0f2; padding: 2px 8px; border-radius: 4px; font-size: 12px; color: #555; }
+  .tag.mustknow { background: #ffe0e0; color: #e74c3c; }
+  .checklist { list-style: none; }
+  .checklist li { padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .checklist li::before { content: "☐"; font-size: 18px; }
+  .mindmap { background: #f0f5ff; border-radius: 12px; padding: 16px; margin: 12px 0; }
+  .mindmap h3 { font-size: 15px; margin-bottom: 8px; }
+  .mindmap ul { padding-left: 20px; }
+  .mindmap li { margin: 4px 0; font-size: 13px; }
+  .mindmap .highlight { background: #fff5e0; padding: 1px 6px; border-radius: 3px; font-weight: 600; }
+  @media (max-width: 600px) { .summary-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="session-header">
+  <h1>📝 S5: Unit 7 综合复习测验</h1>
+  <div class="meta">Day 1 — 汇总 S1–S4 | ⏱ 15–20 分钟</div>
+</div>
+
+<!-- 术语通关 -->
+<div class="card">
+  <h2>📖 术语大通关</h2>
+  <p style="font-size: 13px; color: #666; margin-bottom: 8px;">孩子能将以下英文翻译成中文就算过关：</p>
+  <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+    <tr><td style="padding: 4px 8px;">🌬️ atmosphere</td><td style="padding: 4px 8px;">_____</td><td style="padding: 4px 8px;">🔥 burning splint</td><td style="padding: 4px 8px;">_____</td></tr>
+    <tr><td style="padding: 4px 8px;">🧪 glowing splint</td><td style="padding: 4px 8px;">_____</td><td style="padding: 4px 8px;">💧 limewater</td><td style="padding: 4px 8px;">_____</td></tr>
+    <tr><td style="padding: 4px 8px;">🌿 photosynthesis</td><td style="padding: 4px 8px;">_____</td><td style="padding: 4px 8px;">🧬 respiration</td><td style="padding: 4px 8px;">_____</td></tr>
+    <tr><td style="padding: 4px 8px;">🍃 chlorophyll</td><td style="padding: 4px 8px;">_____</td><td style="padding: 4px 8px;">🔬 iodine solution</td><td style="padding: 4px 8px;">_____</td></tr>
+    <tr><td style="padding: 4px 8px;">🌾 stomata</td><td style="padding: 4px 8px;">_____</td><td style="padding: 4px 8px;">🏭 AQHI</td><td style="padding: 4px 8px;">_____</td></tr>
+  </table>
+</div>
+
+<!-- 核心知识点总结 -->
+<div class="card">
+  <h2>🧠 Unit 7 思维导图</h2>
+  <div class="mindmap">
+    <h3>Unit 7: Living Things and Air</h3>
+    <ul>
+      <li><strong>7.1 Composition of Air</strong> — N₂ <span class="highlight">78%</span>, O₂ <span class="highlight">21%</span>, noble gases 0.9%, CO₂ 0.03%</li>
+      <li><strong>Gas Tests</strong> — O₂: glowing splint <span class="highlight">relights</span> | CO₂: limewater turns <span class="highlight">milky</span></li>
+      <li><strong>7.2 Photosynthesis</strong> — CO₂ + H₂O → glucose + O₂ (needs light + chlorophyll)</li>
+      <li><strong>7.3 Respiration</strong> — glucose + O₂ → CO₂ + H₂O + <span class="highlight">Energy</span></li>
+      <li><strong>7.4 Gas Exchange</strong> — Plants: <span class="highlight">stomata</span> | Day: net O₂ released | Night: net CO₂ released</li>
+      <li><strong>7.5–7.6 Air Quality</strong> — Pollutants: SO₂, NOₓ, CO, O₃, particulates | AQHI</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 测验 -->
+<div class="card">
+  <h2>✏️ 综合测验（共 10 题）</h2>
+  <p style="font-size: 13px; color: #666; margin-bottom: 8px;">孩子用英文口头或纸笔回答，写完再看答案。</p>
+
+  <div class="question">
+    <div class="q">Q1: Name the four most abundant gases in air and their percentages.</div>
+    <div class="hint">空气中最多的四种气体及比例</div>
+    <div class="a">Nitrogen 78%, Oxygen 21%, Noble gases 0.9%, Carbon dioxide 0.03%</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q2: Describe how to test for oxygen gas.</div>
+    <div class="hint">怎样测试氧气？</div>
+    <div class="a">Insert a glowing splint. If it relights, the gas is oxygen.</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q3: Describe how to test for carbon dioxide gas.</div>
+    <div class="hint">怎样测试二氧化碳？</div>
+    <div class="a">Bubble the gas through limewater. If it turns milky/cloudy, the gas is carbon dioxide.</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q4: Write the word equation for photosynthesis.</div>
+    <div class="hint">光合作用的文字方程式</div>
+    <div class="a">Carbon dioxide + Water → Glucose + Oxygen (need light and chlorophyll)</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q5: Write the word equation for respiration.</div>
+    <div class="hint">呼吸作用的文字方程式</div>
+    <div class="a">Glucose + Oxygen → Carbon dioxide + Water + Energy</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q6: Give TWO differences between photosynthesis and respiration.</div>
+    <div class="hint">光合作用和呼吸作用的两个不同点</div>
+    <div class="a">(1) Photosynthesis needs light, respiration does not. (2) Photosynthesis absorbs energy, respiration releases energy.</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q7: Through which structure do plants exchange gases?</div>
+    <div class="hint">植物通过什么结构交换气体？</div>
+    <div class="a">Stomata (plural of stoma) on the leaf surface.</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q8: Why do plants release carbon dioxide at night?</div>
+    <div class="hint">为什么植物夜晚释放二氧化碳？</div>
+    <div class="a">At night, there is no light, so photosynthesis stops. Only respiration continues, which releases CO₂.</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q9: Name TWO air pollutants and state their effects on health.</div>
+    <div class="hint">两种空气污染物及其健康影响</div>
+    <div class="a">(1) SO₂ (sulphur dioxide): causes respiratory irritation, contributes to acid rain. (2) CO (carbon monoxide): reduces the blood's ability to carry oxygen.</div>
+  </div>
+
+  <div class="question">
+    <div class="q">Q10: What is the difference between mass and weight? (Hint: this is from the appendix, but a common question!)</div>
+    <div class="hint">mass 和 weight 的区别</div>
+    <div class="a">Mass is the amount of matter in an object (measured in kg). Weight is the force of gravity acting on an object (measured in N). Weight = mass × gravitational acceleration (W = mg).</div>
+  </div>
+</div>
+
+<!-- Day 1 完成总结 -->
+<div class="card">
+  <h2>🎯 Day 1 完成总结</h2>
+  
+  <div class="summary-grid">
+    <div class="summary-item"><h4>S1</h4><div class="val">空气成分 + 气体测试</div></div>
+    <div class="summary-item"><h4>S2</h4><div class="val">光合作用</div></div>
+    <div class="summary-item"><h4>S3</h4><div class="val">呼吸作用 + 对比</div></div>
+    <div class="summary-item"><h4>S4</h4><div class="val">气体交换 + 空气质量</div></div>
+  </div>
+
+  <ul class="checklist">
+    <li>记住空气成分比例（N₂ 78%, O₂ 21%）</li>
+    <li>能说出 O₂ 和 CO₂ 的测试方法（英文）</li>
+    <li>会写光合作用和呼吸作用的文字方程式</li>
+    <li>能对比光合作用和呼吸作用</li>
+    <li>知道 stomata 是植物的气体交换结构</li>
+    <li>能解释白天和夜晚植物气体交换的差异</li>
+    <li>认识至少 2 种空气污染物及其影响</li>
+    <li>完成 10 道综合测验题</li>
+  </ul>
+
+  <div style="background: #e8f5e9; border-radius: 10px; padding: 14px; margin-top: 12px; text-align: center;">
+    <strong>✅ Day 1 — Unit 7 完成！</strong><br>
+    明天进入 Day 2 — Unit 8: Electricity（电学）
+  </div>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+  <h2>📘 Assignment Book 真题 — Unit 7 综合题</h2>
+  <p style="font-size:13px;color:#666;margin-bottom:8px;">火星大气成分分析题（Assignment Book 2A p.3）</p>
+  <div style="background:#f0f5ff;border-radius:8px;padding:12px;margin:8px 0;font-size:13px;">
+  <strong>火星大气成分：</strong> CO₂ 95.32%, N₂ 2.7%, O₂ 0.13%, CO 0.07%, H₂O vapour 0.03%, Others 1.75%
+  </div>
+  <div class="q-item"><div class="q">📝 (a) Why is Mars unsuitable for humans to live on?</div><div class="a">The oxygen content is too low (only 0.13%).</div></div>
+  <div class="q-item"><div class="q">📝 (b) Suggest a test to confirm the presence of CO₂ in Mars' atmosphere.</div><div class="a">Bubble the gas through limewater. If it turns milky, CO₂ is present.</div></div>
+  <div class="q-item"><div class="q">📝 (c) The amount of water vapour on Mars is very low. Describe a test for water.</div><div class="a">Use cobalt chloride paper. It turns from blue to pink if water is present.</div></div>
+</div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.question .show-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.closest('.question').classList.toggle('show');
+    });
+  });
+  // Also toggle on click on the whole question box
+  document.querySelectorAll('.question').forEach(item => {
+    item.addEventListener('click', function(e) {
+      if (!e.target.closest('.show-btn')) {
+        this.classList.toggle('show');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

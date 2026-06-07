@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 - S2: Photosynthesis</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', 'Noto Sans SC', sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.7; padding: 20px; }
+  .container { max-width: 800px; margin: 0 auto; }
+  .session-header { background: linear-gradient(135deg, #34c759, #30b0c0); color: #fff; padding: 24px; border-radius: 16px; margin-bottom: 24px; }
+  .session-header h1 { font-size: 24px; margin-bottom: 4px; }
+  .session-header .meta { opacity: 0.85; font-size: 14px; }
+  .card { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .card h2 { font-size: 18px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #f0f0f2; }
+  
+  .term-table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+  .term-table th, .term-table td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #f0f0f2; }
+  .term-table th { background: #f5f5f7; font-weight: 600; font-size: 13px; }
+  .term-table td { font-size: 14px; }
+
+  .equation-box { background: #1d1d1f; color: #fff; border-radius: 10px; padding: 16px; margin: 12px 0; text-align: center; font-size: 16px; }
+  .equation-box .arrow { color: #34c759; margin: 0 8px; }
+  .equation-box .condition { font-size: 12px; color: #8e8e93; margin-top: 4px; }
+
+  .comparison-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  .comparison-table th { background: #f0f0f2; padding: 10px; text-align: center; font-weight: 600; }
+  .comparison-table th:first-child { text-align: left; }
+  .comparison-table td { padding: 10px; border-bottom: 1px solid #f0f0f2; text-align: center; }
+  .comparison-table td:first-child { text-align: left; font-weight: 500; }
+  .comparison-table .photo { background: #e8f5e9; }
+  .comparison-table .respi { background: #fff5e0; }
+
+  .exp-card { background: #f9f9fb; border-radius: 8px; padding: 12px; margin: 8px 0; border-left: 4px solid #007aff; }
+  .exp-card h4 { font-size: 14px; margin-bottom: 4px; }
+  .exp-card p { font-size: 13px; color: #555; }
+
+  .q-item { background: #f9f9fb; border-radius: 8px; padding: 12px; margin: 8px 0; cursor: pointer; }
+  .q-item .q { font-weight: 600; font-size: 14px; }
+  .q-item .a { color: #34c759; font-size: 13px; margin-top: 4px; display: none; }
+  .q-item.show .a { display: block; }
+
+  .tag { display: inline-block; background: #f0f0f2; padding: 2px 8px; border-radius: 4px; font-size: 12px; color: #555; }
+  .tag.exam { background: #fff2e0; color: #e67e22; }
+  .tag.mustknow { background: #ffe0e0; color: #e74c3c; }
+
+  .checklist { list-style: none; }
+  .checklist li { padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .checklist li::before { content: "☐"; font-size: 18px; }
+
+  .tip-box { background: #e8f4fd; border-radius: 8px; padding: 12px; margin: 8px 0; font-size: 13px; }
+  .tip-box strong { color: #007aff; }
+
+  @media (max-width: 600px) {
+    .comparison-table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="session-header">
+  <h1>🌿 S2: Photosynthesis（光合作用）</h1>
+  <div class="meta">Day 1 — Unit 7: Living Things and Air | 课本 p.13–26 | ⏱ 25–30 分钟</div>
+</div>
+
+<!-- 术语 -->
+<div class="card">
+  <h2>📝 术语速记</h2>
+  <table class="term-table">
+    <tr><th>英文</th><th>中文</th><th>掌握</th></tr>
+    <tr><td>photosynthesis</td><td>光合作用</td><td>☐</td></tr>
+    <tr><td>chlorophyll</td><td>叶绿素</td><td>☐</td></tr>
+    <tr><td>glucose</td><td>葡萄糖</td><td>☐</td></tr>
+    <tr><td>sunlight / light energy</td><td>光能</td><td>☐</td></tr>
+    <tr><td>chemical energy</td><td>化学能</td><td>☐</td></tr>
+    <tr><td>starch</td><td>淀粉</td><td>☐</td></tr>
+    <tr><td>iodine solution</td><td>碘液</td><td>☐</td></tr>
+    <tr><td>destarching</td><td>耗尽淀粉</td><td>☐</td></tr>
+    <tr><td>oxygen</td><td>氧气</td><td>☐</td></tr>
+    <tr><td>carbon dioxide</td><td>二氧化碳</td><td>☐</td></tr>
+  </table>
+</div>
+
+<!-- 核心概念 -->
+<div class="card">
+  <h2>🌞 光合作用是什么？</h2>
+  <p>"Photo" = 光, "synthesis" = 合成。光合作用是植物利用 <strong>light energy（光能）</strong> 制造食物的过程。</p>
+  
+  <h3 style="margin: 12px 0 6px; font-size: 15px;">文字方程式 <span class="tag mustknow">必考</span></h3>
+  <div class="equation-box">
+    CO₂ + H₂O <span class="arrow">→</span> C₆H₁₂O₆ (glucose) + O₂
+    <div class="condition">需要 light（光）+ chlorophyll（叶绿素）</div>
+  </div>
+
+  <h3 style="margin: 12px 0 6px; font-size: 15px;">能量转换</h3>
+  <div style="text-align: center; background: linear-gradient(90deg, #fff7e0, #e8f5e9); border-radius: 8px; padding: 12px; margin: 8px 0;">
+    <strong>Light energy（光能）</strong> → <strong>Chemical energy in food（化学能）</strong>
+  </div>
+
+  <h3 style="margin: 12px 0 6px; font-size: 15px;">发生场所</h3>
+  <p>植物含有 <strong>chlorophyll（叶绿素）</strong> 的细胞，主要在 <strong>leaves（叶子）</strong>。</p>
+</div>
+
+<!-- 影响因素 -->
+<div class="card">
+  <h2>📈 影响光合作用的因素</h2>
+  <ol style="padding-left: 20px; margin: 8px 0;">
+    <li><strong>Light intensity</strong>（光照强度）— 越强越快</li>
+    <li><strong>CO₂ concentration</strong>（二氧化碳浓度）— 越高越快</li>
+    <li><strong>Temperature</strong>（温度）— 适温最快</li>
+    <li><strong>Colour of light</strong>（光颜色）— 红光和蓝光效率最高</li>
+  </ol>
+</div>
+
+<!-- 实验 -->
+<div class="card">
+  <h2>🔬 关键实验 <span class="tag exam">常考</span></h2>
+
+  <div class="exp-card">
+    <h4>Experiment 7.3 — Testing for starch（淀粉检测）</h4>
+    <p>用 <strong>iodine solution（碘液）</strong> 检测叶子中是否有淀粉。</p>
+    <p>有淀粉 → iodine 变成 <strong>blue-black（蓝黑色）</strong></p>
+    <p>没有淀粉 → iodine 保持 <strong>brown（棕色）</strong></p>
+  </div>
+
+  <div class="exp-card">
+    <h4>Destarching（耗尽淀粉）</h4>
+    <p>实验前把植物放在 <strong>dark place（黑暗处）</strong> 1–2 天，</p>
+    <p>让植物用完已有的淀粉，确保实验检测到的是新产生的淀粉。</p>
+  </div>
+
+  <div class="exp-card">
+    <h4>Experiment 7.4 — Oxygen from photosynthesis</h4>
+    <p>光合作用释放 <strong>oxygen（氧气）</strong>。</p>
+    <p>用 glowing splint 测试 → <strong>relights（复燃）</strong></p>
+  </div>
+
+  <div class="exp-card">
+    <h4>Experiment 7.5 — 不同颜色光的影响</h4>
+    <p>不同颜色的光对光合作用速率有不同影响。</p>
+  </div>
+</div>
+
+<!-- 英文题目 -->
+<div class="card">
+  <h2>✏️ 英文题目（点击看答案）</h2>
+
+  <div class="q-item">
+    <div class="q">Q1: What is the word equation for photosynthesis?</div>
+    <div class="a">CO₂ + H₂O → glucose + O₂ (need light, chlorophyll)</div>
+  </div>
+  <div class="q-item">
+    <div class="q">Q2: What test is used to show that photosynthesis has produced starch?</div>
+    <div class="a">Iodine solution test. If starch is present, iodine turns blue-black.</div>
+  </div>
+  <div class="q-item">
+    <div class="q">Q3: What is the energy conversion in photosynthesis?</div>
+    <div class="a">Light energy → chemical energy (in food)</div>
+  </div>
+  <div class="q-item">
+    <div class="q">Q4: Name ONE factor that affects the rate of photosynthesis.</div>
+    <div class="a">Light intensity / CO₂ concentration / Temperature / Colour of light</div>
+  </div>
+  <div class="q-item">
+    <div class="q">Q5: Why do we put a plant in a dark place before testing for starch?</div>
+    <div class="a">To destarch the plant, so that any starch found is produced during the experiment.</div>
+  </div>
+  <div class="q-item">
+    <div class="q">Q6: Where does photosynthesis take place in a plant?</div>
+    <div class="a">In the leaves, in cells that contain chlorophyll.</div>
+  </div>
+</div>
+
+<!-- 检查清单 -->
+<div class="card">
+  <h2>✅ S2 完成检查</h2>
+  <ul class="checklist">
+    <li>会写光合作用的文字方程式（CO₂ + H₂O → glucose + O₂）</li>
+    <li>知道检测淀粉用 iodine solution（→ blue-black）</li>
+    <li>知道 destarching 的方法和原因</li>
+    <li>知道能量转换：light energy → chemical energy</li>
+    <li>能说出至少 2 个影响光合作用的因素</li>
+  </ul>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+  <h2>📘 Assignment Book 真题 — 7.2 Photosynthesis</h2>
+  <p style="font-size:13px;color:#666;margin-bottom:8px;">以下题目来自 Assignment Book 2A。</p>
+
+  <div class="q-item"><div class="q">📝 True or False: Plants release chemical energy by photosynthesis.</div><div class="a">False. Plants convert light energy to chemical energy (they don't release it).</div></div>
+  <div class="q-item"><div class="q">📝 True or False: Iodine turns blue-black if starch is present.</div><div class="a">False. Iodine turns from brown to blue-black if starch is present.</div></div>
+  <div class="q-item"><div class="q">📝 MC: What is the major product of photosynthesis?</div><div class="a">Starch (glucose is stored as starch)</div></div>
+  <div class="q-item"><div class="q">📝 MC: Through photosynthesis, plants convert ___ energy to ___ energy.</div><div class="a">Light energy → chemical energy</div></div>
+  <div class="q-item"><div class="q">📝 MC: Which are needed for photosynthesis? (1) Light (2) Water (3) Oxygen (4) Chlorophyll (5) CO₂</div><div class="a">(1), (2), (4) and (5) only — oxygen is NOT needed</div></div>
+  <div class="q-item"><div class="q">📝 Arrange: P=soak in hot water, R=boil in water 2min, S=add iodine, Q=soak in alcohol with hot water bath</div><div class="a">R → P → Q → S</div></div>
+</div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.q-item').forEach(item => {
+    item.addEventListener('click', () => item.classList.toggle('show'));
+  });
+</script>
+
+</body>
+</html>

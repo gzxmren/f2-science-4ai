@@ -1,0 +1,6 @@
+# 排除所有 PDF 文件
+*.pdf
+
+# 排除编辑器/IDE 缓存
+.deepseek/
+

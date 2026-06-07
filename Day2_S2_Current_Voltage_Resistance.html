@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 2 - S2: Current, Voltage & Resistance</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px}
+.container{max-width:800px;margin:0 auto}
+.session-header{background:linear-gradient(135deg,#007aff,#00c7be);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.session-header h1{font-size:24px;margin-bottom:4px}
+.session-header .meta{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h2{font-size:18px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.term-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+.term-table th,.term-table td{text-align:left;padding:8px 12px;border-bottom:1px solid #f0f0f2}
+.term-table th{background:#f5f5f7;font-weight:600;font-size:13px}
+.compare-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0}
+.compare-item{display:flex;gap:0;border-radius:10px;overflow:hidden}
+.compare-item .label{flex:1;background:#f0f0f2;padding:12px;font-weight:600;font-size:13px;display:flex;align-items:center}
+.compare-item .value{flex:2;padding:12px;font-size:13px;display:flex;align-items:center}
+.compare-item .value.current{background:#e8f5e9}
+.compare-item .value.voltage{background:#fff5e0}
+.compare-item .value.resistance{background:#f0f5ff}
+.q-item{background:#f9f9fb;border-radius:8px;padding:12px;margin:8px 0;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px}
+.q-item .a{color:#34c759;font-size:13px;margin-top:4px;display:none}
+.q-item.show .a{display:block}
+.tag{display:inline-block;background:#f0f0f2;padding:2px 8px;border-radius:4px;font-size:12px;color:#555}
+.tag.mustknow{background:#ffe0e0;color:#e74c3c}
+.checklist{list-style:none}
+.checklist li{padding:6px 0;display:flex;align-items:center;gap:8px;font-size:14px}
+.checklist li::before{content:"☐";font-size:18px}
+.tip-box{background:#fff5e0;border-radius:8px;padding:12px;margin:8px 0;font-size:13px}
+.tip-box strong{color:#e74c3c}
+.eq-box{background:#1d1d1f;color:#fff;border-radius:8px;padding:14px;text-align:center;margin:8px 0;font-size:15px}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="session-header">
+<h1>🔋 S2: Current, Voltage & Resistance</h1>
+<div class="meta">Day 2 — Unit 8: Electricity | 课本 §8.3–8.5 (p.89–115) | ⏱ 30 分钟</div>
+</div>
+
+<div class="card">
+<h2>📝 术语速记</h2>
+<table class="term-table">
+<tr><th>英文</th><th>中文</th><th>掌握</th></tr>
+<tr><td>electric current</td><td>电流</td><td>☐</td></tr>
+<tr><td>voltage</td><td>电压</td><td>☐</td></tr>
+<tr><td>resistance</td><td>电阻</td><td>☐</td></tr>
+<tr><td>ammeter</td><td>安培计</td><td>☐</td></tr>
+<tr><td>voltmeter</td><td>伏特计</td><td>☐</td></tr>
+<tr><td>ampere (A)</td><td>安培</td><td>☐</td></tr>
+<tr><td>volt (V)</td><td>伏特</td><td>☐</td></tr>
+<tr><td>ohm (Ω)</td><td>欧姆</td><td>☐</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>📊 三大概念对比</h2>
+<div class="compare-grid">
+<div class="compare-item">
+<div class="label">⚡ Current（电流）</div>
+<div class="value current">
+<div><strong>单位：</strong> ampere (A)<br><strong>测量：</strong> ammeter → 串联 in series<br><strong>本质：</strong> 自由电子定向移动<br>开路→电子随机运动  |  闭路→形成 net flow</div>
+</div>
+</div>
+<div class="compare-item">
+<div class="label">⚡ Voltage（电压）</div>
+<div class="value voltage">
+<div><strong>单位：</strong> volt (V)<br><strong>测量：</strong> voltmeter → 并联 in parallel<br><strong>本质：</strong> 推动电流的"压力"<br>电池串联 → 总电压增加</div>
+</div>
+</div>
+<div class="compare-item">
+<div class="label">⚡ Resistance（电阻）</div>
+<div class="value resistance">
+<div><strong>单位：</strong> ohm (Ω)<br><strong>本质：</strong> 阻碍电流流动<br>电阻越大 → 电流越小<br>导体电阻小 | 绝缘体电阻极大</div>
+</div>
+</div>
+</div>
+
+<div class="tip-box">
+<strong>🔑 记忆口诀：</strong><br>
+安培计测电流 → 串 <strong>联</strong>（A 在电路中）<br>
+伏特计测电压 → 并 <strong>联</strong>（V 在元件两端）
+</div>
+</div>
+
+<div class="card">
+<h2>🔬 关键实验 <span class="tag mustknow">常考</span></h2>
+<div style="background:#f9f9fb;border-radius:8px;padding:12px;margin:6px 0;border-left:4px solid #007aff;">
+<strong>Experiment 8.5–8.7 — 电流测量</strong><br>
+用 ammeter 串联在电路中测量电流大小。
+</div>
+<div style="background:#f9f9fb;border-radius:8px;padding:12px;margin:6px 0;border-left:4px solid #ff9500;">
+<strong>Experiment 8.8–8.9 — 电池串联与电压</strong><br>
+更多电池串联 → 总电压增加 → 灯泡更亮
+</div>
+</div>
+
+<div class="card">
+<h2>✏️ 英文题目</h2>
+<div class="q-item"><div class="q">Q1: What is the unit of electric current?</div><div class="a">Ampere (A)</div></div>
+<div class="q-item"><div class="q">Q2: How should an ammeter be connected in a circuit?</div><div class="a">In series with the component.</div></div>
+<div class="q-item"><div class="q">Q3: How should a voltmeter be connected in a circuit?</div><div class="a">In parallel with the component.</div></div>
+<div class="q-item"><div class="q">Q4: What happens to the total voltage when more cells are connected in series?</div><div class="a">The total voltage increases.</div></div>
+<div class="q-item"><div class="q">Q5: What is resistance and what is its unit?</div><div class="a">Resistance is a measure of how much a component opposes the flow of current. Its unit is the ohm (Ω).</div></div>
+</div>
+
+<div class="card">
+<h2>✅ S2 完成检查</h2>
+<ul class="checklist">
+<li>知道 current 单位 A，voltage 单位 V，resistance 单位 Ω</li>
+<li>知道 ammeter 串联、voltmeter 并联</li>
+<li>知道电池串联增加总电压</li>
+<li>理解电阻越大电流越小</li>
+</ul>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+<h2>📘 Assignment Book 真题 — 8.3–8.5 Current, Voltage, Resistance</h2>
+<p style="font-size:13px;color:#666;margin-bottom:8px;">以下题目来自 Assignment Book 2A。</p>
+
+<div class="q-item"><div class="q">📝 True or False: An ammeter should be connected in parallel in a circuit.</div><div class="a">False. An ammeter should be connected in series.</div></div>
+<div class="q-item"><div class="q">📝 True or False: The unit of voltage is the ampere.</div><div class="a">False. Voltage is measured in volts (V). Ampere is the unit of current.</div></div>
+<div class="q-item"><div class="q">📝 MC: What happens when more cells are connected in series?</div><div class="a">The total voltage increases.</div></div>
+<div class="q-item"><div class="q">📝 MC: Which component is used to measure electric current?</div><div class="a">An ammeter (connected in series).</div></div>
+<div class="q-item"><div class="q">📝 What is the unit of resistance?</div><div class="a">Ohm (Ω).</div></div>
+</div>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(i=>i.addEventListener('click',()=>i.classList.toggle('show')));</script>
+</body>
+</html>

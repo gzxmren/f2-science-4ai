@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 - S3: Respiration</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Segoe UI', 'Noto Sans SC', sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.7; padding: 20px; }
+  .container { max-width: 800px; margin: 0 auto; }
+  .session-header { background: linear-gradient(135deg, #ff9500, #e74c3c); color: #fff; padding: 24px; border-radius: 16px; margin-bottom: 24px; }
+  .session-header h1 { font-size: 24px; margin-bottom: 4px; }
+  .session-header .meta { opacity: 0.85; font-size: 14px; }
+  .card { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .card h2 { font-size: 18px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #f0f0f2; }
+  .term-table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+  .term-table th, .term-table td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #f0f0f2; }
+  .term-table th { background: #f5f5f7; font-weight: 600; font-size: 13px; }
+  .term-table td { font-size: 14px; }
+  .equation-box { background: #1d1d1f; color: #fff; border-radius: 10px; padding: 16px; margin: 12px 0; text-align: center; font-size: 16px; }
+  .equation-box .arrow { color: #ff9500; margin: 0 8px; }
+  .comparison-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  .comparison-table th { background: #f0f0f2; padding: 10px; text-align: center; font-weight: 600; }
+  .comparison-table th:first-child { text-align: left; }
+  .comparison-table td { padding: 10px; border-bottom: 1px solid #f0f0f2; text-align: center; }
+  .comparison-table td:first-child { text-align: left; font-weight: 500; }
+  .comparison-table .photo { background: #e8f5e9; }
+  .comparison-table .respi { background: #fff5e0; }
+  .exp-card { background: #f9f9fb; border-radius: 8px; padding: 12px; margin: 8px 0; border-left: 4px solid #ff9500; }
+  .exp-card h4 { font-size: 14px; margin-bottom: 4px; }
+  .exp-card p { font-size: 13px; color: #555; }
+  .q-item { background: #f9f9fb; border-radius: 8px; padding: 12px; margin: 8px 0; cursor: pointer; }
+  .q-item .q { font-weight: 600; font-size: 14px; }
+  .q-item .a { color: #34c759; font-size: 13px; margin-top: 4px; display: none; }
+  .q-item.show .a { display: block; }
+  .tag { display: inline-block; background: #f0f0f2; padding: 2px 8px; border-radius: 4px; font-size: 12px; color: #555; }
+  .tag.exam { background: #fff2e0; color: #e67e22; }
+  .tag.mustknow { background: #ffe0e0; color: #e74c3c; }
+  .checklist { list-style: none; }
+  .checklist li { padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .checklist li::before { content: "☐"; font-size: 18px; }
+  .day-summary { background: linear-gradient(135deg, #f0f0f2, #e8e8ed); border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .day-summary h2 { margin-bottom: 12px; }
+  .day-summary ul { list-style: none; }
+  .day-summary li { padding: 4px 0; font-size: 14px; }
+  .day-summary li::before { content: "✅ "; }
+  @media (max-width: 600px) { .comparison-table { font-size: 12px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="session-header">
+  <h1>🫁 S3: Respiration（呼吸作用）</h1>
+  <div class="meta">Day 1 — Unit 7: Living Things and Air | 课本 p.27–32 | ⏱ 20–25 分钟</div>
+</div>
+
+<div class="card">
+  <h2>📝 术语速记</h2>
+  <table class="term-table">
+    <tr><th>英文</th><th>中文</th><th>掌握</th></tr>
+    <tr><td>respiration</td><td>呼吸作用</td><td>☐</td></tr>
+    <tr><td>energy release</td><td>释放能量</td><td>☐</td></tr>
+    <tr><td>glucose</td><td>葡萄糖</td><td>☐</td></tr>
+    <tr><td>body cells</td><td>身体细胞</td><td>☐</td></tr>
+    <tr><td>carbon dioxide</td><td>二氧化碳</td><td>☐</td></tr>
+    <tr><td>oxygen</td><td>氧气</td><td>☐</td></tr>
+    <tr><td>release energy</td><td>释放能量</td><td>☐</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>🧬 呼吸作用是什么？</h2>
+  <p>呼吸作用是发生在<strong>所有活细胞（all living cells）</strong>中的化学反应。细胞用氧气分解食物（葡萄糖），释放能量，同时产生二氧化碳和水。</p>
+
+  <h3 style="margin: 12px 0 6px; font-size: 15px;">文字方程式 <span class="tag mustknow">必考</span></h3>
+  <div class="equation-box">
+    Glucose + O₂ <span class="arrow">→</span> CO₂ + H₂O + Energy
+  </div>
+
+  <div style="background: #fff5e0; border-radius: 8px; padding: 10px; margin-top: 8px;">
+    <strong>⚠️ 注意区分：</strong> respiration ≠ breathing（呼吸）<br>
+    Respiration = 细胞内的化学反应（产生能量）<br>
+    Breathing = 吸气和呼气（肺的机械运动）
+  </div>
+</div>
+
+<div class="card">
+  <h2>📊 光合作用 vs 呼吸作用 <span class="tag mustknow">必考对比题</span></h2>
+  <table class="comparison-table">
+    <tr><th>Feature</th><th class="photo">Photosynthesis</th><th class="respi">Respiration</th></tr>
+    <tr><td>Where?</td><td class="photo">Plants with chlorophyll</td><td class="respi">All living cells</td></tr>
+    <tr><td>Need light?</td><td class="photo"><strong>Yes</strong></td><td class="respi"><strong>No</strong> (happens all the time)</td></tr>
+    <tr><td>Reactants</td><td class="photo">CO₂ + H₂O</td><td class="respi">Glucose + O₂</td></tr>
+    <tr><td>Products</td><td class="photo">Glucose + O₂</td><td class="respi">CO₂ + H₂O + Energy</td></tr>
+    <tr><td>Energy</td><td class="photo">Absorbs energy</td><td class="respi"><strong>Releases energy</strong></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>🔬 关键实验</h2>
+  <div class="exp-card">
+    <h4>Experiment 7.6 — 食物燃烧释放能量</h4>
+    <p>燃烧食物（如花生/面包）→ 释放能量 → 加热水</p>
+    <p>证明食物中含有<strong>化学能（chemical energy）</strong></p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>✏️ 英文题目</h2>
+  <div class="q-item"><div class="q">Q1: What is the word equation for respiration?</div><div class="a">Glucose + O₂ → CO₂ + H₂O + Energy</div></div>
+  <div class="q-item"><div class="q">Q2: Give ONE difference between photosynthesis and respiration.</div><div class="a">Photosynthesis needs light; respiration does not. / Photosynthesis produces O₂; respiration uses O₂. / Photosynthesis absorbs energy; respiration releases energy.</div></div>
+  <div class="q-item"><div class="q">Q3: Does respiration take place in animals only? Explain.</div><div class="a">No, respiration takes place in all living cells, including plants and animals.</div></div>
+  <div class="q-item"><div class="q">Q4: Why do plants release CO₂ at night?</div><div class="a">At night, there is no light, so photosynthesis stops. Only respiration continues, which releases CO₂.</div></div>
+</div>
+
+<div class="card">
+  <h2>✅ S3 完成检查</h2>
+  <ul class="checklist">
+    <li>会写呼吸作用的文字方程式（Glucose + O₂ → CO₂ + H₂O + Energy）</li>
+    <li>能区分光合作用和呼吸作用（至少 2 个不同点）</li>
+    <li>知道呼吸作用在所有活细胞中进行</li>
+    <li>能解释为什么植物夜晚释放 CO₂</li>
+  </ul>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+  <h2>📘 Assignment Book 真题 — Respiration & Comparison</h2>
+  <p style="font-size:13px;color:#666;margin-bottom:8px;">以下题目来自 Assignment Book 2A。</p>
+
+  <div class="q-item"><div class="q">📝 True or False: Plants do not carry out photosynthesis in the dark.</div><div class="a">True.</div></div>
+  <div class="q-item"><div class="q">📝 True or False: A variegated leaf can be used to show that chlorophyll is necessary for photosynthesis.</div><div class="a">True.</div></div>
+  <div class="q-item"><div class="q">📝 MC: Which statement about photosynthesis and respiration is correct?</div><div class="a">Photosynthesis produces oxygen; respiration uses oxygen.</div></div>
+  <div class="q-item"><div class="q">📝 Food chain: 1.5 kg eagle needs how much grass? (×10 each level)</div><div class="a">1500 kg (1.5 × 10 × 10 × 10)</div></div>
+  <div class="q-item"><div class="q">📝 Write the word equation for respiration.</div><div class="a">Glucose + Oxygen → Carbon dioxide + Water + Energy</div></div>
+</div>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(i=>i.addEventListener('click',()=>i.classList.toggle('show')));</script>
+</body>
+</html>

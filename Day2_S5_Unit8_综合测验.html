@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 2 - S5: Unit 8 综合复习测验</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px}
+.container{max-width:800px;margin:0 auto}
+.session-header{background:linear-gradient(135deg,#636366,#1d1d1f);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.session-header h1{font-size:24px;margin-bottom:4px}
+.session-header .meta{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h2{font-size:18px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.question{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #ff9500;cursor:pointer}
+.question .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.question .hint{font-size:12px;color:#8e8e93;margin-bottom:6px}
+.question .a{color:#34c759;font-size:13px;margin-top:6px;display:none;background:#e8f5e9;border-radius:6px;padding:8px}
+.question.show .a{display:block}
+.mindmap{background:#f0f5ff;border-radius:12px;padding:16px;margin:12px 0}
+.mindmap h3{font-size:15px;margin-bottom:8px}
+.mindmap ul{padding-left:20px}
+.mindmap li{margin:4px 0;font-size:13px}
+.mindmap .highlight{background:#fff5e0;padding:1px 6px;border-radius:3px;font-weight:600}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.summary-item{background:#f9f9fb;border-radius:8px;padding:12px;text-align:center}
+.summary-item h4{font-size:13px;color:#007aff;margin-bottom:4px}
+.summary-item .val{font-size:14px;font-weight:600}
+.checklist{list-style:none}
+.checklist li{padding:6px 0;display:flex;align-items:center;gap:8px;font-size:14px}
+.checklist li::before{content:"☐";font-size:18px}
+.tag{display:inline-block;background:#f0f0f2;padding:2px 8px;border-radius:4px;font-size:12px;color:#555}
+.tag.mustknow{background:#ffe0e0;color:#e74c3c}
+@media(max-width:600px){.summary-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="session-header">
+<h1>📝 S5: Unit 8 综合复习测验</h1>
+<div class="meta">Day 2 — 汇总 S1–S4 | ⏱ 20 分钟</div>
+</div>
+
+<div class="card">
+<h2>🧠 Unit 8 思维导图</h2>
+<div class="mindmap">
+<h3>Unit 8: Electricity</h3>
+<ul>
+<li><strong>8.1–8.2 Circuit Basics</strong> — closed/open circuit, conductor/insulator, circuit symbols <span class="highlight">(8 种符号必会)</span></li>
+<li><strong>8.3–8.5 Current, Voltage, Resistance</strong> — A unit, V unit, Ω unit | ammeter <span class="highlight">series</span>, voltmeter <span class="highlight">parallel</span></li>
+<li><strong>8.6 Series & Parallel</strong> — <span class="highlight">必考对比</span> | Series: I same, V shared | Parallel: I splits, V same</li>
+<li><strong>8.7–8.8 Household & Safety</strong> — fuse, short circuit, overloading, earthing</li>
+<li><strong>8.9 Power & Cost</strong> — <span class="highlight">Energy = P × t</span>, Cost = Energy × price</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h2>📖 术语大通关</h2>
+<p style="font-size:13px;color:#666;margin-bottom:8px;">能翻译以下英文→中文即过关：</p>
+<table style="width:100%;font-size:14px;border-collapse:collapse;">
+<tr><td style="padding:4px 8px;">⚡ conductor</td><td style="padding:4px 8px;">_____</td><td style="padding:4px 8px;">🔌 insulator</td><td style="padding:4px 8px;">_____</td></tr>
+<tr><td style="padding:4px 8px;">🔋 ammeter</td><td style="padding:4px 8px;">_____</td><td style="padding:4px 8px;">📏 voltmeter</td><td style="padding:4px 8px;">_____</td></tr>
+<tr><td style="padding:4px 8px;">🔗 series circuit</td><td style="padding:4px 8px;">_____</td><td style="padding:4px 8px;">🔗 parallel circuit</td><td style="padding:4px 8px;">_____</td></tr>
+<tr><td style="padding:4px 8px;">⚡ short circuit</td><td style="padding:4px 8px;">_____</td><td style="padding:4px 8px;">🔥 fuse</td><td style="padding:4px 8px;">_____</td></tr>
+<tr><td style="padding:4px 8px;">💰 kilowatt-hour</td><td style="padding:4px 8px;">_____</td><td style="padding:4px 8px;">🌍 earthing</td><td style="padding:4px 8px;">_____</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>✏️ 综合测验（共 8 题）</h2>
+
+<div class="question"><div class="q">Q1: What is a conductor? Give ONE example.</div><div class="hint">导体的定义和例子</div><div class="a">A material that allows electricity to flow through it. E.g. copper, aluminum, graphite.</div></div>
+
+<div class="question"><div class="q">Q2: How is an ammeter connected in a circuit? How is a voltmeter connected?</div><div class="hint">安培计和伏特计的接法</div><div class="a">Ammeter: in series. Voltmeter: in parallel.</div></div>
+
+<div class="question"><div class="q">Q3: Compare a series circuit and a parallel circuit. (Give TWO differences)</div><div class="hint">串联和并联的两个区别</div><div class="a">(1) In series, current is the same everywhere; in parallel, current splits in branches. (2) In series, removing one component breaks the whole circuit; in parallel, other components still work.</div></div>
+
+<div class="question"><div class="q">Q4: Draw the circuit symbols for: a cell, a bulb, a closed switch, a resistor.</div><div class="hint">画电路符号</div><div class="a">Cell: ─┤├─  Bulb: ─⨀─  Closed switch: ─◡─  Resistor: ─▔▔─</div></div>
+
+<div class="question"><div class="q">Q5: What is a short circuit and why is it dangerous?</div><div class="hint">短路的定义和危险</div><div class="a">A short circuit happens when a low-resistance wire is connected across a component. It causes a very large current, which can lead to fire.</div></div>
+
+<div class="question"><div class="q">Q6: What is the function of a fuse?</div><div class="hint">保险丝的作用</div><div class="a">A fuse melts and breaks the circuit when the current is too large, protecting the circuit from damage.</div></div>
+
+<div class="question"><div class="q">Q7: A 500 W television is used for 6 hours. The cost of electricity is $1.2 per kWh. Calculate the cost.</div><div class="hint">电费计算</div><div class="a">Power = 500 W = 0.5 kW. Energy = 0.5 × 6 = 3 kWh. Cost = 3 × $1.2 = $3.6</div></div>
+
+<div class="question"><div class="q">Q8: What is the difference between AC (alternating current) and DC (direct current)?</div><div class="hint">交流电和直流电的区别</div><div class="a">AC changes direction periodically; DC flows in one direction only. Household electricity uses AC; batteries provide DC.</div></div>
+</div>
+
+<div class="card">
+<h2>🎯 Day 2 完成总结</h2>
+<div class="summary-grid">
+<div class="summary-item"><h4>S1</h4><div class="val">电路基础 + 符号</div></div>
+<div class="summary-item"><h4>S2</h4><div class="val">电流、电压、电阻</div></div>
+<div class="summary-item"><h4>S3</h4><div class="val">串联 vs 并联</div></div>
+<div class="summary-item"><h4>S4</h4><div class="val">家庭用电 + 电费</div></div>
+</div>
+<ul class="checklist">
+<li>能区分 conductor 和 insulator 并举例</li>
+<li>会画常见的电路符号</li>
+<li>知道 ammeter 串联、voltmeter 并联</li>
+<li>能说清串联和并联的电流/电压区别</li>
+<li>理解 short circuit 的危害</li>
+<li>会计算电费（Energy = P×t）</li>
+<li>完成 8 道综合测验题</li>
+</ul>
+<div style="background:#e8f5e9;border-radius:10px;padding:14px;margin-top:12px;text-align:center;">
+<strong>✅ Day 2 — Unit 8 完成！</strong><br>
+明天进入 Day 3 — Unit 9 (Acids) + Unit 10 (Senses) + Unit 11 (Force)
+</div>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+<h2>📘 Assignment Book 综合电路题</h2>
+<p style="font-size:13px;color:#666;margin-bottom:8px;">以下题目来自 Assignment Book 2A Unit 8 Integrated Exercise。</p>
+
+<div class="q-item"><div class="q">📝 A circuit has 3 bulbs in series. One bulb is removed. What happens to the other two?</div><div class="a">Both go out because the circuit is broken.</div></div>
+<div class="q-item"><div class="q">📝 In a parallel circuit with 2 bulbs, what happens to the brightness if one bulb is removed?</div><div class="a">The other bulb stays at the same brightness.</div></div>
+<div class="q-item"><div class="q">📝 Why is a short circuit dangerous in household wiring?</div><div class="a">It causes a very large current, which can overheat the wire and cause a fire.</div></div>
+<div class="q-item"><div class="q">📝 A 3 kW air conditioner runs for 4 hours. Cost = $1.5/kWh. Calculate the cost.</div><div class="a">Energy = 3×4 = 12 kWh. Cost = 12×$1.5 = $18</div></div>
+<div class="q-item"><div class="q">📝 State the function of a fuse in a household circuit.</div><div class="a">To melt and break the circuit when the current exceeds a safe level.</div></div>
+</div>
+
+</div>
+<script>document.querySelectorAll('.question').forEach(i=>i.addEventListener('click',()=>i.classList.toggle('show')));</script>
+</body>
+</html>

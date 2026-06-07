@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 2 - S1: Circuit Basics & Circuit Diagrams</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px}
+.container{max-width:800px;margin:0 auto}
+.session-header{background:linear-gradient(135deg,#ff3b30,#ff9500);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.session-header h1{font-size:24px;margin-bottom:4px}
+.session-header .meta{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h2{font-size:18px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.term-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+.term-table th,.term-table td{text-align:left;padding:8px 12px;border-bottom:1px solid #f0f0f2}
+.term-table th{background:#f5f5f7;font-weight:600;font-size:13px}
+.symbol-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.symbol-card{background:#f9f9fb;border-radius:8px;padding:14px;text-align:center;border:1px solid #e5e5ea}
+.symbol-card .sym{font-size:28px;font-weight:700;margin-bottom:4px}
+.symbol-card .name{font-size:13px;color:#555}
+.symbol-card .desc{font-size:11px;color:#8e8e93}
+.q-item{background:#f9f9fb;border-radius:8px;padding:12px;margin:8px 0;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px}
+.q-item .a{color:#34c759;font-size:13px;margin-top:4px;display:none}
+.q-item.show .a{display:block}
+.tag{display:inline-block;background:#f0f0f2;padding:2px 8px;border-radius:4px;font-size:12px;color:#555}
+.tag.mustknow{background:#ffe0e0;color:#e74c3c}
+.checklist{list-style:none}
+.checklist li{padding:6px 0;display:flex;align-items:center;gap:8px;font-size:14px}
+.checklist li::before{content:"☐";font-size:18px}
+.tip-box{background:#fff5e0;border-radius:8px;padding:12px;margin:8px 0;font-size:13px}
+.tip-box strong{color:#e74c3c}
+@media(max-width:600px){.symbol-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="session-header">
+<h1>⚡ S1: Circuit Basics & Circuit Diagrams</h1>
+<div class="meta">Day 2 — Unit 8: Electricity | 课本 §8.1–8.2 (p.76–88) | ⏱ 30 分钟</div>
+</div>
+
+<div class="card">
+<h2>📝 术语速记</h2>
+<table class="term-table">
+<tr><th>英文</th><th>中文</th><th>掌握</th></tr>
+<tr><td>closed circuit</td><td>闭合电路</td><td>☐</td></tr>
+<tr><td>open circuit</td><td>开路</td><td>☐</td></tr>
+<tr><td>electric cell / battery</td><td>电池</td><td>☐</td></tr>
+<tr><td>conductor</td><td>导体</td><td>☐</td></tr>
+<tr><td>insulator</td><td>绝缘体</td><td>☐</td></tr>
+<tr><td>switch</td><td>开关</td><td>☐</td></tr>
+<tr><td>circuit symbol</td><td>电路符号</td><td>☐</td></tr>
+<tr><td>circuit diagram</td><td>电路图</td><td>☐</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>🔌 电路基础概念</h2>
+<p><strong>Closed circuit（闭合电路）：</strong> 完整的回路，电流可以流动，灯泡会亮。</p>
+<p><strong>Open circuit（开路）：</strong> 有 gap（缺口），电流无法流动，灯泡不亮。</p>
+<p><strong>Switch（开关）：</strong> 控制电路的开闭。</p>
+
+<h3 style="margin: 12px 0 6px; font-size:15px;">Conductor vs Insulator <span class="tag mustknow">必考</span></h3>
+<p><strong>Conductor（导体）：</strong> 允许电流通过的材料</p>
+<p style="padding-left:20px;">例子：copper（铜）, aluminum（铝）, graphite（石墨）, iron（铁）</p>
+<p><strong>Insulator（绝缘体）：</strong> 不允许电流通过的材料</p>
+<p style="padding-left:20px;">例子：plastic（塑料）, rubber（橡胶）, wood（木材）, glass（玻璃）</p>
+
+<div class="tip-box">
+<strong>🔑 记忆方法：</strong> 电线 = 内部铜线（conductor）+ 外部塑料（insulator）。高处输电线是裸露的（没有绝缘体包裹）。
+</div>
+
+<div style="background:#f0f5ff;border-radius:8px;padding:12px;margin:8px 0;font-size:13px;">
+<strong>Experiment 8.1–8.3 要点：</strong><br>
+• 搭建简单电路 → 灯泡亮需要 complete circuit（完整回路）<br>
+• 测试材料 → 导体能让灯泡亮，绝缘体不能让灯泡亮<br>
+• 开关的作用 → 断开开关 = 开路，闭合开关 = 闭路
+</div>
+</div>
+
+<div class="card">
+<h2>📐 电路符号 <span class="tag mustknow">必须会画会认</span></h2>
+<div class="symbol-grid">
+<div class="symbol-card"><div class="sym">─┤├─</div><div class="name">Cell / Battery</div><div class="desc">电池（长线 + 短线）</div></div>
+<div class="symbol-card"><div class="sym">─⨀─</div><div class="name">Bulb / Lamp</div><div class="desc">灯泡</div></div>
+<div class="symbol-card"><div class="sym">─◠─</div><div class="name">Switch (open)</div><div class="desc">断开开关</div></div>
+<div class="symbol-card"><div class="sym">─◡─</div><div class="name">Switch (closed)</div><div class="desc">闭合开关</div></div>
+<div class="symbol-card"><div class="sym">─▔▔─</div><div class="name">Resistor</div><div class="desc">电阻（锯齿线）</div></div>
+<div class="symbol-card"><div class="sym">─Ⓐ─</div><div class="name">Ammeter</div><div class="desc">安培计 → 串联</div></div>
+<div class="symbol-card"><div class="sym">─Ⓥ─</div><div class="name">Voltmeter</div><div class="desc">伏特计 → 并联</div></div>
+<div class="symbol-card"><div class="sym">—</div><div class="name">Connecting wire</div><div class="desc">导线</div></div>
+</div>
+
+<div class="tip-box">
+<strong>⚠️ 考试重点：</strong><br>
+• Ammeter（安培计）→ 串 <strong>联</strong> in <strong>series</strong><br>
+• Voltmeter（伏特计）→ 并 <strong>联</strong> in <strong>parallel</strong>
+</div>
+</div>
+
+<div class="card">
+<h2>✏️ 英文题目</h2>
+<div class="q-item"><div class="q">Q1: What is needed for electricity to flow in a circuit?</div><div class="a">A closed circuit with a source of electrical energy (e.g. a cell/battery).</div></div>
+<div class="q-item"><div class="q">Q2: Give ONE example of a conductor and ONE example of an insulator.</div><div class="a">Conductor: copper (or aluminum, graphite, iron). Insulator: plastic (or rubber, wood, glass).</div></div>
+<div class="q-item"><div class="q">Q3: What is the function of a switch in a circuit?</div><div class="a">To open or close the circuit, controlling whether electricity flows.</div></div>
+<div class="q-item"><div class="q">Q4: How is an ammeter connected in a circuit?</div><div class="a">In series.</div></div>
+<div class="q-item"><div class="q">Q5: How is a voltmeter connected in a circuit?</div><div class="a">In parallel (across the component).</div></div>
+<div class="q-item"><div class="q">Q6: Draw the circuit symbols for: (a) a cell (b) a bulb (c) a closed switch</div><div class="a">(a) ─┤├─ (b) ─⨀─ (c) ─◡─</div></div>
+</div>
+
+<div class="card">
+<h2>✅ S1 完成检查</h2>
+<ul class="checklist">
+<li>能区分 closed circuit 和 open circuit</li>
+<li>能举例说明 conductor 和 insulator</li>
+<li>会画常见电路符号（电池、灯泡、开关、电阻）</li>
+<li>知道 ammeter 串联、voltmeter 并联</li>
+</ul>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+<h2>📘 Assignment Book 真题 — 8.1–8.2 Circuits</h2>
+<p style="font-size:13px;color:#666;margin-bottom:8px;">以下题目来自 Assignment Book 2A。</p>
+
+<div class="q-item"><div class="q">📝 True or False: An electric cell is a source of electrical energy.</div><div class="a">True.</div></div>
+<div class="q-item"><div class="q">📝 True or False: Plastic is a good conductor of electricity.</div><div class="a">False. Plastic is an insulator.</div></div>
+<div class="q-item"><div class="q">📝 MC: Which of the following is a conductor? (A) Rubber (B) Wood (C) Copper (D) Glass</div><div class="a">C. Copper</div></div>
+<div class="q-item"><div class="q">📝 MC: What is the function of a switch in a circuit?</div><div class="a">To open or close the circuit.</div></div>
+<div class="q-item"><div class="q">📝 Draw the circuit symbol for: (a) a cell (b) a bulb (c) an ammeter</div><div class="a">(a) ─┤├─ (b) ─⨀─ (c) ─Ⓐ─</div></div>
+</div>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(i=>i.addEventListener('click',()=>i.classList.toggle('show')));</script>
+</body>
+</html>

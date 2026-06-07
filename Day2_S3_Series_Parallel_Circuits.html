@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 2 - S3: Series & Parallel Circuits</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px}
+.container{max-width:800px;margin:0 auto}
+.session-header{background:linear-gradient(135deg,#af52de,#5856d6);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.session-header h1{font-size:24px;margin-bottom:4px}
+.session-header .meta{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card h2{font-size:18px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.term-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}
+.term-table th,.term-table td{text-align:left;padding:8px 12px;border-bottom:1px solid #f0f0f2}
+.term-table th{background:#f5f5f7;font-weight:600;font-size:13px}
+.comp-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;border-radius:10px;overflow:hidden}
+.comp-table th{background:#f0f0f2;padding:12px;text-align:center;font-weight:600}
+.comp-table th:first-child{text-align:left;width:30%}
+.comp-table td{padding:12px;border-bottom:1px solid #f0f0f2;text-align:center}
+.comp-table td:first-child{text-align:left;font-weight:500}
+.comp-table .series{background:#fff5e0}
+.comp-table .parallel{background:#e8f5e9}
+.comp-table .series th:not(:first-child){background:#fff5e0}
+.comp-table .parallel th{background:#e8f5e9}
+.q-item{background:#f9f9fb;border-radius:8px;padding:12px;margin:8px 0;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px}
+.q-item .a{color:#34c759;font-size:13px;margin-top:4px;display:none}
+.q-item.show .a{display:block}
+.tag{display:inline-block;background:#f0f0f2;padding:2px 8px;border-radius:4px;font-size:12px;color:#555}
+.tag.mustknow{background:#ffe0e0;color:#e74c3c}
+.checklist{list-style:none}
+.checklist li{padding:6px 0;display:flex;align-items:center;gap:8px;font-size:14px}
+.checklist li::before{content:"☐";font-size:18px}
+.tip-box{background:#fff5e0;border-radius:8px;padding:12px;margin:8px 0;font-size:13px}
+.tip-box strong{color:#e74c3c}
+.analogy{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.analogy-item{background:#f9f9fb;border-radius:8px;padding:14px;text-align:center}
+.analogy-item .icon{font-size:32px;margin-bottom:4px}
+.analogy-item .label{font-size:13px;font-weight:600}
+.analogy-item .desc{font-size:11px;color:#666}
+@media(max-width:600px){.analogy{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="session-header">
+<h1>🔗 S3: Series & Parallel Circuits</h1>
+<div class="meta">Day 2 — Unit 8: Electricity | 课本 §8.6 (p.116–132) | ⏱ 30 分钟 — 重中之重</div>
+</div>
+
+<div class="card">
+<h2>📝 术语速记</h2>
+<table class="term-table">
+<tr><th>英文</th><th>中文</th><th>掌握</th></tr>
+<tr><td>series circuit</td><td>串联电路</td><td>☐</td></tr>
+<tr><td>parallel circuit</td><td>并联电路</td><td>☐</td></tr>
+<tr><td>current splits</td><td>电流分流</td><td>☐</td></tr>
+<tr><td>main loop / branch</td><td>主回路 / 支路</td><td>☐</td></tr>
+<tr><td>short circuit</td><td>短路</td><td>☐</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>🎯 串联 vs 并联 — 必考对比</h2>
+
+<div class="analogy">
+<div class="analogy-item">
+<div class="icon">🚗</div>
+<div class="label">Series = 单车道</div>
+<div class="desc">所有车排成一条线<br>一台车出问题 → 全部堵死</div>
+</div>
+<div class="analogy-item">
+<div class="icon">🛣️</div>
+<div class="label">Parallel = 多车道</div>
+<div class="desc">每条路独立<br>一条路堵了 → 其他不受影响</div>
+</div>
+</div>
+
+<table class="comp-table">
+<tr class="series"><th>特征</th><th>Series（串联）</th><th>Parallel（并联）</th></tr>
+<tr><td>Current 电流</td><td class="series"><strong>相同</strong> everywhere</td><td class="parallel"><strong>总电流 = 各支路之和</strong></td></tr>
+<tr><td>Voltage 电压</td><td class="series"><strong>分配</strong> shared</td><td class="parallel"><strong>相同</strong> across each branch</td></tr>
+<tr><td>一个坏了→</td><td class="series"><strong>全部熄灭</strong> all go out</td><td class="parallel"><strong>其他仍亮</strong> others still work</td></tr>
+<tr><td>连接方式</td><td class="series">元件首尾相连</td><td class="parallel">元件两端分别连接</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>⚡ Short Circuit（短路）<span class="tag mustknow">必考</span></h2>
+<p>当一根<strong>低电阻导线</strong>直接接在元件（如灯泡）两端：</p>
+<ul style="padding-left:20px;margin:8px 0;">
+<li>电流全部走导线（因为电阻极小）</li>
+<li>灯泡熄灭（没有电流通过）</li>
+<li><strong>电流急剧增大</strong> → 可能引起火灾</li>
+</ul>
+<div class="tip-box">
+<strong>⚠️ 考试答案模板：</strong><br>
+A short circuit happens when a wire of very low resistance is connected across a component. This provides an easier path for the current, so nearly all current flows through the wire instead. It is dangerous because the large current can cause a fire.
+</div>
+</div>
+
+<div class="card">
+<h2>✏️ 英文题目</h2>
+<div class="q-item"><div class="q">Q1: What is the main difference between a series circuit and a parallel circuit?</div><div class="a">In a series circuit, components are connected one after another. In a parallel circuit, components are connected across separate branches.</div></div>
+<div class="q-item"><div class="q">Q2: What happens to the current in a series circuit?</div><div class="a">The current is the same everywhere in a series circuit.</div></div>
+<div class="q-item"><div class="q">Q3: What happens to the current in a parallel circuit?</div><div class="a">The current in the main loop equals the sum of the currents in all branches.</div></div>
+<div class="q-item"><div class="q">Q4: In a series circuit with two bulbs, what happens when one bulb is removed?</div><div class="a">The circuit becomes open, and both bulbs go out.</div></div>
+<div class="q-item"><div class="q">Q5: What is a short circuit and why is it dangerous?</div><div class="a">A short circuit occurs when a low-resistance wire is connected across a component. It causes a very large current, which can cause a fire.</div></div>
+</div>
+
+<div class="card">
+<h2>✅ S3 完成检查</h2>
+<ul class="checklist">
+<li>能说出串联和并联电流/电压的关键区别</li>
+<li>知道串联电路一个坏了全部熄灭</li>
+<li>知道并联电路各支路独立工作</li>
+<li>能解释 short circuit 的原因和危险</li>
+</ul>
+</div>
+
+<!-- Assignment Book 真题 -->
+<div class="card">
+<h2>📘 Assignment Book 真题 — 8.6 Series & Parallel</h2>
+<p style="font-size:13px;color:#666;margin-bottom:8px;">以下题目来自 Assignment Book 2A。</p>
+
+<div class="q-item"><div class="q">📝 True or False: In a series circuit, the current is the same at every point.</div><div class="a">True.</div></div>
+<div class="q-item"><div class="q">📝 True or False: In a parallel circuit, if one bulb blows, all bulbs go out.</div><div class="a">False. Only in a series circuit.</div></div>
+<div class="q-item"><div class="q">📝 MC: Which is correct about a parallel circuit?</div><div class="a">Voltage is the same across each branch; current splits.</div></div>
+<div class="q-item"><div class="q">📝 MC: Three bulbs are connected in series. One is removed. What happens?</div><div class="a">All bulbs go out (circuit is broken).</div></div>
+<div class="q-item"><div class="q">📝 Explain what a short circuit is and why it is dangerous.</div><div class="a">A low-resistance wire across a component allows too much current, which can cause fire.</div></div>
+</div>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(i=>i.addEventListener('click',()=>i.classList.toggle('show')));</script>
+</body>
+</html>
