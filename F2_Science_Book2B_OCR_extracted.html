@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book 2B OCR 提取内容</title>
+<style>body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#34c759,#5856d6);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px}
+.card h4{font-size:14px;margin:10px 0 4px;color:#555}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#e8edf5;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;text-align:center;border:1px solid #d0d5dd}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap;line-height:1.6;overflow-x:auto}
+code{background:#f0f0f2;padding:2px 4px;border-radius:4px;font-size:13px}
+pre code{background:none;padding:0}
+.context-box{background:#f0f4ff;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #007aff;font-size:13px;color:#555;line-height:1.6}
+.block-highlight{background:#fffde7;border-left:4px solid #ffd600;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:13px}
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-recall{background:#e8f5e9;color:#2e7d32}.tag-understand{background:#fff3e0;color:#e65100}
+.tag-explain{background:#e3f2fd;color:#1565c0}.tag-analyze{background:#fce4ec;color:#c62828}
+.tag-compare{background:#f3e5f5;color:#6a1b9a}.tag-evaluate{background:#ffebee;color:#b71c1c}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #34c759;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0}
+.q-item .a{display:none;background:#e8f5e9;border-radius:8px;padding:10px;margin-top:8px;font-size:13px;line-height:1.8}
+.q-item.show .a{display:block}
+ul,ol{padding-left:20px;font-size:14px;color:#333;line-height:1.8}
+li{margin:4px 0}
+p{font-size:14px;color:#333;line-height:1.8;margin:8px 0}
+strong{color:#1d1d1f}
+hr{display:none}
+@media(max-width:600px){.data-table{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>Book 2B OCR 提取内容</h1>
+<div class="sub">F2 Science 复习资料</div>
+</div>
+<h1>F2 Science — Book 2B OCR 提取内容</h1>
+<h2>Aristo Science for the New Century Book 2B</h2>
+<h2>240 页 | 扫描版 PDF → OCR 提取</h2>
+<h1>Unit 9: Acids and Alkalis (p.1–75)</h1>
+<h2>9.1 What are Acids and Alkalis? (p.1–11)</h2>
+<h3>常见酸 (Fig. 9.3)</h3>
+<table class="data-table">
+<thead><tr><th>酸</th><th>化学式</th><th>常见用途</th></tr></thead>
+<tbody>
+<tr><td></td><td>盐酸</td><td>HCl</td><td>实验室常用</td><td></td></tr>
+<tr><td></td><td>硫酸</td><td>H₂SO₄</td><td>实验室常用</td><td></td></tr>
+<tr><td></td><td>硝酸</td><td>HNO₃</td><td>实验室常用</td><td></td></tr>
+</tbody>
+</table>
+<h3>食物中的酸</h3>
+<table class="data-table">
+<thead><tr><th>食物</th><th>所含酸</th></tr></thead>
+<tbody>
+<tr><td></td><td>软饮料</td><td>碳酸 (Carbonic acid)</td><td></td></tr>
+<tr><td></td><td>醋</td><td>乙酸 (Acetic acid)</td><td></td></tr>
+<tr><td></td><td>酸奶</td><td>乳酸 (Lactic acid)</td><td></td></tr>
+<tr><td></td><td>茶</td><td>鞣酸 (Tannic acid)</td><td></td></tr>
+<tr><td></td><td>菠菜</td><td>草酸 (Oxalic acid)</td><td></td></tr>
+</tbody>
+</table>
+<h3>酸性/碱性的定义</h3>
+<ul>
+<li>酸 (Acid): pH < 7</li>
+<li>碱 (Alkali): pH > 7</li>
+<li>中性 (Neutral): pH = 7</li>
+</ul>
+<h3>海洋酸化 (Ocean acidification)</h3>
+<ul>
+<li>海水天然微碱性 (pH 7–8)</li>
+<li>化石燃料燃烧 → CO₂ 增加 → CO₂ 溶于海水 → 碳酸 → 海水变酸</li>
+<li>酸性海水损害海洋生物的感觉能力</li>
+</ul>
+<h2>9.2 Acid-Alkali Indicators and pH Scale (p.12–29)</h2>
+<h3>指示剂 (Indicators)</h3>
+<ul>
+<li>石蕊 (Litmus): 酸→红, 碱→蓝</li>
+<li>pH 试纸 (pH paper): 与标准比色卡对比</li>
+</ul>
+<h3>pH 标度</h3>
+<ul>
+<li>pH 0–14</li>
+<li>pH < 7: 酸性</li>
+<li>pH = 7: 中性 (纯水)</li>
+<li>pH > 7: 碱性</li>
+</ul>
+<h2>9.3 Neutralization (p.30–44)</h2>
+<h3>中和反应</h3>
+<p>酸 + 碱 → 盐 + 水</p>
+<p><strong>离子方程式:</strong></p>
+<p>H⁺ + OH⁻ → H₂O</p>
+<h3>中和反应的应用</h3>
+<ul>
+<li>农业: 酸性土壤加石灰 (calcium hydroxide) 中和</li>
+<li>工业: 酸性废水处理</li>
+<li>医药: 胃酸过多用抗酸药 (antacid)</li>
+</ul>
+<h3>Activity 9.4 (p.40)</h3>
+<h2>9.4 Corrosive Nature of Acids (p.45–54)</h2>
+<h3>酸的腐蚀性</h3>
+<ul>
+<li>酸可以与金属反应 → 产生氢气 (H₂)</li>
+<li>酸可以与碳酸盐反应 → 产生 CO₂</li>
+</ul>
+<h3>Experiment: 酸与金属反应</h3>
+<ul>
+<li>气泡产生 → 氢气</li>
+</ul>
+<h3>Experiment: 酸与碳酸盐反应</h3>
+<ul>
+<li>气泡产生 → CO₂ → 使石灰水变浑浊</li>
+</ul>
+<h2>9.5 Potential Hazards Related to the Use of Acids and Alkalis (p.55–75)</h2>
+<h3>酸雨 (Acid rain)</h3>
+<ul>
+<li>化石燃料燃烧 → SO₂, NOₓ → 溶于雨水 → 酸雨</li>
+<li>酸雨对环境和生物的影响</li>
+</ul>
+<h3>安全操作 (p.10)</h3>
+<ul>
+<li>处理酸/碱时必须采取安全措施</li>
+<li>酸的腐蚀性</li>
+</ul>
+<h3>预防措施 (9.1 Preventive measures against acid rain, p.59)</h3>
+<h3>Activity 9.6–9.9</h3>
+<h1>Unit 10: Sensing the Environment (p.76–159)</h1>
+<h2>10.1 Senses and Sense Organs (p.75–78)</h2>
+<h3>感觉系统</h3>
+<ul>
+<li>刺激 (stimulus) → 感受器 (sensory cells) → 神经 (nerves) → 大脑 (brain) → 感觉 (sense)</li>
+<li>每种感觉器官有专门的感受细胞检测特定刺激</li>
+</ul>
+<h2>10.2 Sight (p.79–103)</h2>
+<h3>眼睛结构</h3>
+<ul>
+<li>角膜 (cornea)</li>
+<li>瞳孔 (pupil)</li>
+<li>虹膜 (iris)</li>
+<li>晶状体 (lens)</li>
+<li>视网膜 (retina)</li>
+<li>视神经 (optic nerve)</li>
+<li>肌肉 (eye muscle)</li>
+<li>胶状液体 (jelly-like fluid/vitreous humour)</li>
+</ul>
+<h3>视觉形成 (Fig. 10.6)</h3>
+<ol>
+<li>光线从物体发出</li>
+<li>穿过角膜</li>
+<li>通过瞳孔</li>
+<li>晶状体折射光线</li>
+<li>在视网膜上成像</li>
+<li>视神经将信号传送到大脑</li>
+</ol>
+<h3>调节 (Accommodation)</h3>
+<ul>
+<li>看近物: 睫状肌收缩, 晶状体变厚</li>
+<li>看远物: 睫状肌放松, 晶状体变薄</li>
+</ul>
+<h3>感光细胞</h3>
+<ul>
+<li>视锥细胞 (cone cells): 对亮光敏感, 可辨色</li>
+<li>视杆细胞 (rod cells): 对暗光敏感, 不能辨色</li>
+</ul>
+<h3>Activity 10.6 — 消失的兔子 (p.94)</h3>
+<ul>
+<li>盲点 (blind spot) 实验: 当书举到特定位置时兔子消失</li>
+</ul>
+<h3>光学仪器发展 (10.2 Development of optical instruments, p.93)</h3>
+<ul>
+<li>望远镜 (telescope)</li>
+<li>显微镜 (microscope)</li>
+</ul>
+<h2>10.3 Hearing (p.104–122)</h2>
+<h3>耳朵结构</h3>
+<ul>
+<li>外耳 (outer ear): 耳廓 (pinna), 耳道 (ear canal)</li>
+<li>中耳 (middle ear): 鼓膜 (eardrum), 听小骨 (hammer, anvil, stirrup)</li>
+<li>内耳 (inner ear): 耳蜗 (cochlea), 听觉神经 (auditory nerve)</li>
+</ul>
+<h3>听觉形成</h3>
+<ol>
+<li>耳廓收集声波</li>
+<li>声波使鼓膜振动</li>
+<li>听小骨放大振动</li>
+<li>耳蜗将振动转为神经信号</li>
+<li>听觉神经传至大脑</li>
+</ol>
+<h3>声级 (Sound level)</h3>
+<ul>
+<li>单位: 分贝 (decibel, dB)</li>
+<li>用分贝计 (decibel meter) 测量</li>
+</ul>
+<h2>10.4 Smell and Taste (p.123–128)</h2>
+<h3>嗅觉</h3>
+<ul>
+<li>鼻腔中的嗅觉细胞</li>
+<li>检测空气中的化学物质</li>
+</ul>
+<h3>味觉 (10.3 The fifth taste and beyond, p.126)</h3>
+<ul>
+<li>舌头味蕾 (taste buds)</li>
+<li>基本味觉: 酸甜苦咸鲜 (umami — 第五味)</li>
+<li>10.1 Amazing senses in tongue taste (p.77)</li>
+</ul>
+<h2>10.5 Touch (p.129–132)</h2>
+<ul>
+<li>皮肤中的感受器</li>
+<li>检测: 压力、温度、疼痛</li>
+</ul>
+<h2>10.6 Sense of Balance (p.133–135)</h2>
+<ul>
+<li>内耳的前庭系统 (vestibular system)</li>
+<li>帮助维持平衡</li>
+<li>10.4 Exercises to improve balance (p.134)</li>
+</ul>
+<h2>10.7 The Brain and Our Senses (p.136–155)</h2>
+<h3>大脑结构</h3>
+<ul>
+<li>大脑皮层 (cerebrum): 思考、记忆、语言、感觉处理</li>
+<li>小脑 (cerebellum): 协调运动、平衡</li>
+<li>延髓 (medulla): 心跳、呼吸等自主功能</li>
+</ul>
+<h3>10.2 Development of optical instruments (p.143)</h3>
+<h1>Unit 11: Force and Motion (p.160–240)</h1>
+<h2>11.1 Motion and Distance-Time Graphs (p.160–167)</h2>
+<h3>运动概念</h3>
+<ul>
+<li>运动 (motion): 位置随时间的变化</li>
+<li>速度 (speed): 单位时间内运动的距离</li>
+</ul>
+<h3>平均速度 (Average speed)</h3>
+<p>平均速度 = 总距离 ÷ 总时间</p>
+<p><strong>示例:</strong> MTR 列车从金钟站到海洋公园站，4 分钟行驶 4 km</p>
+<ul>
+<li>距离 = 4 km = 4000 m</li>
+<li>时间 = 4 min = 240 s</li>
+<li>平均速度 = 4000 ÷ 240 = 16.7 m/s</li>
+</ul>
+<p><strong>实际应用:</strong> (p.161)</p>
+<ul>
+<li>尤塞恩·博尔特 100 m 世界纪录 9.58 s → 平均速度 = 10.4 m/s</li>
+<li>马拉松世界纪录 2h 1min 39s (42.2 km) → 平均速度</li>
+</ul>
+<p><strong>瞬时速度 (Instantaneous speed):</strong> (p.162)</p>
+<ul>
+<li>小巴速度表显示的是瞬时速度，不是平均速度</li>
+</ul>
+<h3>匀速运动 vs 非匀速运动</h3>
+<h3>距离-时间图 (Distance-time graphs)</h3>
+<ul>
+<li>匀速运动 → 距离-时间图为直线</li>
+<li>静止 → 水平线</li>
+</ul>
+<h3>Experiment 11.2 — 匀速运动研究</h3>
+<h2>11.2 Force (p.168–179)</h2>
+<h3>力的概念</h3>
+<ul>
+<li>力 (force): 推 (push) 或拉 (pull)</li>
+<li>力的效果: 改变物体的运动状态（加速、减速、改变方向）</li>
+<li>力的单位: 牛顿 (N)</li>
+</ul>
+<h3>力的图示 (Free-body diagram)</h3>
+<ul>
+<li>用箭头表示力的大小和方向</li>
+</ul>
+<h3>11.1 Design of rockets (p.215)</h3>
+<ul>
+<li>火箭和喷气发动机产生巨大的推力</li>
+</ul>
+<h2>11.3 Gravity (p.180–190)</h2>
+<h3>重力概念</h3>
+<ul>
+<li>重力 (gravity): 地球对物体的吸引力</li>
+<li>重量 (weight): 物体所受重力的大小</li>
+<li>质量 (mass): 物体所含物质的量</li>
+</ul>
+<p><strong>重量公式:</strong></p>
+<p>W = mg</p>
+<ul>
+<li>W: 重量 (N)</li>
+<li>m: 质量 (kg)</li>
+<li>g: 重力加速度 (9.8 N/kg on Earth)</li>
+</ul>
+<h3>非接触力 (Non-contact forces) (Section 11.3, p.178)</h3>
+<ul>
+<li>重力是一种非接触力</li>
+</ul>
+<h2>11.4 Friction and Air Resistance (p.191–201)</h2>
+<h3>摩擦力 (Friction)</h3>
+<ul>
+<li>摩擦力方向与运动方向相反</li>
+<li>摩擦力的作用: 阻碍相对运动</li>
+</ul>
+<p><strong>Activity 11.8</strong> (p.191–192): 摩擦力的效果观察</p>
+<h3>空气阻力 (Air resistance)</h3>
+<ul>
+<li>物体在空气中运动时受到的阻力</li>
+<li>流线型设计 (streamlined) 可以减少空气阻力</li>
+</ul>
+<p><strong>Activity 11.9</strong> (p.194): 空气阻力的体验</p>
+<h3>摩擦力的应用</h3>
+<ul>
+<li>有益: 刹车、行走、抓握</li>
+<li>有害: 机械磨损、能量损失</li>
+<li>减少摩擦: 润滑油、滚珠轴承</li>
+</ul>
+<h2>11.5 Action and Reaction (p.202–211)</h2>
+<h3>牛顿第三定律</h3>
+<ul>
+<li>作用力与反作用力: 大小相等、方向相反、作用在不同物体上</li>
+</ul>
+<h3>Action-and-reaction pairs (p.202)</h3>
+<ul>
+<li>走路: 脚推地面(作用力) → 地面推脚(反作用力)</li>
+<li>游泳: 手推水 → 水推手</li>
+<li>火箭发射: 向下喷气 → 气体向上推火箭</li>
+</ul>
+<h2>11.6 Space Flight (p.212–236)</h2>
+<h3>太空飞行原理</h3>
+<ul>
+<li>火箭设计 (11.1 Design of rockets, p.215)</li>
+<li>反冲运动: 向后喷出气体 → 获得向前的推力</li>
+</ul>
+<h3>热防护</h3>
+<ul>
+<li>航天器进入大气层时与空气高速摩擦</li>
+<li>表面温度可达 1500°C</li>
+<li>热防护盾 (heat shield) 或隔热瓦保护</li>
+</ul>
+<h3>实验: 气球小车 (Experiment 11.5, p.180)</h3>
+<ul>
+<li>气球的空气喷出 → 小车向相反方向运动</li>
+<li>展示反冲力原理</li>
+</ul>
+<h3>自由落体 (Free-fall)</h3>
+<ul>
+<li>跳伞运动员的运动状态 (p.230)</li>
+</ul>
+<h2>附录 (p.237–240)</h2>
+<h3>绘制自由体图 (Drawing a free-body diagram) (p.237–238)</h3>
+<ul>
+<li>识别作用在物体上的所有力</li>
+<li>常见力: 重力、支持力、摩擦力、拉力、空气阻力</li>
+<li>示例: 挂在绳子上的衬衫</li>
+</ul>
+<h3>绘制图表 (Plotting graphs) (p.239–240)</h3>
+<table class="data-table">
+<thead><tr><th>时间(min)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+<tbody>
+<tr><td></td><td>温度(°C)</td><td>25</td><td>30</td><td>35</td><td>40</td><td>45</td><td>50</td><td>55</td><td></td></tr>
+</tbody>
+</table>
+<ul>
+<li>选择合适的比例尺</li>
+<li>用尖 HB 铅笔绘制</li>
+<li>示例: 水加热温度变化数据</li>
+</ul>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(function(el){el.addEventListener('click',function(){this.classList.toggle('show')})})</script>
+</body>
+</html>

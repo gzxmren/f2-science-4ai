@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F2 Science 综合模拟测验 — 深度版</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px}
+.container{max-width:900px;margin:0 auto}
+.header{background:linear-gradient(135deg,#1d1d1f,#434343);color:#fff;padding:28px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:6px}
+.header .meta{opacity:.85;font-size:14px;line-height:1.6}
+.header .meta span{display:inline-block;background:rgba(255,255,255,0.15);padding:2px 10px;border-radius:4px;margin:2px}
+.section{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.section h2{font-size:20px;margin-bottom:4px;padding-bottom:8px;border-bottom:2px solid #f0f0f2;display:flex;align-items:center;gap:8px}
+.section .sub{font-size:13px;color:#8e8e93;margin-bottom:12px}
+.section .marks{font-size:13px;color:#007aff;margin-left:auto}
+.cog-tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.recall{background:#e8f5e9;color:#2e7d32}
+.understand{background:#fff3e0;color:#e65100}
+.explain{background:#e3f2fd;color:#1565c0}
+.analyze{background:#fce4ec;color:#c62828}
+.compare{background:#f3e5f5;color:#6a1b9a}
+.evaluate{background:#ffebee;color:#b71c1c}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #007aff;cursor:pointer;transition:background 0.15s}
+.q-item:hover{background:#f0f0f5}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:flex-start}
+.q-item .q .q-marks{font-weight:400;font-size:12px;color:#8e8e93;white-space:nowrap;margin-left:8px}
+.q-item .context{font-size:13px;color:#555;margin:6px 0;padding:10px;background:#f0f4ff;border-radius:8px;border-left:3px solid #007aff}
+.q-item .context strong{color:#333}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0 6px}
+.q-item .a{color:#1d1d1f;font-size:13px;margin-top:8px;display:none;background:#e8f5e9;border-radius:8px;padding:10px;line-height:1.8}
+.q-item .a .score-guide{font-size:11px;color:#8e8e93;margin-top:6px;border-top:1px dashed #ccc;padding-top:4px}
+.q-item.show .a{display:block}
+.q-item .tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#e8edf5;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;text-align:center;border:1px solid #d0d5dd}
+.data-table tr:nth-child(even){background:#f8f9fc}
+.data-table .highlight-cell{background:#fff5e0;font-weight:600}
+.data-table .control-row{background:#e8f5e9}
+.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.analysis-item{background:#f9f9fb;border-radius:8px;padding:12px;border-left:3px solid #007aff}
+.analysis-item h4{font-size:13px;color:#007aff;margin-bottom:4px}
+.analysis-item .val{font-size:13px}
+.analysis-item .gap{color:#e74c3c;font-weight:600}
+.analysis-item .covered{color:#27ae60;font-weight:600}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.summary-card{background:#f9f9fb;border-radius:8px;padding:14px;text-align:center}
+.summary-card h4{font-size:13px;color:#555;margin-bottom:4px}
+.summary-card .val{font-size:20px;font-weight:700}
+.summary-card .val.green{color:#27ae60}
+.summary-card .val.red{color:#e74c3c}
+.summary-card .val.orange{color:#e67e22}
+.gap-card{background:#fff5f5;border:1px solid #ffcccc;border-radius:10px;padding:14px;margin:8px 0}
+.gap-card h4{color:#e74c3c;font-size:14px;margin-bottom:4px}
+.gap-card p{font-size:13px;color:#555}
+.strong-card{background:#f0fff4;border:1px solid #b2dfdb;border-radius:10px;padding:14px;margin:8px 0}
+.strong-card h4{color:#27ae60;font-size:14px}
+.strong-card p{font-size:13px;color:#555}
+@media(max-width:600px){.analysis-grid,.summary-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>🔬 F2 Science 综合模拟测验（深度版）</h1>
+  <div class="meta">
+    <span>📚 Units 7–11</span>
+    <span>⏱ 60 分钟</span>
+    <span>📊 满分 100 分</span>
+    <span>🎯 认知层次: recall → evaluate</span>
+  </div>
+</div>
+
+<!-- =========== 考试信息 =========== -->
+<div class="section">
+  <h2>📋 考试须知</h2>
+  <div class="sub">请仔细阅读以下说明</div>
+  <ul style="padding-left:20px;font-size:14px;color:#555;line-height:2">
+    <li>本卷共 <strong>5 个部分</strong>，满分 100 分，建议用时 60 分钟</li>
+    <li>Section C–E 的题目需要 <strong>引用数据证明结论</strong>，纯文字回答不得满分</li>
+    <li>所有题目请用英文回答（中英双语提示仅做辅助理解）</li>
+    <li>点击题目可展开/收起参考答案及评分标准</li>
+  </ul>
+</div>
+
+<!-- =========== Section A: MCQ =========== -->
+<div class="section">
+  <h2>Section A — Multiple Choice <span class="marks">20 分</span></h2>
+  <div class="sub">每题 2 分，选出一个最佳答案</div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q1. 空气中含量最多的气体是？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag recall">recall</span></div>
+    <div class="hint">Which gas is most abundant in air?</div>
+    <div class="a">
+      <strong>答案：</strong>B. Nitrogen (N₂)<br>
+      <span class="score-guide">A. Oxygen ❌ (21%) · B. Nitrogen ✅ (78%) · C. Carbon dioxide ❌ (0.03%) · D. Argon ❌ (0.9%)</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q2. 以下哪个是测试氧气的正确方法？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag recall">recall</span></div>
+    <div class="hint">How to test for oxygen?</div>
+    <div class="a">
+      <strong>答案：</strong>D. Insert a glowing splint — if it relights, oxygen is present<br>
+      <span class="score-guide">A. 石灰水 ❌ (测试CO₂) · B. 闻气味 ❌ (不安全) · C. pH试纸 ❌ · D. 带火星木条 ✅</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q3. 安培计和伏特计的正确接法是？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag recall">recall</span></div>
+    <div class="hint">How to connect ammeter and voltmeter?</div>
+    <div class="a">
+      <strong>答案：</strong>C. Ammeter in series, voltmeter in parallel<br>
+      <span class="score-guide">A. 两个都串联 ❌ · B. 两个都并联 ❌ · C. 安培计串联/伏特计并联 ✅ · D. 安培计并联/伏特计串联 ❌</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q4. pH = 2 的物质属于？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag recall">recall</span></div>
+    <div class="hint">A substance with pH 2 is...</div>
+    <div class="a">
+      <strong>答案：</strong>A. Strongly acidic<br>
+      <span class="score-guide">A. 强酸性 ✅ (pH 0-3) · B. 弱酸性 ❌ (pH 4-6) · C. 中性 ❌ (pH 7) · D. 碱性 ❌ (pH 8-14)</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q5. 以下哪种细胞在弱光下也能工作，但不能分辨颜色？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag understand">understand</span></div>
+    <div class="hint">Which cells work in dim light but cannot detect colour?</div>
+    <div class="a">
+      <strong>答案：</strong>B. Rod cells<br>
+      <span class="score-guide">A. Cone cells ❌ (需强光、可辨色) · B. Rod cells ✅ (弱光、黑白) · C. Optic nerve cells ❌ (传输信号) · D. Lens cells ❌</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q6. 一个 60 kg 的人在地球上的重量是多少？（g = 9.8 N/kg） <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag understand">understand</span></div>
+    <div class="hint">Weight calculation: W = m × g</div>
+    <div class="a">
+      <strong>答案：</strong>B. 588 N<br>
+      <span class="score-guide">W = 60 × 9.8 = 588 N<br>A. 60 N ❌ (忘了乘g) · B. 588 N ✅ · C. 600 N ❌ (用了g=10) · D. 9.8 N ❌</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q7. 串联电路中，两个灯泡其中一个烧坏了，另一个会怎样？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag understand">understand</span></div>
+    <div class="hint">What happens in a series circuit when one bulb blows?</div>
+    <div class="a">
+      <strong>答案：</strong>A. The other bulb goes out too<br>
+      <span class="score-guide">A. 另一个也熄灭 ✅ · B. 另一个更亮 ❌ · C. 没有变化 ❌ · D. 另一个闪烁 ❌</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q8. 以下哪项不是导致酸雨的主要原因？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag understand">understand</span></div>
+    <div class="hint">Which is NOT a main cause of acid rain?</div>
+    <div class="a">
+      <strong>答案：</strong>D. 植物呼吸释放的CO₂<br>
+      <span class="score-guide">A. 工厂排放SO₂ ✅ (是原因) · B. 汽车尾气NOₓ ✅ (是原因) · C. 发电厂燃煤 ✅ (是原因) · D. 植物呼吸CO₂ ❌ (不是主要原因，自然CO₂不形成强酸)</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q9. 距离-时间图上，一条斜直线代表什么运动？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag understand">understand</span></div>
+    <div class="hint">What does a straight sloping line on a d-t graph mean?</div>
+    <div class="a">
+      <strong>答案：</strong>C. Uniform motion (constant speed)<br>
+      <span class="score-guide">A. 静止 ❌ (水平线) · B. 加速 ❌ (曲线) · C. 匀速 ✅ · D. 减速 ❌ (曲线, 斜率变小)</span>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q10. 中和反应的产物是？ <span class="q-marks">[2分]</span></div>
+    <div class="tag-row"><span class="cog-tag recall">recall</span></div>
+    <div class="hint">Products of neutralization?</div>
+    <div class="a">
+      <strong>答案：</strong>A. Salt + Water<br>
+      <span class="score-guide">Acid + Alkali → Salt + Water<br>A. 盐+水 ✅ · B. 酸+碱 ❌ · C. 盐+氢 ❌ · D. 碱+氧 ❌</span>
+    </div>
+  </div>
+</div>
+
+<!-- =========== Section B: Fill in the Blanks =========== -->
+<div class="section">
+  <h2>Section B — Fill in the Blanks <span class="marks">15 分</span></h2>
+  <div class="sub">每空 1 分，用英文填写</div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q11. Complete the word equations (每空1分): <span class="q-marks">[6分]</span></div>
+    <div class="tag-row"><span class="cog-tag recall">recall</span></div>
+    <div class="q">
+      (a) Photosynthesis: CO₂ + _____ → _____ + O₂<br>
+      (b) Respiration: Glucose + O₂ → _____ + _____ + Energy<br>
+      (c) Neutralization: Acid + _____ → Salt + _____
+    </div>
+    <div class="a">
+      <strong>答案：</strong><br>
+      (a) CO₂ + <strong>H₂O</strong> → <strong>Glucose</strong> + O₂<br>
+      (b) Glucose + O₂ → <strong>CO₂</strong> + <strong>H₂O</strong> + Energy<br>
+      (c) Acid + <strong>Alkali</strong> → Salt + <strong>Water</strong>
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q12. 填写电路比较表 (每空1分): <span class="q-marks">[5分]</span></div>
+    <div class="tag-row"><span class="cog-tag recall">recall</span><span class="cog-tag understand">understand</span></div>
+    <div class="context">
+      <table class="data-table">
+        <tr><th>Feature</th><th>Series circuit</th><th>Parallel circuit</th></tr>
+        <tr><td>Number of paths for current</td><td>______ (a)</td><td>______ (b)</td></tr>
+        <tr><td>Current at different points</td><td>______ (c)</td><td>Total current = sum of branch currents</td></tr>
+        <tr><td>If one bulb blows</td><td>______ (d)</td><td>______ (e)</td></tr>
+      </table>
+    </div>
+    <div class="a">
+      <strong>答案：</strong><br>
+      (a) One / only one · (b) Multiple / two or more · (c) Same everywhere / equal · (d) All bulbs go out / circuit breaks · (e) Other bulbs still work / unaffected
+    </div>
+  </div>
+
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q13. 写出光（视觉）的传递路径 (每空1分): <span class="q-marks">[4分]</span></div>
+    <div class="tag-row"><span class="cog-tag recall">recall</span></div>
+    <div class="q">
+      Cornea → _____ (a) → Lens → _____ (b) → Optic nerve → _____ (c)<br><br>
+      声波进入耳朵的路径：<br>
+      Pinna → Ear canal → _____ (d) → Hammer/Anvil/Stirrup → Cochlea → Auditory nerve
+    </div>
+    <div class="a">
+      <strong>答案：</strong><br>
+      (a) Pupil · (b) Retina · (c) Brain · (d) Eardrum
+    </div>
+  </div>
+</div>
+
+<!-- =========== Section C: Data-based Questions =========== -->
+<div class="section">
+  <h2>Section C — Data-based Questions <span class="marks">30 分</span></h2>
+  <div class="sub">需引用数据证明结论，否则不得满分</div>
+
+  <!-- Q14: 肥料浓度数据题 -->
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q14. 肥料浓度对植物生长的影响 (8分) <span class="q-marks">[8分]</span></div>
+    <div class="tag-row"><span class="cog-tag analyze">analyze</span></div>
+    <div class="context">
+      <strong>情境：</strong>一个学生用不同浓度的肥料溶液浇灌同种植物幼苗，每组 5 株，两周后测量平均高度。<br><br>
+      <table class="data-table">
+        <tr><th>肥料浓度 (g/L)</th><th>0 (对照组)</th><th>2</th><th>4</th><th>6</th><th>8</th><th>10</th></tr>
+        <tr><td>平均高度 (cm)</td><td class="control-row">5.2</td><td>11.8</td><td class="highlight-cell">17.5</td><td>20.1</td><td>14.6</td><td>7.9</td></tr>
+      </table>
+    </div>
+    <div class="hint">(a) 自变量、因变量、控制变量是什么？(b) 描述趋势 (c) 最适浓度？引用数据 (d) 为什么高浓度反而生长下降？</div>
+    <div class="a">
+      <strong>参考答案：</strong><br>
+      <strong>(a) 变量识别 (2分)：</strong><br>
+      · 自变量 = 肥料浓度 (g/L)<br>
+      · 因变量 = 植物平均高度 (cm)<br>
+      · 控制变量 = 植物种类、盆大小、水量、光照、温度<br><br>
+      <strong>(b) 趋势描述 (2分)：</strong><br>
+      肥料浓度从 0 g/L 增加到 6 g/L 时，植物平均高度从 5.2 cm 上升到 20.1 cm，增长约 3.9 倍。但浓度从 6 g/L 进一步增加到 10 g/L 时，高度从 20.1 cm 下降到 7.9 cm。<br><br>
+      <strong>(c) 最适浓度 + 证据 (2分)：</strong><br>
+      最适浓度约为 6 g/L。证据：在该浓度下，植物平均高度达到最大值 20.1 cm，高于 4 g/L（17.5 cm）和 8 g/L（14.6 cm）。<br><br>
+      <strong>(d) 高浓度下降原因 (2分)：</strong><br>
+      肥料浓度过高可能导致土壤溶液渗透压过大，植物根系无法吸水甚至失水（"烧根"），或者某些离子过量对植物产生毒性。
+    </div>
+  </div>
+
+  <!-- Q15: 光合作用数据题 -->
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q15. 光照颜色对光合速率的影响 (8分) <span class="q-marks">[8分]</span></div>
+    <div class="tag-row"><span class="cog-tag analyze">analyze</span></div>
+    <div class="context">
+      <strong>情境：</strong>用不同颜色的滤光片照射同一种水生植物 (Elodea)，记录每分钟释放的气泡数。<br><br>
+      <table class="data-table">
+        <tr><th>滤光片颜色</th><th>红</th><th>橙</th><th>黄</th><th>绿</th><th>蓝</th><th>紫</th></tr>
+        <tr><td>波长范围 (nm)</td><td>620–750</td><td>590–620</td><td>570–590</td><td>495–570</td><td>450–495</td><td>380–450</td></tr>
+        <tr><td>气泡数 (每分钟)</td><td class="highlight-cell">38</td><td>25</td><td>15</td><td>5</td><td class="highlight-cell">30</td><td>22</td></tr>
+      </table>
+    </div>
+    <div class="hint">(a) 哪种光最有效？引用数据 (b) 为什么绿光下最慢？(c) 这个实验支持什么科学原理？</div>
+    <div class="a">
+      <strong>参考答案：</strong><br>
+      <strong>(a) 最有效光 + 证据 (3分)：</strong><br>
+      红光最有效（气泡数 38/分钟），蓝光次之（气泡数 30/分钟）。红光和蓝光下的气泡数显著高于其他颜色。<br><br>
+      <strong>(b) 绿光最慢的原因 (3分)：</strong><br>
+      叶绿素主要吸收红光和蓝紫光，而绿光被叶绿素反射——这正是植物看起来是绿色的原因。因此绿光下光合作用最弱，气泡数仅 5/分钟。<br><br>
+      <strong>(c) 原理总结 (2分)：</strong><br>
+      不同波长的光对光合速率的促进效果不同，红光和蓝紫光最有效，这与叶绿素的吸收光谱一致。
+    </div>
+  </div>
+
+  <!-- Q16: 距离-时间图 -->
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q16. 距离-时间图分析 (8分) <span class="q-marks">[8分]</span></div>
+    <div class="tag-row"><span class="cog-tag analyze">analyze</span><span class="cog-tag explain">explain</span></div>
+    <div class="context">
+      <strong>情境：</strong>一辆汽车的运动记录如下：<br><br>
+      <table class="data-table">
+        <tr><th>时间 (s)</th><th>0</th><th>10</th><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th></tr>
+        <tr><td>距离 (m)</td><td>0</td><td>100</td><td>200</td><td>300</td><td>350</td><td>350</td><td>400</td></tr>
+      </table>
+    </div>
+    <div class="hint">(a) 0–30s 的运动状态和速度？(b) 30–50s 的状态？(c) 50–60s 的速度？(d) 全程平均速度？</div>
+    <div class="a">
+      <strong>参考答案：</strong><br>
+      <strong>(a) 0–30s (3分)：</strong><br>
+      匀速运动。速度 = 总距离 ÷ 总时间 = 300m ÷ 30s = <strong>10 m/s</strong>。证据：距离每 10 秒增加 100m，d-t 图应为一条斜直线。<br><br>
+      <strong>(b) 30–50s (2分)：</strong><br>
+      静止/停止。证据：时间从 30s 到 50s，距离保持 350m 不变，没有位移。<br><br>
+      <strong>(c) 50–60s (2分)：</strong><br>
+      速度 = (400 – 350)m ÷ (60 – 50)s = 50m ÷ 10s = <strong>5 m/s</strong>。<br><br>
+      <strong>(d) 全程平均速度 (1分)：</strong><br>
+      总距离 400m ÷ 总时间 60s = <strong>6.67 m/s</strong>。
+    </div>
+  </div>
+
+  <!-- Q17: pH数据题 -->
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q17. 酸雨 pH 数据分析 (6分) <span class="q-marks">[6分]</span></div>
+    <div class="tag-row"><span class="cog-tag analyze">analyze</span><span class="cog-tag explain">explain</span></div>
+    <div class="context">
+      <strong>情境：</strong>下表记录了香港某地区 2025 年各月的雨水 pH 值：<br><br>
+      <table class="data-table">
+        <tr><th>月份</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th></tr>
+        <tr><td>pH</td><td>5.8</td><td>5.5</td><td>5.2</td><td>4.8</td><td>4.5</td><td>4.3</td><td class="highlight-cell">4.1</td><td>4.2</td><td>4.6</td><td>5.0</td><td>5.4</td><td>5.7</td></tr>
+      </table>
+    </div>
+    <div class="hint">(a) 正常雨水 pH 约 5.6，哪些月份出现酸雨？(b) pH 最低月份？可能原因？(c) 酸雨的危害有哪些？</div>
+    <div class="a">
+      <strong>参考答案：</strong><br>
+      <strong>(a) 酸雨月份 (2分)：</strong><br>
+      4月–9月（pH 4.1–4.8）均低于 5.6，属于酸雨。其中 7 月 pH 最低（4.1），酸度最强。<br><br>
+      <strong>(b) 原因分析 (2分)：</strong><br>
+      夏季（尤其 7 月）pH 最低，可能是因为夏季用电高峰→发电厂燃煤增多→排放更多 SO₂ 和 NOₓ→形成酸雨。同时夏季高温高湿有利于 SO₂/NOₓ 转化为酸。<br><br>
+      <strong>(c) 危害 (2分)：</strong><br>
+      · 土壤酸化 → 养分流失，影响农作物生长<br>
+      · 湖泊酸化 → 水生生物死亡<br>
+      · 腐蚀建筑物（大理石、石灰岩）<br>
+      · 损害植物叶片，导致森林退化
+    </div>
+  </div>
+</div>
+
+<!-- =========== Section D: Experimental Design Evaluation =========== -->
+<div class="section">
+  <h2>Section D — Experimental Design Evaluation <span class="marks">20 分</span></h2>
+  <div class="sub">用 J-E-A-L 框架评价实验设计（Judgment → Evidence → Adjustment → Likelihood）</div>
+
+  <!-- Q18: 温度对酶活性 -->
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q18. 评价：温度对酶活性的影响实验 (10分) <span class="q-marks">[10分]</span></div>
+    <div class="tag-row"><span class="cog-tag evaluate">evaluate</span></div>
+    <div class="context">
+      <strong>实验设计：</strong><br>
+      一个学生想研究温度对某种酶活性的影响。他做了以下操作：<br>
+      · 取一份酶溶液，先放在 20°C 水浴中，加入底物，测量产物生成量<br>
+      · 然后将同一份溶液加热到 40°C，再次测量产物生成量<br>
+      · 最后加热到 60°C，第三次测量<br>
+      · 他得出结论：40°C 时酶活性最高，60°C 时酶已失活<br><br>
+      <table class="data-table">
+        <tr><th>温度 (°C)</th><th>20</th><th>40</th><th>60</th></tr>
+        <tr><td>产物生成量 (mg/min)</td><td>8</td><td>22</td><td>3</td></tr>
+      </table>
+    </div>
+    <div class="hint">用 J-E-A-L 评价：判断实验设计是否合理，指出优缺点，提出改进，评估结论可信度。</div>
+    <div class="a">
+      <strong>参考答案：</strong><br>
+      <strong>J — 判断 (2分)：</strong>实验设计有基本思路，但存在严重缺陷。<br><br>
+      <strong>E — 找证据 (4分)：</strong><br>
+      ✅ 优点：能够看出温度对酶活性的基本趋势（20→40°C 上升，60°C 下降）<br>
+      ❌ 问题：<br>
+      ① 只用同一份溶液反复加热——酶在 60°C 下变性后无法恢复，无法再测其他温度<br>
+      ② 缺少重复实验——每个温度只测一次，结果可能不准确<br>
+      ③ 温度跨度太大——没有 30°C、50°C 的数据，无法精确找最适温度<br>
+      ④ 没有说明 pH、底物浓度等控制变量<br><br>
+      <strong>A — 改进建议 (2分)：</strong><br>
+      · 应制备 3–5 份独立的酶溶液，每份在不同的恒定温度下测量<br>
+      · 每温度重复 3 次，计算平均值<br>
+      · 增加更多温度点（如 10, 20, 30, 40, 50, 60°C）<br>
+      · 保持 pH、底物浓度、反应时间一致<br><br>
+      <strong>L — 可信度 (2分)：</strong><br>
+      结论的"方向"可信（低温→高温活性先升后降，最适约 40°C），但具体数据不精确。若按改进方案重做，结论可信度会大幅提高。
+    </div>
+  </div>
+
+  <!-- Q19: 声音传播 -->
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q19. 评价：声音在真空中传播的实验 (10分) <span class="q-marks">[10分]</span></div>
+    <div class="tag-row"><span class="cog-tag evaluate">evaluate</span></div>
+    <div class="context">
+      <strong>实验设计：</strong><br>
+      小明想证明"声音不能在真空中传播"。他把一个正在响的闹钟放在玻璃罩内，用抽气泵抽走罩内的空气。<br><br>
+      · 刚开始：能清楚听到闹钟声音<br>
+      · 抽气 30 秒后：声音变小但仍然可听到<br>
+      · 抽气 60 秒后：声音更小了，但仍然能听到一点<br>
+      · 小明得出结论：声音可以在真空中传播，但会变小<br><br>
+      <strong>小明的疑问：</strong>书上说声音不能在真空中传播，但为什么我还能听到声音？
+    </div>
+    <div class="hint">评价这个实验的结论是否正确？实验设计有什么问题？如何改进？</div>
+    <div class="a">
+      <strong>参考答案：</strong><br>
+      <strong>J — 判断 (2分)：</strong>结论错误，实验设计有缺陷。<br><br>
+      <strong>E — 找证据 (4分)：</strong><br>
+      ❌ 问题：<br>
+      ① 抽气泵不能完全抽走罩内所有空气——仍有少量空气分子，足以传播声音<br>
+      ② 声音可以通过玻璃罩本身（固体）传播到外部（固体传声效果更好！）<br>
+      ③ 闹钟直接放在桌面上，振动可能通过桌面传播<br><br>
+      <strong>A — 改进建议 (2分)：</strong><br>
+      · 使用更高效的真空泵<br>
+      · 将闹钟放在软垫/泡沫上，减少振动通过桌面的传播<br>
+      · 对比抽气前后的声音变化，说明"随着空气减少，声音减弱"<br>
+      · 如果完全抽真空，声音确实无法传播——但实验中无法做到绝对真空<br><br>
+      <strong>L — 可信度 (2分)：</strong><br>
+      结论完全不可信。实验设备限制了结论的准确性。不能因为"听得到微弱声音"就否定"真空中声音无法传播"的科学原理。
+    </div>
+  </div>
+</div>
+
+<!-- =========== Section E: Extended Response =========== -->
+<div class="section">
+  <h2>Section E — Extended Response <span class="marks">15 分</span></h2>
+  <div class="sub">需用完整的因果链或对比框架作答</div>
+
+  <!-- Q20: 因果链 -->
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q20. 解释温室效应的因果链 (8分) <span class="q-marks">[8分]</span></div>
+    <div class="tag-row"><span class="cog-tag explain">explain</span><span class="cog-tag analyze">analyze</span></div>
+    <div class="context">
+      <strong>问题：</strong>解释人类活动如何加剧温室效应，并分析由此带来至少 3 个环境后果。<br><br>
+      请把你的答案组织成因果链结构：<br>
+      根本原理 → 人类活动 → 直接后果 → 连锁反应 → 长期影响
+    </div>
+    <div class="hint">评分要点：原理 2分 + 人类活动 2分 + 3个后果各1分 + 结论1分</div>
+    <div class="a">
+      <strong>参考答案：</strong><br>
+      <strong>原理 (2分)：</strong>温室气体（CO₂, CH₄ 等）吸收地球发出的红外辐射，将热量保留在大气中，使地球保持适宜的温度（自然温室效应）。<br><br>
+      <strong>人类活动加剧 (2分)：</strong><br>
+      · 燃烧化石燃料（汽车、工厂、发电厂）→ 大量排放 CO₂<br>
+      · 森林砍伐 → 减少了 CO₂ 的吸收（光合作用）<br><br>
+      <strong>环境后果 (每点1分，3分)：</strong><br>
+      ① 全球气温上升（如过去 100 年上升约 1°C）<br>
+      ② 冰川融化 → 海平面上升 → 沿海低地被淹没<br>
+      ③ 极端天气增多（热浪、干旱、暴雨、台风增强）<br>
+      ④ 生态系统变化 → 部分物种无法适应 → 生物多样性下降<br>
+      ⑤ 农业生产受影响（干旱、洪涝、病虫害变化）<br><br>
+      <strong>结论 (1分)：</strong>温室效应是当前全球面临的最严峻环境问题之一，需要减少化石燃料使用、保护森林来缓解。
+    </div>
+  </div>
+
+  <!-- Q21: 对比 -->
+  <div class="q-item" onclick="this.classList.toggle('show')">
+    <div class="q">Q21. 对比：光合作用 vs 呼吸作用 (7分) <span class="q-marks">[7分]</span></div>
+    <div class="tag-row"><span class="cog-tag compare">compare</span></div>
+    <div class="context">
+      <strong>问题：</strong>光合作用和呼吸作用是 F2 Science 最重要的两个过程。请用对比表格从至少 4 个维度比较两者，并解释为什么植物白天净释放 O₂、晚上净释放 CO₂。
+    </div>
+    <div class="hint">评分要点：表格 4分（4维度）+ 白天/夜晚解释 2分 + 结论 1分</div>
+    <div class="a">
+      <strong>参考答案：</strong><br>
+      <strong>对比表格 (4分)：</strong><br>
+      <table class="data-table">
+        <tr><th>维度</th><th>光合作用</th><th>呼吸作用</th></tr>
+        <tr><td>发生地点</td><td>叶绿体（含叶绿素的细胞）</td><td>所有活细胞</td></tr>
+        <tr><td>需要光？</td><td>✅ 需要光</td><td>❌ 不需要（全天进行）</td></tr>
+        <tr><td>反应物</td><td>CO₂ + H₂O</td><td>Glucose + O₂</td></tr>
+        <tr><td>产物</td><td>Glucose + O₂</td><td>CO₂ + H₂O + Energy</td></tr>
+        <tr><td>能量变化</td><td>吸收光能→化学能</td><td>释放化学能</td></tr>
+      </table>
+      <br>
+      <strong>白天/夜晚解释 (2分)：</strong><br>
+      · 白天：光合作用速率 > 呼吸作用速率 → 光合消耗的 CO₂ > 呼吸产生的 CO₂ → 净效果是吸收 CO₂、释放 O₂<br>
+      · 夜晚：无光 → 光合作用停止 → 只有呼吸作用进行 → 释放 CO₂<br><br>
+      <strong>结论 (1分)：</strong>光合作用和呼吸作用是相反但互补的过程，共同维持了大气中的碳氧平衡。
+    </div>
+  </div>
+</div>
+
+<!-- =========== 总分析 =========== -->
+<div class="section">
+  <h2>📊 试卷结构分析</h2>
+  <div class="sub">题型-分值-认知层次矩阵</div>
+
+  <div class="analysis-grid">
+    <div class="analysis-item">
+      <h4>Section A — MCQ (20分)</h4>
+      <div class="val">Q1–Q10 · 认知：<span class="cog-tag recall">recall</span> <span class="cog-tag understand">understand</span></div>
+      <div class="val">覆盖：空气成分、气体测试、电路测量、pH、视觉细胞、重力计算、串并联、酸雨、d-t图、中和反应</div>
+    </div>
+    <div class="analysis-item">
+      <h4>Section B — 填空 (15分)</h4>
+      <div class="val">Q11–Q13 · 认知：<span class="cog-tag recall">recall</span> <span class="cog-tag understand">understand</span></div>
+      <div class="val">覆盖：方程式、电路比较、感官路径</div>
+    </div>
+    <div class="analysis-item">
+      <h4>Section C — 数据题 (30分)</h4>
+      <div class="val">Q14–Q17 · 认知：<span class="cog-tag analyze">analyze</span> <span class="cog-tag explain">explain</span></div>
+      <div class="val">含真实数据表，要求引用数字证明结论</div>
+    </div>
+    <div class="analysis-item">
+      <h4>Section D — 实验评价 (20分)</h4>
+      <div class="val">Q18–Q19 · 认知：<span class="cog-tag evaluate">evaluate</span></div>
+      <div class="val">用 J-E-A-L 框架评价实验设计</div>
+    </div>
+    <div class="analysis-item">
+      <h4>Section E — 综合论述 (15分)</h4>
+      <div class="val">Q20–Q21 · 认知：<span class="cog-tag explain">explain</span> <span class="cog-tag compare">compare</span> <span class="cog-tag analyze">analyze</span></div>
+      <div class="val">因果链 + 对比框架</div>
+    </div>
+    <div class="analysis-item">
+      <h4>总计</h4>
+      <div class="val"><strong>100 分 / 21 题</strong></div>
+      <div class="val">认知层次：recall(15) → understand(20) → explain(12) → analyze(22) → compare(7) → evaluate(20)</div>
+    </div>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <h4>覆盖单元</h4>
+      <div class="val green">5/5</div>
+      <div>Units 7–11 全覆盖</div>
+    </div>
+    <div class="summary-card">
+      <h4>题型种类</h4>
+      <div class="val green">5</div>
+      <div>MCQ + 填空 + 数据题 + 实验评价 + 论述</div>
+    </div>
+    <div class="summary-card">
+      <h4>最高认知</h4>
+      <div class="val orange">evaluate</div>
+      <div>实验设计评价题</div>
+    </div>
+    <div class="summary-card">
+      <h4>需引用证据</h4>
+      <div class="val green">35/100</div>
+      <div>Section C + D 均需引用数据</div>
+    </div>
+  </div>
+</div>
+
+<!-- =========== 缺口 vs 优势 =========== -->
+<div class="section">
+  <h2>🔄 改造前后的对比</h2>
+  <div class="sub">从"考记忆"到"考能力"</div>
+
+  <div class="gap-card">
+    <h4>❌ 旧版模拟题的问题（已解决）</h4>
+    <p>
+      · 所有题目都在 recall → understand 层次<br>
+      · 无数据表 / 图表 → 无需分析数据<br>
+      · 从不要求引用证据证明结论<br>
+      · 无实验设计评价题<br>
+      · 分值分配不明确
+    </p>
+  </div>
+
+  <div class="strong-card">
+    <h4>✅ 新版深度模拟题的改进</h4>
+    <p>
+      · 认知层次从 recall 到 evaluate 完整覆盖<br>
+      · Section C 含 4 道数据题（肥料、光合、d-t图、pH）<br>
+      · 所有数据题要求"引用具体数字证明"<br>
+      · Section D 含 2 道实验设计评价题（J-E-A-L 框架）<br>
+      · Section E 含因果链和对比框架应用<br>
+      · 总分 100 分，题型对应真实考试
+    </p>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// 所有 q-item 点击切换答案
+document.querySelectorAll('.q-item').forEach(el => {
+  // 如果已经绑定了 onclick 就不重复绑定
+  if (!el.hasAttribute('data-bound')) {
+    el.setAttribute('data-bound', 'true');
+  }
+});
+// 确保所有 q-item 可点击
+</script>
+
+</body>
+</html>

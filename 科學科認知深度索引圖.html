@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科學科認知深度索引圖</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#ff9500,#1d1d1f);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}
+.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px;color:#e65100}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#fff8e1;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;border:1px solid #d0d5dd;font-size:13px;vertical-align:top}
+.cog{display:inline-block;padding:1px 6px;border-radius:8px;font-size:11px;font-weight:600;margin:1px}
+.cog-recall{background:#e8f5e9;color:#2e7d32}
+.cog-understand{background:#fff3e0;color:#e65100}
+.cog-explain{background:#e3f2fd;color:#1565c0}
+.cog-analyze{background:#fce4ec;color:#c62828}
+.cog-compare{background:#f3e5f5;color:#6a1b9a}
+.cog-evaluate{background:#ffebee;color:#b71c1c}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap}
+.strategy-card{background:#f0f4ff;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #007aff;font-size:13px;line-height:1.8}
+.context-box{background:#fff8e1;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #ffd600;font-size:13px}
+@media(max-width:600px){.data-table{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🗺️ 科學科認知深度索引圖（F2 Science）</h1>
+<div class="sub">5 個單元 × 6 認知層次 | 🟢recall 🟡understand 🟠explain 🔵analyze 🟣compare 🔴evaluate</div>
+</div>
+
+<div class="card">
+<h2>如何使用</h2>
+<div class="context-box">
+每次複習一個單元，先看這個表：<br>
+1. 看你現在到哪個層次（recall→understand→explain→analyze→compare→evaluate）<br>
+2. 對照模擬題中該單元的題目，看認知層次是否匹配<br>
+3. 如果考試會考 analyze 但你只複習到 recall → 去翻對應的技能框架文件
+</div>
+</div>
+
+<div class="card">
+<h2>Unit 7 — Living Things and Air</h2>
+<table class="data-table">
+<tr><th style="width:14%">層次</th><th style="width:50%">你應該能……</th><th style="width:18%">覆蓋</th><th style="width:18%">參考</th></tr>
+<tr><td><span class="cog cog-recall">recall</span></td><td>说空气成分比例、气体测试方法、温室气体名称</td><td>✅</td><td>辅导计划Day1</td></tr>
+<tr><td><span class="cog cog-understand">understand</span></td><td>描述光合/呼吸过程、气体交换结构、AQHI等级</td><td>✅</td><td>辅导计划Day1</td></tr>
+<tr><td><span class="cog cog-explain">explain</span></td><td>解释白天放O₂晚上放CO₂、温室效应机制</td><td>⚠️</td><td>因果链框架</td></tr>
+<tr><td><span class="cog cog-analyze">analyze</span></td><td>分析光照强度与光合速率的数据表</td><td>❌</td><td>数据分析框架</td></tr>
+<tr><td><span class="cog cog-compare">compare</span></td><td>比较光合 vs 呼吸（已有多维度表）</td><td>✅</td><td>对比框架</td></tr>
+<tr><td><span class="cog cog-evaluate">evaluate</span></td><td>评价光合/呼吸相关实验设计</td><td>❌</td><td>实验评价框架</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Unit 8 — Electricity</h2>
+<table class="data-table">
+<tr><th style="width:14%">層次</th><th style="width:50%">你應該能……</th><th style="width:18%">覆蓋</th><th style="width:18%">參考</th></tr>
+<tr><td><span class="cog cog-recall">recall</span></td><td>电路符号、导体绝缘体例子、电流/电压单位</td><td>✅</td><td>辅导计划Day2</td></tr>
+<tr><td><span class="cog cog-understand">understand</span></td><td>描述电子流动、串联并联区别、短路</td><td>✅</td><td>辅导计划Day2</td></tr>
+<tr><td><span class="cog cog-explain">explain</span></td><td>为何家电用并联不是串联？保险丝原理</td><td>⚠️</td><td>因果链框架四</td></tr>
+<tr><td><span class="cog cog-analyze">analyze</span></td><td>分析串并联电路电流/电压数据判断类型</td><td>❌</td><td>数据分析框架</td></tr>
+<tr><td><span class="cog cog-compare">compare</span></td><td>串联 vs 并联（已覆盖）</td><td>✅</td><td>对比框架三</td></tr>
+<tr><td><span class="cog cog-evaluate">evaluate</span></td><td>比较两个电路方案哪个更合理</td><td>❌</td><td>实验评价框架</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Unit 9 — Acids and Alkalis</h2>
+<table class="data-table">
+<tr><th style="width:14%">層次</th><th style="width:50%">你應該能……</th><th style="width:18%">覆蓋</th><th style="width:18%">參考</th></tr>
+<tr><td><span class="cog cog-recall">recall</span></td><td>pH标度0-14、常见酸(HCl/H₂SO₄)和碱(NaOH)、石蕊颜色</td><td>✅</td><td>辅导计划Day3</td></tr>
+<tr><td><span class="cog cog-understand">understand</span></td><td>pH含义、中和反应应用</td><td>✅</td><td>辅导计划Day3</td></tr>
+<tr><td><span class="cog cog-explain">explain</span></td><td>酸雨形成原因和过程</td><td>⚠️</td><td>因果链框架二</td></tr>
+<tr><td><span class="cog cog-analyze">analyze</span></td><td>分析pH与反应速率的數據關係</td><td>❌</td><td>数据分析框架</td></tr>
+<tr><td><span class="cog cog-compare">compare</span></td><td>酸 vs 碱（pH、指示剂、例子）</td><td>⚠️</td><td>对比框架五</td></tr>
+<tr><td><span class="cog cog-evaluate">evaluate</span></td><td>评价中和实验方案是否合理</td><td>❌</td><td>实验评价框架</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Unit 10 — Sensing the Environment</h2>
+<table class="data-table">
+<tr><th style="width:14%">層次</th><th style="width:50%">你應該能……</th><th style="width:18%">覆蓋</th><th style="width:18%">參考</th></tr>
+<tr><td><span class="cog cog-recall">recall</span></td><td>眼睛各部位、耳朵各部位、大脑分区名称</td><td>✅</td><td>辅导计划Day3</td></tr>
+<tr><td><span class="cog cog-understand">understand</span></td><td>光线路径、声音路径、看近/看远调节</td><td>✅</td><td>辅导计划Day3</td></tr>
+<tr><td><span class="cog cog-explain">explain</span></td><td>为什么近视？暗处为什么看不清颜色？</td><td>⚠️</td><td>因果链框架三</td></tr>
+<tr><td><span class="cog cog-analyze">analyze</span></td><td>比较不同感官的完整路径差异</td><td>❌</td><td>—</td></tr>
+<tr><td><span class="cog cog-compare">compare</span></td><td>视锥 vs 视杆细胞</td><td>⚠️</td><td>对比框架六</td></tr>
+<tr><td><span class="cog cog-evaluate">evaluate</span></td><td>"耳朵比眼睛更重要"你同意吗？</td><td>❌</td><td>—</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Unit 11 — Force and Motion</h2>
+<table class="data-table">
+<tr><th style="width:14%">層次</th><th style="width:50%">你應該能……</th><th style="width:18%">覆蓋</th><th style="width:18%">參考</th></tr>
+<tr><td><span class="cog cog-recall">recall</span></td><td>速度公式(v=d/t)、重量公式(W=mg)、g=9.8</td><td>✅</td><td>辅导计划Day3</td></tr>
+<tr><td><span class="cog cog-understand">understand</span></td><td>d-t图特征、摩擦力方向、作用力与反作用力</td><td>✅</td><td>辅导计划Day3</td></tr>
+<tr><td><span class="cog cog-explain">explain</span></td><td>火箭为什么升空？为什么润滑油减小摩擦？</td><td>⚠️</td><td>因果链框架五</td></tr>
+<tr><td><span class="cog cog-analyze">analyze</span></td><td>给d-t图判断运动状态、算各段速度</td><td>⚠️</td><td>数据题Q16</td></tr>
+<tr><td><span class="cog cog-compare">compare</span></td><td>质量 vs 重量、匀速 vs 非匀速</td><td>⚠️</td><td>对比框架四/七</td></tr>
+<tr><td><span class="cog cog-evaluate">evaluate</span></td><td>评价两个火箭/赛车设计方案</td><td>❌</td><td>实验评价框架</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>複習策略建議</h2>
+<pre>recall（知道）：    20% 時間  ← 你現在花了 80% 時間在這裏
+understand（理解）：15% 時間
+explain（解釋）：   20% 時間  ← 考試會在這裏考你
+analyze（分析）：   20% 時間  ← 資料題的核心
+compare（比較）：   10% 時間
+evaluate（評價）：  15% 時間  ← 最高分題型</pre>
+
+<div class="strategy-card">
+<strong>学习路径建议：</strong><br>
+先：3天辅导计划（事实库）→ 复习计划（理解+自检）<br>
+再：科学因果链分析（解释原因）→ 对比分析（比较异同）<br>
+然后：实验数据分析（资料题方法）→ 实验设计评价（开放题方法）<br>
+最后：综合模拟测验_深度版（综合测试，close book 60分钟）
+</div>
+</div>
+</div>
+</body>
+</html>

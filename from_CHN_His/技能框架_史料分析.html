@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>史料分析框架</title>
+<style>body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#34c759,#5856d6);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px}
+.card h4{font-size:14px;margin:10px 0 4px;color:#555}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#e8edf5;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;text-align:center;border:1px solid #d0d5dd}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap;line-height:1.6;overflow-x:auto}
+code{background:#f0f0f2;padding:2px 4px;border-radius:4px;font-size:13px}
+pre code{background:none;padding:0}
+.context-box{background:#f0f4ff;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #007aff;font-size:13px;color:#555;line-height:1.6}
+.block-highlight{background:#fffde7;border-left:4px solid #ffd600;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:13px}
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-recall{background:#e8f5e9;color:#2e7d32}.tag-understand{background:#fff3e0;color:#e65100}
+.tag-explain{background:#e3f2fd;color:#1565c0}.tag-analyze{background:#fce4ec;color:#c62828}
+.tag-compare{background:#f3e5f5;color:#6a1b9a}.tag-evaluate{background:#ffebee;color:#b71c1c}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #34c759;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0}
+.q-item .a{display:none;background:#e8f5e9;border-radius:8px;padding:10px;margin-top:8px;font-size:13px;line-height:1.8}
+.q-item.show .a{display:block}
+ul,ol{padding-left:20px;font-size:14px;color:#333;line-height:1.8}
+li{margin:4px 0}
+p{font-size:14px;color:#333;line-height:1.8;margin:8px 0}
+strong{color:#1d1d1f}
+hr{display:none}
+@media(max-width:600px){.data-table{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>史料分析框架</h1>
+<div class="sub">F2 Science 复习资料</div>
+</div>
+<h1>史料分析框架</h1>
+<div class="context-box">考試中，史料分析題通常佔 15-40% 的分數。這類題目不是考你「記不記得」，而是考你「會不會用史料作為證據來回答問題」。</div>
+<h2>第一步：辨別一手史料 vs 二手史料</h2>
+<table class="data-table">
+<thead><tr><th>**定義**</th><th>事件發生當時產生的記錄</th><th>後人根據一手史料寫成的著作</th></tr></thead>
+<tbody>
+<tr><td></td><td><strong>例子</strong></td><td>奏摺、詔書、信件、日記、當時的畫作</td><td>教科書、學者論文、歷史著作</td><td></td></tr>
+<tr><td></td><td><strong>優點</strong></td><td>最接近事實，可信度高</td><td>有分析和總結，易於理解</td><td></td></tr>
+<tr><td></td><td><strong>局限</strong></td><td>可能有偏見、遺漏</td><td>可能受作者觀點影響</td><td></td></tr>
+</tbody>
+</table>
+<h3>中二歷史常見一手史料類型</h3>
+<table class="data-table">
+<thead><tr><th>史料類型</th><th>示例（本課）</th><th>分析重點</th></tr></thead>
+<tbody>
+<tr><td></td><td>奏摺/奏疏</td><td>大臣上奏反對下西洋</td><td>作者的立場和目的</td><td></td></tr>
+<tr><td></td><td>詔書</td><td>明成祖詔書</td><td>統治者的官方說法</td><td></td></tr>
+<tr><td></td><td>出使記錄</td><td>馬歡《瀛涯勝覽》</td><td>親歷者的觀察</td><td></td></tr>
+<tr><td></td><td>條約原文</td><td>《南京條約》條款</td><td>哪一方獲利</td><td></td></tr>
+<tr><td></td><td>統計數據</td><td>賠款金額、人口</td><td>數據說明了甚麼趨勢</td><td></td></tr>
+</tbody>
+</table>
+<h2>第二步：史料分析四問法（S-T-A-R）</h2>
+<p>每次看到一段史料，按以下順序問自己四個問題：</p>
+<h3>S — Source（來源）</h3>
+<ul>
+<li>這份史料是誰寫的/製作的？</li>
+<li>是甚麼時候寫的？</li>
+<li>是官方文件還是個人記錄？</li>
+</ul>
+<h3>T — Tone（立場/語氣）</h3>
+<ul>
+<li>作者支持誰？反對誰？</li>
+<li>用了哪些帶有感情色彩的詞？</li>
+<li>作者的目的是甚麼？</li>
+<li>記錄事實？說服別人？讚揚？批評？</li>
+</ul>
+<h3>A — Argument（論點）</h3>
+<ul>
+<li>這段史料的核心訊息是甚麼？</li>
+<li>它想證明甚麼？</li>
+<li>它有沒有忽略某些信息？</li>
+</ul>
+<h3>R — Reliability（可信度）</h3>
+<ul>
+<li>作者的立場會影響他的記載嗎？</li>
+<li>有沒有其他史料可以交叉印證？</li>
+<li>一手史料 ≠ 絕對可信（作者也有偏見）</li>
+</ul>
+<div class="context-box">**口訣：看來源、看立場、看觀點、看可信**</div>
+<h2>第三步：用史料回答問題</h2>
+<p>考試常問的三種史料題：</p>
+<table class="data-table">
+<thead><tr><th>題型</th><th>問法</th><th>答題要點</th></tr></thead>
+<tbody>
+<tr><td></td><td><strong>① 直接提取</strong></td><td>「根據資料一，指出……」</td><td>直接從資料抄錄關鍵詞</td><td></td></tr>
+<tr><td></td><td><strong>② 推論</strong></td><td>「根據資料一並就你所知，解釋……」</td><td>資料 + 自己知識結合</td><td></td></tr>
+<tr><td></td><td><strong>③ 評價</strong></td><td>「你是否同意資料二的觀點？試解釋。」</td><td>先表明立場，再用史料論證</td><td></td></tr>
+</tbody>
+</table>
+<h3>答題範例</h3>
+<div class="context-box">**資料**：馬歡《瀛涯勝覽》記載：「鄭和船隊帶去絲綢、瓷器，換回香料、寶石。各國國王熱烈歡迎，爭相派遣使臣來華朝貢。」<br><br>**問題**：根據以上資料，分析鄭和下西洋對中外關係的影響。</div>
+<p><strong>答題示範</strong>：</p>
+<table class="data-table">
+<thead><tr><th>分析步驟</th><th>作答內容</th></tr></thead>
+<tbody>
+<tr><td></td><td>① 史料類型</td><td>一手史料——馬歡是隨行人員，親眼所見</td><td></td></tr>
+<tr><td></td><td>② 提取訊息</td><td>貿易往來（絲綢瓷器換香料寶石）、外交成果（各國遣使朝貢）</td><td></td></tr>
+<tr><td></td><td>③ 推論</td><td>促進了中外貿易和文化交流，增強了明朝的國際影響力</td><td></td></tr>
+<tr><td></td><td>④ 限制定位</td><td>馬歡是明朝官員，記載可能傾向正面，忽略了朝貢貿易的財政負擔</td><td></td></tr>
+</tbody>
+</table>
+<h2>第四步：實戰練習題</h2>
+<h3>練習一：史料辨識</h3>
+<p>判斷以下各項屬於一手史料還是二手史料：</p>
+<ol>
+<li>《南京條約》原文</li>
+<li>教課書對鴉片戰爭的描述</li>
+<li>林則徐寫給道光皇帝的奏摺</li>
+<li>中學歷史網站的介紹文章</li>
+<li>《明史·鄭和傳》</li>
+</ol>
+<div class="context-box">**答案**：①一手 ②二手 ③一手 ④二手 ⑤二手（明史是清朝編寫的）</div>
+<h3>練習二：史料分析（S-T-A-R）</h3>
+<div class="context-box">**資料**：嚴從簡《殊域周咨錄》記載（明朝官員）：「（鄭和）費了數千萬錢糧，數萬計的性命……雖然帶了不少珍異寶物回國，但又有甚麼益處呢？」</div>
+<p>用 S-T-A-R 框架分析這份史料：</p>
+<table class="data-table">
+<thead><tr><th>步驟</th><th>你的分析</th></tr></thead>
+<tbody>
+<tr><td></td><td><strong>S（來源）</strong></td><td>明朝官員嚴從簡，寫於明朝中後期</td><td></td></tr>
+<tr><td></td><td><strong>T（立場）</strong></td><td>反對下西洋——強調花費巨大、傷亡慘重</td><td></td></tr>
+<tr><td></td><td><strong>A（論點）</strong></td><td>鄭和下西洋得不償失，浪費國力</td><td></td></tr>
+<tr><td></td><td><strong>R（可信度）</strong></td><td>他是明朝人，對當時狀況有了解，但立場鮮明（反對派），可能誇大了負面影響。需對比馬歡等親歷者的正面記載</td><td></td></tr>
+</tbody>
+</table>
+<h3>練習三：史料回答</h3>
+<div class="context-box">**資料**：1860年《北京條約》條款：「將粤東九龍司地方一區，歸英國屬香港界內。」<br><br>**問題**：根據以上資料，指出第二次鴉片戰爭後英國在中國獲得了甚麼利益？</div>
+<p><strong>參考答案</strong>：</p>
+<ul>
+<li>直接提取：英國取得了九龍半島南部（九龍司）</li>
+<li>推論：英國在中國的佔地面積擴大，由香港島擴展至九龍半島</li>
+<li>背景連結：結合 1842 年《南京條約》割讓香港島，英國在華勢力範圍持續擴大</li>
+</ul>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(function(el){el.addEventListener('click',function(){this.classList.toggle('show')})})</script>
+</body>
+</html>

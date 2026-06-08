@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>評價分析框架</title>
+<style>body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#34c759,#5856d6);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px}
+.card h4{font-size:14px;margin:10px 0 4px;color:#555}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#e8edf5;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;text-align:center;border:1px solid #d0d5dd}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap;line-height:1.6;overflow-x:auto}
+code{background:#f0f0f2;padding:2px 4px;border-radius:4px;font-size:13px}
+pre code{background:none;padding:0}
+.context-box{background:#f0f4ff;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #007aff;font-size:13px;color:#555;line-height:1.6}
+.block-highlight{background:#fffde7;border-left:4px solid #ffd600;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:13px}
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-recall{background:#e8f5e9;color:#2e7d32}.tag-understand{background:#fff3e0;color:#e65100}
+.tag-explain{background:#e3f2fd;color:#1565c0}.tag-analyze{background:#fce4ec;color:#c62828}
+.tag-compare{background:#f3e5f5;color:#6a1b9a}.tag-evaluate{background:#ffebee;color:#b71c1c}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #34c759;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0}
+.q-item .a{display:none;background:#e8f5e9;border-radius:8px;padding:10px;margin-top:8px;font-size:13px;line-height:1.8}
+.q-item.show .a{display:block}
+ul,ol{padding-left:20px;font-size:14px;color:#333;line-height:1.8}
+li{margin:4px 0}
+p{font-size:14px;color:#333;line-height:1.8;margin:8px 0}
+strong{color:#1d1d1f}
+hr{display:none}
+@media(max-width:600px){.data-table{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>評價分析框架</h1>
+<div class="sub">F2 Science 复习资料</div>
+</div>
+<h1>評價分析框架</h1>
+<div class="context-box">評價題是歷史考試中認知層次最高的題型。不是考你「記不記得」，而是考你「會不會思考和判斷」。<br><br>評價 = 立場 + 論證 + 平衡</div>
+<h2>評價答題四步法（P-E-B-C）</h2>
+<h3>Step 1 — Position（表立場）</h3>
+<p>明確說出你的觀點：同意/不同意/部分同意。</p>
+<div class="context-box">**範例**：「我同意這個觀點，因為……」或「我部分同意，因為……」</div>
+<h3>Step 2 — Evidence（給證據）</h3>
+<p>用具體史實支持你的觀點。不要空談。</p>
+<div class="context-box">**範例**：「以鄭和為例，他的船隊有寶船長 138 米，每次 2-3 萬人……」</div>
+<h3>Step 3 — Balance（做平衡）</h3>
+<p>承認另一個角度的合理性。這是最能拉分的部分。</p>
+<div class="context-box">**範例**：「然而，也有觀點認為下西洋花費巨大……」</div>
+<h3>Step 4 — Conclusion（下結論）</h3>
+<p>綜合正反兩面，給出最終判斷。</p>
+<div class="context-box">**範例**：「總體而言，我認為……」或「雖然有負面影響，但正面意義更大……」</div>
+<div class="context-box">**口訣：先說你站哪，再用證據撐，反面也考慮，最後下結論。**</div>
+<h2>中二歷史常見評價題</h2>
+<table class="data-table">
+<thead><tr><th>評價對象</th><th>常見問題</th><th>思考方向</th></tr></thead>
+<tbody>
+<tr><td></td><td>鄭和下西洋</td><td>「鄭和下西洋是成功還是失敗？」</td><td>正面：宣揚國威/促進貿易；反面：花費巨大/得不償失</td><td></td></tr>
+<tr><td></td><td>閉關政策</td><td>「你認為閉關政策對清朝是好是壞？」</td><td>正面：維護穩定/減少衝突；反面：落後於世界/導致戰爭</td><td></td></tr>
+<tr><td></td><td>洋務運動</td><td>「洋務運動為甚麼失敗？誰的責任？」</td><td>客觀：守舊勢力/制度問題；主觀：只學技術不學制度</td><td></td></tr>
+<tr><td></td><td>戊戌維新</td><td>「維新派敗在哪裏？」</td><td>策略：太快太急；環境：守舊勢力太強；時機：不成熟</td><td></td></tr>
+<tr><td></td><td>清末新政</td><td>「新政為甚麼反而加速清朝滅亡？」</td><td>太晚來不及/改革讓人更失望/培養了革命者</td><td></td></tr>
+</tbody>
+</table>
+<h2>評價題通用模板</h2>
+<h3>模板一：「是否同意」類</h3>
+<pre><code>我（同意 / 部分同意 / 不同意）資料中的觀點。
+
+一方面，我認為……是有道理的，因為……
+（舉例論證 1-2 個史實）
+
+另一方面，資料的觀點也有不足之處，因為……
+（指出資料忽略的事實或另一面）
+
+綜合以上分析，我（仍然同意 / 傾向不同意 / 認為各有利弊），
+因為……（給出你的最終判斷）
+</code></pre>
+<h3>模板二：「評價人物/事件」類</h3>
+<pre><code>對（人物/事件）的評價應當一分為二來看。
+
+積極方面：
+- ______（事實一）
+- ______（事實二）
+
+消極方面：
+- ______（事實一）
+- ______（事實二）
+
+總體而言，我認為______。
+雖然有不足，但其（正面意義 / 歷史價值 / 深遠影響）不容忽視。
+</code></pre>
+<h2>答題示範</h2>
+<div class="context-box">**問題**：「鄭和下西洋雖然聲勢浩大，但花費巨大，得不償失。」你同意這個觀點嗎？試解釋你的看法。（6 分）</div>
+<p><strong>高分段答案示範</strong>：</p>
+<table class="data-table">
+<thead><tr><th>步驟</th><th>內容</th></tr></thead>
+<tbody>
+<tr><td></td><td>① 表立場</td><td>**部分同意**這個觀點。</td><td></td></tr>
+<tr><td></td><td>② 正面證據</td><td>花費巨大是真實的：每次出動數百艘船、2-3 萬人，回賜遠多於貢品，朝貢貿易是「厚往薄來」。國家財政負擔沉重，這是後繼皇帝停止下西洋的直接原因。</td><td></td></tr>
+<tr><td></td><td>③ 反面證據</td><td>但不能說「得不償失」。鄭和下西洋的政治和文化意義很大：宣揚了國威，三十多國來朝，促進了中外文化交流（如榴槤、長頸鹿傳入中國），推動了海上絲綢之路的發展。</td><td></td></tr>
+<tr><td></td><td>④ 平衡論證</td><td>如果只算經濟帳，確實不划算；但如果算政治和文化帳，鄭和下西洋的歷史價值是巨大的。</td><td></td></tr>
+<tr><td></td><td>⑤ 結論</td><td>**綜合而言**，我認為這個觀點看到了問題的一面，但忽略了鄭和下西洋的長遠歷史貢獻。</td><td></td></tr>
+</tbody>
+</table>
+<div class="context-box">**評分**：立場明確 1 分 + 正面論證 2 分 + 反面論證 2 分 + 結論 1 分</div>
+<div class="context-box">**問題**：「洋務運動完全失敗了。」你是否同意這個觀點？</div>
+<p><strong>答題結構</strong>：</p>
+<table class="data-table">
+<thead><tr><th>步驟</th><th>內容</th></tr></thead>
+<tbody>
+<tr><td></td><td>① 立場</td><td>**部分同意**。</td><td></td></tr>
+<tr><td></td><td>② 同意的一面</td><td>洋務運動的目標是「自強求富」，但 1895 年甲午戰爭北洋艦隊全軍覆沒，證明軍事近代化失敗。</td><td></td></tr>
+<tr><td></td><td>③ 不同意的一面</td><td>但洋務運動也有成果：建立了第一批近代工業（江南製造局、輪船招商局）、培養了第一批留學生（詹天佑等）、擴寬了國人視野。為後來的改革奠定了基礎。</td><td></td></tr>
+<tr><td></td><td>④ 結論</td><td>可以說洋務運動「目標失敗了，但客觀上推動了中國近代化」。</td><td></td></tr>
+</tbody>
+</table>
+<h2>評價答題常見錯誤</h2>
+<table class="data-table">
+<thead><tr><th>錯誤</th><th>表現</th><th>正確做法</th></tr></thead>
+<tbody>
+<tr><td></td><td>❌ 只說立場沒論證</td><td>「我同意，因為確實是這樣」</td><td>一定要舉具體史實</td><td></td></tr>
+<tr><td></td><td>❌ 只講一面</td><td>只說好處或只說壞處</td><td>正反兩面都要談</td><td></td></tr>
+<tr><td></td><td>❌ 沒有結論</td><td>分析了一堆但沒給最終判斷</td><td>用「總體而言/綜合來說」總結</td><td></td></tr>
+<tr><td></td><td>❌ 立場模糊</td><td>「好像有道理，又好像不對」</td><td>明確說出同意/不同意/部分同意</td><td></td></tr>
+</tbody>
+</table>
+<h2>實戰練習</h2>
+<h3>練習一：補全評價答案</h3>
+<div class="context-box">**問題**：你認為清廷的閉關政策正確嗎？</div>
+<p>請使用 P-E-B-C 框架補全以下答案：</p>
+<pre><code>我認為清廷的閉關政策___________________________________。
+
+從短期來看，閉關政策有合理之處：________________________。
+________________________________________________________。
+
+但從長期來看，閉關政策帶來了嚴重後果：____________________。
+________________________________________________________。
+
+綜合而言，我認為_________________________________________。
+</code></pre>
+<div class="context-box">**參考答案要點**：<br>- 短期合理：維護邊境穩定、減少外來衝突、保持傳統秩序<br>- 長期後果：錯過工業革命、閉目塞聽、導致落後挨打<br>- 結論：短期有利長期有害，最終弊大於利</div>
+<h3>練習二：自主評價</h3>
+<p><strong>問題</strong>：有人說「戊戌維新失敗是因為維新派太急了」，你同意嗎？試從不同角度分析。</p>
+<p><strong>提示</strong>：</p>
+<ul>
+<li>維新派角度：形勢危急，不變法就會亡國，必須快</li>
+<li>守舊派角度：改革觸動了太多人的利益，必然反撲</li>
+<li>客觀角度：103天的改革涵蓋政治經濟軍事教育，確實太快，未能爭取足夠支持</li>
+</ul>
+<h3>練習三：比較評價</h3>
+<p><strong>問題</strong>：比較洋務運動、戊戌維新、清末新政三場改革運動。你認為哪一場最有機會成功？為甚麼？</p>
+<div class="context-box">**提示**：選任何一個都可以，關鍵是論證要充分。例如：<br>- 洋務運動：最平穩但太淺，觸不到核心<br>- 戊戌維新：最徹底但太急，無法落地<br>- 清末新政：最全面但太晚，時不我與</div>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(function(el){el.addEventListener('click',function(){this.classList.toggle('show')})})</script>
+</body>
+</html>

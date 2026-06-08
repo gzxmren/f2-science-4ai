@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实验数据分析框架</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#34c759,#5856d6);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}
+.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#e8edf5;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;text-align:center;border:1px solid #d0d5dd}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #34c759;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0}
+.q-item .a{display:none;background:#e8f5e9;border-radius:8px;padding:10px;margin-top:8px;font-size:13px;line-height:1.8}
+.q-item.show .a{display:block}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap;line-height:1.6}
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-explain{background:#e3f2fd;color:#1565c0}
+.tag-analyze{background:#fce4ec;color:#c62828}
+.context-box{background:#f0f4ff;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #007aff;font-size:13px;color:#555;line-height:1.6}
+.method-card{background:#f0fff4;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #34c759}
+.method-card h4{font-size:14px;color:#2e7d32;margin-bottom:4px}
+.method-card p{font-size:13px;color:#555}
+@media(max-width:600px){.data-table{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>📈 实验数据分析框架</h1>
+<div class="sub">改编自历史科史料分析框架（S-T-A-R → V-C-D-C） | 适用于所有科学数据题</div>
+</div>
+
+<div class="card">
+<h2>核心思路</h2>
+<p style="font-size:14px;color:#555">科学考试中的资料题，通常给你一个实验情境 + 数据表/图表，然后问："根据以上数据，你能得出什么结论？" 这些题不是考你背不背得出，而是考你<strong>会不会从数据中提取信息并推理</strong>。</p>
+</div>
+
+<div class="card">
+<h2>科学四问法（V-C-D-C）</h2>
+
+<div class="method-card"><h4>V — Variables（变量识别）</h4><p>问：实验中哪些东西在变？哪些不变？<br>· <strong>Independent variable（自变量）</strong>：实验者主动改变的因素<br>· <strong>Dependent variable（因变量）</strong>：随自变量变化而改变的测量结果<br>· <strong>Controlled variables（控制变量）</strong>：必须保持不变的因素</p></div>
+<div class="method-card"><h4>C — Conditions（实验条件）</h4><p>检查实验设置：有没有对照组（control/blank）？有没有重复实验（repeats）？实验环境是室内/室外、光照/黑暗？</p></div>
+<div class="method-card"><h4>D — Data（数据分析）</h4><p>从数据中找规律：趋势（Trend）、对比（Compare）、异常值（Anomaly）、证据引用（Evidence）。必须用<strong>具体数字</strong>证明你的结论。</p></div>
+<div class="method-card"><h4>C — Conclusion（结论推导）</h4><p>结论必须基于数据，不能凭空想象。结论需要引用具体数据作为证据。指出实验的局限性（如有）。</p></div>
+
+<p style="margin-top:10px;font-size:14px;color:#555"><strong>口訣：看變量、查條件、讀數據、下結論。</strong></p>
+</div>
+
+<div class="card">
+<h2>常见数据题类型</h2>
+<table class="data-table">
+<tr><th>题型</th><th>问法</th><th>答题要点</th></tr>
+<tr><td>① 直接提取</td><td>"根据表1，当X=3时，Y的值是多少？"</td><td>直接读表/读图</td></tr>
+<tr><td>② 趋势描述</td><td>"描述温度对光合速率的影响。"</td><td>说变化趋势 + 引用数字</td></tr>
+<tr><td>③ 数据对比</td><td>"比较实验组和对照组的结果。"</td><td>两者差多少 + 差异说明</td></tr>
+<tr><td>④ 结论推导</td><td>"从数据中你能得出什么结论？"</td><td>结论 + 引用数据证明</td></tr>
+<tr><td>⑤ 局限性</td><td>"这个实验有什么不足？如何改进？"</td><td>变量控制、样本量、误差</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>答题模板</h2>
+<pre><strong>模板一：趋势分析</strong>
+根据数据，当（自变量）______时，（因变量）______。
+例如，当自变量从___增加到___时，因变量从___变为___。
+这说明______。
+
+<strong>模板二：数据对比</strong>
+比较实验组和对照组的数据：
+  实验组的______是______，而对照组的______是______。
+  两者相差______。
+这（支持/不支持）了______的假设。
+
+<strong>模板三：结论推导</strong>
+基于以上数据，可以得出的结论是：______。
+证据：
+① 当______时，______（引用具体数据）。
+② 当______时，______（引用具体数据）。
+因此，______。</pre>
+</div>
+
+<div class="card">
+<h2>案例一：光合速率与光照强度</h2>
+<div class="context-box">
+<strong>情境：</strong>一个学生用水生植物（Elodea）研究光照强度对光合速率的影响。改变灯泡与植物的距离，记录每分钟释放的气泡数。
+</div>
+<table class="data-table">
+<tr><th>灯泡距离（cm）</th><th>光照强度（相对值）</th><th>气泡数（每分钟）</th></tr>
+<tr><td>10</td><td>100</td><td>45</td></tr>
+<tr><td>20</td><td>50</td><td>28</td></tr>
+<tr><td>30</td><td>25</td><td>15</td></tr>
+<tr><td>40</td><td>12</td><td>8</td></tr>
+<tr><td>50</td><td>6</td><td>3</td></tr>
+</table>
+
+<h3>答题示范</h3>
+<p style="font-size:14px;color:#555"><strong>问题：</strong>根据以上数据，描述光照强度对光合速率的影响，并引用数据证明。</p>
+<div class="context-box">
+<strong>答案：</strong>根据数据，光照强度越大，光合速率越高。<br><br>
+<strong>证据：</strong>当灯泡距离从40cm（光照强度12）移动到10cm（光照强度100），气泡数从每分钟8个增加到45个，增加了约5.6倍。<br><br>
+但当距离从20cm（50）到10cm（100），光照强度增加了一倍，气泡数从28增加到45，只增加了约1.6倍。这提示<strong>光合速率的增加可能不是线性的</strong>——光照很强时，其他因素可能成为限制因素。
+</div>
+</div>
+
+<div class="card">
+<h2>案例二：温度对酶活性的影响</h2>
+<table class="data-table">
+<tr><th>温度（°C）</th><th>10</th><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th><th>70</th></tr>
+<tr><td>产物生成量（mg/min）</td><td>2</td><td>8</td><td>15</td><td>22</td><td>18</td><td>5</td><td>1</td></tr>
+</table>
+<div class="context-box">
+<strong>答案：</strong><br>
+<strong>最适温度：</strong>40°C时产物生成量最高（22 mg/min）。<br>
+<strong>低温影响：</strong>温度从40°C降至10°C，产物从22降至2 mg/min。低温降低分子运动速度，底物与酶碰撞机会减少。<br>
+<strong>高温影响：</strong>40°C升至70°C，产物从22降至1 mg/min。高温使酶（蛋白质）<strong>变性失活</strong>。
+</div>
+</div>
+
+<div class="card">
+<h2>实战练习</h2>
+
+<div class="q-item" onclick="this.classList.toggle('show')">
+<div class="q">练习一：肥料浓度对植物生长的影响 <span class="tag tag-analyze">analyze</span></div>
+<div class="context-box">一个学生用不同浓度的肥料溶液浇灌同种植物幼苗，两周后测量植物高度。<br>
+<table class="data-table"><tr><th>肥料浓度（g/L）</th><th>0</th><th>2</th><th>4</th><th>6</th><th>8</th><th>10</th></tr>
+<tr><td>平均高度（cm）</td><td>5</td><td>12</td><td>18</td><td>20</td><td>15</td><td>8</td></tr></table>
+</div>
+<div class="hint">自变量和因变量分别是什么？描述趋势。最适浓度？引用数据。</div>
+<div class="a">
+<strong>参考答案：</strong><br>
+1. 自变量=肥料浓度；因变量=植株平均高度<br>
+2. 浓度0→6g/L时高度上升，6→10g/L时高度下降<br>
+3. 最适浓度约6g/L（高度20cm最高）<br>
+4. 浓度过高可能"烧根"（渗透压过大，植物失水）
+</div>
+</div>
+
+<div class="q-item" onclick="this.classList.toggle('show')">
+<div class="q">练习二：不同波长光对光合作用的影响 <span class="tag tag-analyze">analyze</span></div>
+<div class="context-box">用不同颜色的滤光片照射 Elodea，记录气泡数。<br>
+<table class="data-table"><tr><th>颜色</th><th>红</th><th>橙</th><th>黄</th><th>绿</th><th>蓝</th><th>紫</th></tr>
+<tr><td>气泡数/分钟</td><td>38</td><td>25</td><td>15</td><td>5</td><td>30</td><td>22</td></tr></table>
+</div>
+<div class="hint">哪种波长的光最有效？引用数据。为什么绿光下最慢？</div>
+<div class="a">
+<strong>参考答案：</strong><br>
+1. 红光最有效（38气泡/分钟），蓝光次之（30气泡/分钟）<br>
+2. 叶绿素主要吸收红光和蓝紫光，<strong>反射绿光</strong>，所以绿光下光合速率最低<br>
+3. 不同波长的光对光合速率有显著影响，红光和蓝紫光最有效
+</div>
+</div>
+</div>
+
+<script>document.querySelectorAll('.q-item').forEach(function(el){el.addEventListener('click',function(){this.classList.toggle('show')})})</script>
+</div>
+</body>
+</html>

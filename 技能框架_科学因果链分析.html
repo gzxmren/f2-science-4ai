@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科学因果链分析框架</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#e3f2fd,#1565c0);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}
+.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px;color:#1565c0}
+.chain{background:#f0f4ff;border-radius:8px;padding:14px;margin:10px 0;font-family:monospace;font-size:13px;line-height:1.7;white-space:pre;overflow-x:auto;border-left:3px solid #1565c0}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#e3f2fd;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;border:1px solid #d0d5dd;font-size:13px}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #1565c0;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0}
+.q-item .a{display:none;background:#e3f2fd;border-radius:8px;padding:10px;margin-top:8px;font-size:13px;line-height:1.8}
+.q-item.show .a{display:block}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap;line-height:1.6}
+.context-box{background:#f0f4ff;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #007aff;font-size:13px;color:#555}
+.method-card{background:#e3f2fd;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #1565c0}
+.method-card h4{font-size:14px;color:#1565c0;margin-bottom:4px}
+.method-card p{font-size:13px;color:#555}
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-explain{background:#e3f2fd;color:#1565c0}
+@media(max-width:600px){.chain{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🔗 科学因果链分析框架</h1>
+<div class="sub">改编自历史科因果链分析框架 | 现象→原理→结果，建立逻辑链条</div>
+</div>
+
+<div class="card">
+<h2>科学因果链三步法</h2>
+<div class="method-card"><h4>Step 1 — 定位现象（What）</h4><p>确定你要分析的科学现象或过程。</p></div>
+<div class="method-card"><h4>Step 2 — 往前找原因（Why）</h4><p>问：这个现象为什么会发生？<br>
+· 根本原因：最深层的物理/化学/生物机制<br>
+· 直接原因：直接导致现象的因素<br>
+· 触发条件：使现象开始的特定条件<br>
+· 加剧因素：使现象恶化的因素
+</p></div>
+<div class="method-card"><h4>Step 3 — 往后推结果（So What）</h4><p>问：这个现象带来了什么后果？<br>
+· 直接影响 → 间接影响 → 短期影响 → 长期影响
+</p></div>
+</div>
+
+<div class="card">
+<h2>因果链一：温室效应</h2>
+<div class="chain">太阳辐射到达地球
+    ↓
+地球表面吸收热量 → 再以红外辐射放出
+    ↓
+大气中的温室气体（CO₂, CH₄等）吸收红外辐射
+    ↓                                          ← 根本原理（物理机制）
+人类活动：燃烧化石燃料 + 森林砍伐
+    ↓                                          ← 直接原因
+大气中CO₂浓度升高（从280ppm到420ppm）
+    ↓
+温室效应增强 → 全球气温上升
+    ↓                                          ← 直接影响
+冰川融化 → 海平面上升
+    ↓
+极端天气增多（热浪、干旱、暴雨）
+    ↓                                          ← 连锁反应
+生态系统变化 → 物种灭绝 → 农业生产受影响</div>
+</div>
+
+<div class="card">
+<h2>因果链二：酸雨的形成与影响</h2>
+<div class="chain">化石燃料燃烧（汽车、工厂、发电厂）
+    ↓
+释放 SO₂（二氧化硫）和 NOₓ（氮氧化物）
+    ↓
+与水蒸气和氧气反应 → 形成 H₂SO₄ 和 HNO₃
+    ↓                                          ← 化学原理
+酸雨（pH &lt; 5.6）
+    ↓
+土壤酸化 → 养分流失 | 湖泊酸化 → 水生生物死亡
+    ↓
+腐蚀建筑物（大理石/石灰岩） | 损害植物叶片 → 森林退化</div>
+</div>
+
+<div class="card">
+<h2>因果链三：近视的成因</h2>
+<div class="chain">长时间近距离用眼（看书、电子产品）
+    ↓
+睫状肌持续收缩 → 晶状体长时间处于"厚"的状态
+    ↓                                          ← 生理机制
+睫状肌疲劳 → 无法正常放松
+    ↓
+看远物时晶状体不能变薄 → 光线聚焦在视网膜前方
+    ↓                                          ← 物理原理
+看远处物体模糊（近视）</div>
+</div>
+
+<div class="card">
+<h2>因果链四：串联 vs 并联电路</h2>
+<div class="chain">串联电路：
+  电流只有一条路径 → 电流处处相等
+  → 一个灯泡烧坏 → 整个电路断开 → 所有灯泡熄灭
+  → 电压分配
+
+并联电路：
+  电流有多条路径 → 总电流 = 各支路电流之和
+  → 一个灯泡烧坏 → 其他支路仍闭合 → 其他正常亮
+  → 各支路电压相等，等于电源电压</div>
+</div>
+
+<div class="card">
+<h2>因果链五：火箭发射（作用力与反作用力）</h2>
+<div class="chain">火箭发动机向下喷出高温气体
+    ↓
+气体向下运动 → 获得向下的动量
+    ↓
+根据牛顿第三定律 → 气体对火箭施加向上的反作用力
+    ↓                                          ← 物理原理
+火箭获得向上的推力（thrust）
+    ↓
+当推力 &gt; 火箭重量时 → 火箭向上加速升空
+    ↓
+火箭持续上升 → 进入轨道</div>
+</div>
+
+<div class="card">
+<h2>答题模板</h2>
+<pre>______（现象）发生的原因是______。
+
+首先，______（根本原因/原理）。
+接着，______（直接原因/触发条件）。
+然后，______（直接影响）。
+最后，______（连锁反应/长期影响）。
+
+因此，______（结论总结）。</pre>
+</div>
+
+<div class="card">
+<h2>实战练习</h2>
+<div class="q-item" onclick="this.classList.toggle('show')">
+<div class="q">练习一：补充声音传播的因果链 <span class="tag tag-explain">explain</span></div>
+<div class="context-box">完成以下因果链：音叉振动 → （ ）→ 空气分子振动 → （ ）→（ ）→ 鼓膜振动 → 听觉神经 → 大脑</div>
+<div class="a"><strong>答案：</strong>音叉振动 → 压缩和稀疏周围空气 → 声波在空气中传播 → 声波传到耳朵 → 鼓膜振动 → 听觉神经 → 大脑</div>
+</div>
+
+<div class="q-item" onclick="this.classList.toggle('show')">
+<div class="q">练习二：解释出汗的因果链 <span class="tag tag-explain">explain</span></div>
+<div class="context-box">解释为什么马拉松运动员在比赛中会出汗？从"原因→机制→结果"三个层面回答。</div>
+<div class="a"><strong>答案：</strong>原因：肌肉运动产生大量热能，体温升高；机制：汗腺分泌汗液，汗液蒸发带走热量（蒸发吸热）；结果：体温维持在37°C左右，防止过热。</div>
+</div>
+
+<div class="q-item" onclick="this.classList.toggle('show')">
+<div class="q">练习三：密封容器内CO₂浓度下降 <span class="tag tag-explain">explain</span></div>
+<div class="context-box">密封透明玻璃容器中放一盆绿色植物，放在阳光下。两小时后CO₂浓度下降。解释原因。</div>
+<div class="a"><strong>答案：</strong>① 阳光下→植物进行光合作用 ② 光合作用消耗CO₂ ③ 容器密封→外界CO₂无法进入 ④ 因此CO₂浓度下降 ⑤ 若黑暗环境，光合停止，呼吸作用使CO₂上升</div>
+</div>
+</div>
+
+<script>document.querySelectorAll('.q-item').forEach(function(el){el.addEventListener('click',function(){this.classList.toggle('show')})})</script>
+</div>
+</body>
+</html>

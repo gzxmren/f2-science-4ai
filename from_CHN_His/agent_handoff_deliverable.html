@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>從地理到歷史：答題方法框架的遷移經驗總結</title>
+<style>body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#34c759,#5856d6);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px}
+.card h4{font-size:14px;margin:10px 0 4px;color:#555}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#e8edf5;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;text-align:center;border:1px solid #d0d5dd}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap;line-height:1.6;overflow-x:auto}
+code{background:#f0f0f2;padding:2px 4px;border-radius:4px;font-size:13px}
+pre code{background:none;padding:0}
+.context-box{background:#f0f4ff;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #007aff;font-size:13px;color:#555;line-height:1.6}
+.block-highlight{background:#fffde7;border-left:4px solid #ffd600;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:13px}
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-recall{background:#e8f5e9;color:#2e7d32}.tag-understand{background:#fff3e0;color:#e65100}
+.tag-explain{background:#e3f2fd;color:#1565c0}.tag-analyze{background:#fce4ec;color:#c62828}
+.tag-compare{background:#f3e5f5;color:#6a1b9a}.tag-evaluate{background:#ffebee;color:#b71c1c}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #34c759;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0}
+.q-item .a{display:none;background:#e8f5e9;border-radius:8px;padding:10px;margin-top:8px;font-size:13px;line-height:1.8}
+.q-item.show .a{display:block}
+ul,ol{padding-left:20px;font-size:14px;color:#333;line-height:1.8}
+li{margin:4px 0}
+p{font-size:14px;color:#333;line-height:1.8;margin:8px 0}
+strong{color:#1d1d1f}
+hr{display:none}
+@media(max-width:600px){.data-table{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>從地理到歷史：答題方法框架的遷移經驗總結</h1>
+<div class="sub">F2 Science 复习资料</div>
+</div>
+<h1>從地理到歷史：答題方法框架的遷移經驗總結</h1>
+<div class="context-box">本文檔記錄了中國歷史科複習資料的「深度×廣度×難度」三維改造過程。<br>供**西方歷史科**和**科學科**的 agent 參考借鑑。<br><br>改造靈感來源：地理 agent 的實戰復盤（`from_geo/agent_handoff_history_methodology.md`）<br>改造成果：本目錄下的 4 個 `技能框架_*.md` + `認知深度索引圖.md` + `模擬試卷.html（深度版）`</div>
+<h2>核心理念：問題不是「缺知識」，而是「缺方法」</h2>
+<p>無論哪個科目，學生最常見的問題都不是「不知道事實」，而是<strong>不會用事實來回答更高層次的問題</strong>。</p>
+<table class="data-table">
+<thead><tr><th>層次</th><th>學生能做的事</th><th>常見問題</th></tr></thead>
+<tbody>
+<tr><td></td><td>recall</td><td>背出定義、日期、人名</td><td>✅ 大部分學生能做到</td><td></td></tr>
+<tr><td></td><td>describe</td><td>描述事件經過</td><td>✅ 大部分能做到</td><td></td></tr>
+<tr><td></td><td>explain</td><td>解釋原因</td><td>⚠️ 需要引導</td><td></td></tr>
+<tr><td></td><td>analyze</td><td>分析影響、趨勢</td><td>⚠️ 需要框架</td><td></td></tr>
+<tr><td></td><td>compare</td><td>比較異同</td><td>❌ 需要方法</td><td></td></tr>
+<tr><td></td><td>evaluate</td><td>評價人物/事件/政策</td><td>❌ 最薄弱</td><td></td></tr>
+</tbody>
+</table>
+<p><strong>核心洞察</strong>：翻閱任何一份複習筆記，內容幾乎都是 recall 層次。而考試中能拉開分數的題目，都在 explain→evaluate 層次。</p>
+<h2>第一步：做三維診斷（1-2 小時）</h2>
+<h3>1.1 深度診斷（Depth）</h3>
+<p>拿起現有的複習資料，逐主題統計認知層次覆蓋率：</p>
+<pre><code>主題：XXX
+  recall    ████████████ 80%  ← 筆記大部分在這
+  describe  ████         20%
+  explain   ██           10%  ← 考試會考的缺口
+  analyze   █             5%
+  compare   █             5%
+  evaluate  █             5%
+</code></pre>
+<p><strong>判斷標準</strong>：</p>
+<ul>
+<li>如果 explain+analyze+compare+evaluate 合計 &lt; 30% → <strong>深度嚴重不足</strong></li>
+<li>如果 evaluate = 0% → <strong>開放題型完全缺乏準備</strong></li>
+</ul>
+<h3>1.2 廣度診斷（Breadth）</h3>
+<p>開一個表格，列出該科目特有的「過程性技能」：</p>
+<table class="data-table">
+<thead><tr><th>科目</th><th>過程性技能（可能被遺漏）</th></tr></thead>
+<tbody>
+<tr><td></td><td>**中國歷史** （已處理）</td><td>史料分析 · 因果鏈 · 對比框架 · 評價方法</td><td></td></tr>
+<tr><td></td><td><strong>西方歷史</strong></td><td>史料分析 · 時間線 · 因果鏈 · 比較文明 · 評價歷史人物</td><td></td></tr>
+<tr><td></td><td><strong>科學</strong></td><td>實驗設計 · 數據分析 · 圖表解讀 · 結論推導 · 誤差分析</td><td></td></tr>
+</tbody>
+</table>
+<p><strong>判斷標準</strong>：</p>
+<ul>
+<li>如果某項技能在複習筆記中「完全找不到對應章節」→ <strong>廣度缺口</strong></li>
+<li>檢查方法：搜索筆記中的關鍵詞（如「分析」「比較」「評價」「證明」）</li>
+</ul>
+<h3>1.3 難度診斷（Difficulty）</h3>
+<p>將模擬題和（如果有）真實試卷做對比：</p>
+<table class="data-table">
+<thead><tr><th>維度</th><th>模擬題</th><th>真實試卷（如果有）</th></tr></thead>
+<tbody>
+<tr><td></td><td>題型種類</td><td>幾種？</td><td>幾種？</td><td></td></tr>
+<tr><td></td><td>分值分佈</td><td>各題佔分</td><td>各題佔分</td><td></td></tr>
+<tr><td></td><td>認知層次</td><td>最高到哪一層？</td><td>最高到哪一層？</td><td></td></tr>
+<tr><td></td><td>需要引用證據</td><td>是否要求？</td><td>是否要求？</td><td></td></tr>
+</tbody>
+</table>
+<p><strong>判斷標準</strong>：</p>
+<ul>
+<li>模擬題的題型 &lt; 真實試卷的題型 → <strong>難度不匹配</strong></li>
+<li>模擬題的最高認知層次 &lt; 真實試卷的最高層次 → <strong>難度不足</strong></li>
+</ul>
+<h2>第二步：針對性地補充框架（2-4 小時）</h2>
+<p>診斷完之後，不要直接修補原有筆記——而是<strong>獨立創建「答題方法框架」文件</strong>。</p>
+<h3>2.1 框架文件的標準結構</h3>
+<p>每個框架文件應包含 4 個部分：</p>
+<pre><code>1. 方法說明（Step-by-step）
+   └── 用幾步能完成這類題目？
+
+2. 固定模板（Scaffold）
+   └── 填空式的答題結構，學生可以直接套用
+
+3. 該科目的具體案例
+   └── 用真實的教材內容做範例
+
+4. 實戰練習（附答案）
+   └── 學生可以做來自測
+</code></pre>
+<h3>2.2 中國歷史科的四個框架（可作為範本）</h3>
+<table class="data-table">
+<thead><tr><th>框架</th><th>核心方法</th><th>對應題型</th><th>對其他科目的可遷移性</th></tr></thead>
+<tbody>
+<tr><td></td><td><strong>史料分析</strong></td><td>S-T-A-R 四問法</td><td>資料題</td><td>**西方歷史**可直接複用，**科學科**可改為「數據/實驗結果分析」</td><td></td></tr>
+<tr><td></td><td><strong>因果鏈</strong></td><td>三步法 + 分類</td><td>解釋題</td><td>**西方歷史**可直接複用，**科學科**可改為「現象的原因和影響」</td><td></td></tr>
+<tr><td></td><td><strong>對比分析</strong></td><td>三步法 + 模板</td><td>比較題</td><td><strong>所有科目通用</strong></td><td></td></tr>
+<tr><td></td><td><strong>評價</strong></td><td>P-E-B-C 四步法</td><td>開放題</td><td><strong>所有科目通用</strong></td><td></td></tr>
+</tbody>
+</table>
+<h3>2.3 關鍵：不要猜答案，給方法</h3>
+<p>每個框架文件都應該教學生「如何思考」，而不是「這道題的答案是甚麼」。</p>
+<pre><code>❌ 不好：  「鴉片戰爭的原因是英國想打開中國市場。」
+✅ 更好：  「分析原因時，先區分遠因（長期結構性問題）和近因（直接觸發事件）。」
+</code></pre>
+<h2>第三步：改造模擬題（1-2 小時）</h2>
+<h3>3.1 題型-分值-認知層次矩陣</h3>
+<p>改造前後做一個對比表。以中國歷史為例：</p>
+<pre><code>改造前：
+  填空題 20分 (recall)    時序題 10分 (recall)    配對題 10分 (recall)
+  選擇題 20分 (recall)    資料題 40分 (analyze)    ← 資料題深度不足
+
+改造後：
+  填空題 20分 (recall)    時序題 10分 (understand)
+  配對題 10分 (recall)    選擇題 20分 (recall/understand)
+  史料分析題 40分 (analyze/compare/evaluate)
+                        ↑ 加入了 compare 和 evaluate
+</code></pre>
+<h3>3.2 資料題的關鍵升級</h3>
+<p>這是分值最高的部分，最容易拉開差距：</p>
+<table class="data-table">
+<thead><tr><th>舊版</th><th>新版</th></tr></thead>
+<tbody>
+<tr><td></td><td>提供改寫的總結性文字</td><td>提供有出處的真實史料（作者、年份、背景）</td><td></td></tr>
+<tr><td></td><td>只問「指出/列出」</td><td>問「指出並引用證據」</td><td></td></tr>
+<tr><td></td><td>只有 recall 層次</td><td>包含 analyze → compare → evaluate</td><td></td></tr>
+<tr><td></td><td>答案簡單</td><td>答案附評分標準 + 框架引用提示</td><td></td></tr>
+</tbody>
+</table>
+<h3>3.3 對科學科的特別建議</h3>
+<p>科學科的資料題可以類比為：</p>
+<table class="data-table">
+<thead><tr><th>歷史資料題</th><th>科學科對應</th></tr></thead>
+<tbody>
+<tr><td></td><td>一手史料（原始文獻）</td><td>原始實驗數據 / 觀測記錄</td><td></td></tr>
+<tr><td></td><td>二手史料（學者分析）</td><td>教科書結論 / 科學家論文</td><td></td></tr>
+<tr><td></td><td>S-T-A-R 分析</td><td>實驗設計評估（變量/對照/誤差/結論）</td><td></td></tr>
+<tr><td></td><td>資料引用論證</td><td>用數據證明結論</td><td></td></tr>
+<tr><td></td><td>評價史料可信度</td><td>評估實驗的可重複性和侷限性</td><td></td></tr>
+</tbody>
+</table>
+<h2>第四步：製作認知深度索引圖（30分鐘）</h2>
+<p>這是最後一步，作用是讓學生知道自己現在在哪裡、要去哪裡。</p>
+<h3>4.1 格式</h3>
+<p>按主題列出每個認知層次的覆蓋情況：</p>
+<pre><code>主題：XXX
+
+| 層次 | 你應該能…… | 覆蓋 | 參考 |
+|------|-----------|------|------|
+| recall | 說出…… | ✅ | 筆記第X頁 |
+| understand | 描述…… | ✅ | |
+| explain | 解釋為甚麼…… | ⚠️ | 因果鏈框架 |
+| analyze | 分析影響…… | ❌ | 待補充 |
+| compare | 比較…… | ⚠️ | 對比框架 |
+| evaluate | 評價…… | ❌ | 評價框架 |
+</code></pre>
+<h3>4.2 給出時間分配建議</h3>
+<pre><code>recall（知道）   20% 時間 ← 學生通常花 80% 時間在這裏
+understand（理解）15%
+explain（解釋）   20%
+analyze（分析）   20%
+compare（比較）   10%
+evaluate（評價）  15%
+</code></pre>
+<h2>可複用的工作流速查</h2>
+<h3>給其他 agent 的執行清單</h3>
+<pre><code>[ ] 讀取所有現有複習筆記和試題
+[ ] 做三維診斷：
+    [ ] 深度：統計各主題的認知層次覆蓋
+    [ ] 廣度：列出該科目特有的過程性技能
+    [ ] 難度：對比模擬題和真題的結構
+[ ] 製作診斷報告（附缺口標記）
+[ ] 對每個缺口，決定：
+    → 是「補框架」還是「改題目」？
+    → 如果是補框架 → 創建對應的技能框架文件
+    → 如果是改題目 → 改造模擬題的對應部分
+[ ] 製作認知深度索引圖
+[ ] 一次性 commit 所有修改
+</code></pre>
+<h2>給西方歷史和科學 agent 的快速參考表</h2>
+<p>以下是本次中國歷史科改造中創建/修改的每個文件，以及它們<strong>對你的科目的可複用程度</strong>。</p>
+<h3>可複用程度說明</h3>
+<table class="data-table">
+<thead><tr><th>標籤</th><th>含義</th></tr></thead>
+<tbody>
+<tr><td></td><td>✅ **可直接複用**</td><td>內容與科目無關，直接拿來用</td><td></td></tr>
+<tr><td></td><td>🔧 **需改案例**</td><td>框架和方法保留，把歷史案例換成你的科目案例</td><td></td></tr>
+<tr><td></td><td>🔨 **需重寫**</td><td>僅參考格式，內容需完全替換</td><td></td></tr>
+</tbody>
+</table>
+<h3>各文件的複用對照表</h3>
+<table class="data-table">
+<thead><tr><th>文件</th><th>西方歷史科</th><th>科學科</th></tr></thead>
+<tbody>
+<tr><td></td><td>`技能框架_史料分析.md`</td><td>✅ **可直接複用**<br>（S-T-A-R 四問法、一手/二手史料辨識都是通用的）</td><td>🔧 **需改為「實驗數據分析」版**<br>框架保留，把史料案例換成實驗數據、觀測記錄</td><td></td></tr>
+<tr><td></td><td>`技能框架_因果鏈分析.md`</td><td>✅ **可直接複用**<br>（三步法、遠因/近因分類完全適用）</td><td>🔧 **需改案例**<br>框架保留，把歷史因果鏈換成科學現象推理（如：溫室效應的因果鏈）</td><td></td></tr>
+<tr><td></td><td>`技能框架_對比分析.md`</td><td>✅ **可直接複用**<br>（三步法 + 比較模板通用）</td><td>✅ **可直接複用**<br>（比較框架本身科目無關，換對比對象即可）</td><td></td></tr>
+<tr><td></td><td>`技能框架_評價分析.md`</td><td>✅ **可直接複用**<br>（P-E-B-C 四步法通用）</td><td>🔧 **需改案例**<br>把歷史人物評價換成「評估實驗設計/科學理論」</td><td></td></tr>
+<tr><td></td><td>`認知深度索引圖.md`</td><td>🔧 **需改主題**<br>換成西方歷史的單元標題和內容</td><td>🔧 **需改主題**<br>換成科學科的主題（物理/化學/生物）</td><td></td></tr>
+<tr><td></td><td>`模擬試卷.html（深度版）`</td><td>🔧 **需改內容**<br>保留題型結構和認知層次分佈，把史料換成西方歷史內容</td><td>🔨 **需重寫**<br>但可參考「題型-分值-認知層次矩陣」的設計思路</td><td></td></tr>
+<tr><td></td><td>`模擬試卷_答案.html`</td><td>🔧 **需跟隨試卷同步改**</td><td>🔨 **需重寫**</td><td></td></tr>
+<tr><td></td><td>`from_geo/agent_handoff_history_methodology.md`</td><td>✅ **必須讀**<br>這是所有改造的原始靈感</td><td>✅ **必須讀**<br>原理解說不局限於科目</td><td></td></tr>
+<tr><td></td><td>`agent_handoff_deliverable.md`（本文）</td><td>✅ **必須讀**<br>方法論和執行清單</td><td>✅ **必須讀**<br>方法論和執行清單</td><td></td></tr>
+</tbody>
+</table>
+<h3>建議的閱讀和執行順序</h3>
+<p><strong>第一步（30分鐘）：讀懂全局</strong></p>
+<pre><code>1. from_geo/agent_handoff_history_methodology.md
+   └── 地理科的實戰復盤，理解「深度×廣度×難度」的由來
+2. agent_handoff_deliverable.md
+   └── 本文，完整的方法論和執行清單
+</code></pre>
+<p><strong>第二步（1-2小時）：做自己的三維診斷</strong></p>
+<pre><code>3. 讀取你的科目的複習筆記和試題
+4. 按本文第一步的方法，統計認知層次覆蓋率
+5. 列出你的科目特有的過程性技能
+6. 記錄缺口
+</code></pre>
+<p><strong>第三步（2-4小時）：創建或改造框架</strong></p>
+<pre><code>7. 按需複用/改編上表中的框架文件
+8. 每個框架按「方法說明→模板→案例→練習」四段結構
+</code></pre>
+<p><strong>第四步（1-2小時）：改造模擬題</strong></p>
+<pre><code>9. 建立題型-分值-認知層次矩陣
+10. 改造資料題，加入真實資料 + 要求引用證據 + 增加 compare/evaluate
+</code></pre>
+<p><strong>第五步（30分鐘）：收尾</strong></p>
+<pre><code>11. 製作認知深度索引圖
+12. 一次性 commit 所有修改
+</code></pre>
+<h2>最終提醒</h2>
+<ol>
+<li><strong>不要改原有的複習筆記</strong>——學生已經習慣了，改了會造成混亂。新增框架文件和索引圖即可。</li>
+<li><strong>框架文件之間不要重複</strong>——每個框架只解決一類問題。</li>
+<li><strong>模擬題改造要保留原有的 recall 部分</strong>——recall 題是基礎，不能丟掉，只是在上層增加 analyze/compare/evaluate。</li>
+<li><strong>方法優先於答案</strong>——給學生「釣竿」，而不是「魚」。</li>
+</ol>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(function(el){el.addEventListener('click',function(){this.classList.toggle('show')})})</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>因果鏈分析框架</title>
+<style>body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#34c759,#5856d6);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px}
+.card h4{font-size:14px;margin:10px 0 4px;color:#555}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#e8edf5;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;text-align:center;border:1px solid #d0d5dd}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap;line-height:1.6;overflow-x:auto}
+code{background:#f0f0f2;padding:2px 4px;border-radius:4px;font-size:13px}
+pre code{background:none;padding:0}
+.context-box{background:#f0f4ff;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #007aff;font-size:13px;color:#555;line-height:1.6}
+.block-highlight{background:#fffde7;border-left:4px solid #ffd600;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:13px}
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-recall{background:#e8f5e9;color:#2e7d32}.tag-understand{background:#fff3e0;color:#e65100}
+.tag-explain{background:#e3f2fd;color:#1565c0}.tag-analyze{background:#fce4ec;color:#c62828}
+.tag-compare{background:#f3e5f5;color:#6a1b9a}.tag-evaluate{background:#ffebee;color:#b71c1c}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #34c759;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0}
+.q-item .a{display:none;background:#e8f5e9;border-radius:8px;padding:10px;margin-top:8px;font-size:13px;line-height:1.8}
+.q-item.show .a{display:block}
+ul,ol{padding-left:20px;font-size:14px;color:#333;line-height:1.8}
+li{margin:4px 0}
+p{font-size:14px;color:#333;line-height:1.8;margin:8px 0}
+strong{color:#1d1d1f}
+hr{display:none}
+@media(max-width:600px){.data-table{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>因果鏈分析框架</h1>
+<div class="sub">F2 Science 复习资料</div>
+</div>
+<h1>因果鏈分析框架</h1>
+<div class="context-box">歷史考試最常問「為甚麼會這樣？」和「帶來了甚麼影響？」。不是背答案，而是會搭建因果鏈。</div>
+<h2>因果鏈三步法</h2>
+<h3>Step 1 — 定位事件（What）</h3>
+<p>確定你要分析的是哪個歷史事件。</p>
+<h3>Step 2 — 往前找原因（Why）</h3>
+<p>問：<strong>這件事為甚麼會發生？</strong></p>
+<table class="data-table">
+<thead><tr><th>原因類別</th><th>思考方向</th><th>例子（鴉片戰爭）</th></tr></thead>
+<tbody>
+<tr><td></td><td><strong>遠因（長期）</strong></td><td>結構性問題、長期矛盾</td><td>清廷閉關政策、英國工業革命</td><td></td></tr>
+<tr><td></td><td><strong>近因（短期）</strong></td><td>直接觸發點</td><td>林則徐虎門銷煙</td><td></td></tr>
+<tr><td></td><td><strong>根本原因</strong></td><td>最深層的結構性原因</td><td>中西方力量此消彼長</td><td></td></tr>
+<tr><td></td><td><strong>導火線</strong></td><td>最後一根稻草</td><td>英國國會通過對華出兵議案</td><td></td></tr>
+</tbody>
+</table>
+<h3>Step 3 — 往後推影響（So What）</h3>
+<p>問：<strong>這件事帶來了甚麼後果？</strong></p>
+<table class="data-table">
+<thead><tr><th>影響類別</th><th>思考方向</th><th>例子（《南京條約》）</th></tr></thead>
+<tbody>
+<tr><td></td><td><strong>直接影響</strong></td><td>立刻發生的後果</td><td>割讓香港島、五口通商</td><td></td></tr>
+<tr><td></td><td><strong>間接影響</strong></td><td>連鎖反應</td><td>白銀外流、社會矛盾加劇</td><td></td></tr>
+<tr><td></td><td><strong>短期影響</strong></td><td>幾年內</td><td>英國在華勢力擴大</td><td></td></tr>
+<tr><td></td><td><strong>長期影響</strong></td><td>幾十年後</td><td>中國逐步淪為半殖民地</td><td></td></tr>
+</tbody>
+</table>
+<h2>通用因果鏈模板</h2>
+<pre><code>遠因（背景）     近因（觸發）      事件         直接影響     連鎖反應
+    ↓                ↓              ↓            ↓            ↓
+[           ] → [           ] → [事件] → [           ] → [           ]
+    ↓                ↓                            ↓            ↓
+[           ] → [           ]                 [           ] → [           ]
+</code></pre>
+<h3>中二歷史關鍵因果鏈（必記）</h3>
+<h4>① 清朝由盛轉衰的因果鏈</h4>
+<pre><code>乾隆晚年和珅專權
+    ↓
+吏治敗壞 → 貪腐嚴重 → 國庫空虛
+    ↓                          ↓
+土地兼併 → 農民失地     軍隊腐化 → 白蓮教耗費二億兩
+    ↓                          ↓
+人口爆炸 → 耕地不足     無力鎮壓內亂
+    ↓
+                        ↓
+                清朝國力全面衰退
+</code></pre>
+<h4>② 鴉片戰爭的因果鏈</h4>
+<pre><code>英國工業革命
+    ↓
+生產力爆炸 → 需要原料和市場
+    ↓
+清廷閉關 → 一口通商 → 貿易逆差
+    ↓
+英國走私鴉片 → 白銀外流
+    ↓
+林則徐虎門銷煙（1839）
+    ↓
+英國出兵 → 第一次鴉片戰爭（1840-1842）
+    ↓
+《南京條約》→ 割香港、五口通商、賠款
+    ↓
+更多不平等條約 → 半殖民地化加深 → 社會矛盾激化
+</code></pre>
+<h4>③ 清朝滅亡的因果鏈</h4>
+<pre><code>兩次鴉片戰爭戰敗 → 洋務運動（學技術）
+          ↓
+    甲午戰敗 → 洋務失敗
+          ↓
+    戊戌維新（學制度）→ 慈禧政變推翻
+          ↓
+    八國聯軍 → 清廷威信掃地
+          ↓
+    清末新政（被迫全面改革）
+          ↓
+    皇族內閣 → 立憲派失望
+          ↓
+    革命思潮高漲 → 武昌起義 → 清朝滅亡
+</code></pre>
+<h2>答題示範</h2>
+<div class="context-box">**問題**：試分析清廷「閉關政策」如何導致了鴉片戰爭的爆發？</div>
+<p><strong>範例答案</strong>：</p>
+<table class="data-table">
+<thead><tr><th>答題部分</th><th>內容</th></tr></thead>
+<tbody>
+<tr><td></td><td>① 閉關政策的內容</td><td>清廷只開放廣州一口通商，並限制外商活動</td><td></td></tr>
+<tr><td></td><td>② 後果一</td><td>中英貿易失衡——中國大量出口茶葉絲綢，英國卻找不到商品平衡</td><td></td></tr>
+<tr><td></td><td>③ 後果二</td><td>英國轉向走私鴉片，白銀大量外流</td><td></td></tr>
+<tr><td></td><td>④ 觸發事件</td><td>林則徐虎門銷煙，英國找到出兵藉口</td><td></td></tr>
+<tr><td></td><td>⑤ 結論</td><td>閉關政策製造了貿易矛盾，間接導致了戰爭爆發</td><td></td></tr>
+</tbody>
+</table>
+<div class="context-box">**答題結構**：政策內容 → 直接後果 → 連鎖反應 → 終點事件</div>
+<h2>實戰練習</h2>
+<h3>練習一：補完因果鏈</h3>
+<p>完成以下因果鏈的空格：</p>
+<pre><code>英國走私鴉片 → [   ] → 銀貴錢賤 → 百姓負擔加重
+                          ↓
+                     [   ] → 皇帝派林則徐禁煙
+                          ↓
+                     虎門銷煙 → [   ]
+</code></pre>
+<div class="context-box">**答案**：白銀外流 → 道光皇帝憂慮 → 英國出兵</div>
+<h3>練習二：按要求搭建因果鏈</h3>
+<p><strong>問題</strong>：試用因果鏈解釋為甚麼洋務運動會失敗。</p>
+<p><strong>參考答案</strong>：</p>
+<pre><code>根本問題：只學技術不改制度（中體西用）
+    ↓
+軍事建設：北洋艦隊亞洲第一
+    ↓
+但體制不變：官員貪腐、管理混亂
+    ↓
+甲午戰爭 → 北洋艦隊全軍覆沒
+    ↓
+洋務運動失敗的證明
+</code></pre>
+<h3>練習三：多因素因果</h3>
+<p><strong>問題</strong>：清朝由盛轉衰的原因有哪些？把它們按照重要程度排序。</p>
+<p><strong>框架</strong>：</p>
+<ol>
+<li>吏治敗壞（和珅專權）→ 根本原因</li>
+<li>土地兼併 → 社會不穩</li>
+<li>人口爆炸 → 資源不足</li>
+<li>軍隊腐化 → 無法應對內亂</li>
+</ol>
+<div class="context-box">**答題提示**：排序題沒有標準答案，關鍵是你能否說出「為甚麼你認為這個更重要」。</div>
+
+</div>
+<script>document.querySelectorAll('.q-item').forEach(function(el){el.addEventListener('click',function(){this.classList.toggle('show')})})</script>
+</body>
+</html>

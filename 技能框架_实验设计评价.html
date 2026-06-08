@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实验设计评价框架</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px;margin:0}
+.container{max-width:800px;margin:0 auto}
+.header{background:linear-gradient(135deg,#ffebee,#b71c1c);color:#fff;padding:24px;border-radius:16px;margin-bottom:24px}
+.header h1{font-size:26px;margin-bottom:4px}
+.header .sub{opacity:.85;font-size:14px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.card h2{font-size:20px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #f0f0f2}
+.card h3{font-size:16px;margin:16px 0 8px;color:#b71c1c}
+.data-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.data-table th{background:#fce4ec;padding:6px 10px;text-align:center;font-weight:600;border:1px solid #d0d5dd}
+.data-table td{padding:6px 10px;border:1px solid #d0d5dd;font-size:13px}
+.q-item{background:#f9f9fb;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #b71c1c;cursor:pointer}
+.q-item .q{font-weight:600;font-size:14px;margin-bottom:4px}
+.q-item .hint{font-size:12px;color:#8e8e93;margin:4px 0}
+.q-item .a{display:none;background:#ffebee;border-radius:8px;padding:10px;margin-top:8px;font-size:13px;line-height:1.8}
+.q-item.show .a{display:block}
+pre{background:#f0f0f2;padding:12px;border-radius:8px;font-size:13px;white-space:pre-wrap;line-height:1.6}
+.context-box{background:#f0f4ff;border-radius:8px;padding:12px;margin:10px 0;border-left:3px solid #007aff;font-size:13px;color:#555;line-height:1.6}
+.method-card{background:#ffebee;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #b71c1c}
+.method-card h4{font-size:14px;color:#b71c1c;margin-bottom:4px}
+.method-card p{font-size:13px;color:#555}
+.checklist-table{width:100%;border-collapse:collapse;margin:8px 0;font-size:12px}
+.checklist-table th{background:#fce4ec;padding:6px 8px;border:1px solid #d0d5dd;text-align:center;font-weight:600}
+.checklist-table td{padding:6px 8px;border:1px solid #d0d5dd}
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-evaluate{background:#ffebee;color:#b71c1c}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🔬 实验设计评价框架</h1>
+<div class="sub">改编自历史科评价分析框架（P-E-B-C → J-E-A-L） | 高中认知层次题</div>
+</div>
+
+<div class="card">
+<h2>实验评价四步法（J-E-A-L）</h2>
+<div class="method-card"><h4>J — Judgment（判断）</h4><p>先给出整体判断：好 / 有缺陷 / 完全不合理</p></div>
+<div class="method-card"><h4>E — Evidence（找证据）</h4><p>具体指出实验设计的优点和问题</p></div>
+<div class="method-card"><h4>A — Adjustment（改进建议）</h4><p>针对发现的问题，提出具体的改进方案</p></div>
+<div class="method-card"><h4>L — Likelihood（结论可信度）</h4><p>综合评估：结论可信/部分可信/不可信</p></div>
+<p style="margin-top:10px;font-size:14px"><strong>口訣：先判好壞、找證據、提出改進、判斷可信度。</strong></p>
+</div>
+
+<div class="card">
+<h2>六维检查表</h2>
+<table class="checklist-table">
+<tr><th style="width:18%">维度</th><th style="width:41%">好实验的特点</th><th style="width:41%">常见问题</th></tr>
+<tr><td>变量控制</td><td>只有一个变量改变，其他都相同</td><td>多个变量同时改变</td></tr>
+<tr><td>对照组</td><td>有空白/对照组作为基线</td><td>没有对照组</td></tr>
+<tr><td>重复实验</td><td>重复3次以上，取平均值</td><td>只做一次</td></tr>
+<tr><td>样本量</td><td>使用多个样本</td><td>只用1个样本</td></tr>
+<tr><td>公平测试</td><td>其他条件严格保持一致</td><td>其他条件不同</td></tr>
+<tr><td>结论匹配</td><td>结论有数据支持</td><td>结论超出数据范围</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>答题模板</h2>
+<pre><strong>模板一：评价实验设计</strong>
+这个实验设计（合理/有缺陷/不合理）。
+
+优点/合理之处：
+- ______（具体指出好的方面）
+
+存在问题：
+- ______（具体指出问题）
+
+改进建议：
+- 应该______（具体改进方法）
+
+总体而言，这个实验的结论（可信/部分可信/不可信）。
+
+<strong>模板二：比较两个方案</strong>
+方案A比方案B（更好/各有优劣）。
+
+方案A的优点：______
+方案B的不足：______
+
+综合来看，______更合理。</pre>
+</div>
+
+<div class="card">
+<h2>案例一：肥料对植物生长的影响（合理）</h2>
+<div class="context-box">学生研究肥料对植物生长：一盆浇水+肥料，一盆只浇水。两周后施肥的20cm，只浇水的15cm。结论：肥料使植物长更高。</div>
+<table class="data-table">
+<tr><th>J-判断</th><td>✅ 基本合理——有对照组</td></tr>
+<tr><th>E-优点</th><td>有对照组（只浇水），自变量控制得当</td></tr>
+<tr><th>E-问题</th><td>① 每盆只有1株，样本太少 ② 无重复 ③ 未确保光照/水量一致</td></tr>
+<tr><th>A-改进</th><td>① 每组10株取平均 ② 重复3次 ③ 控制所有变量一致</td></tr>
+<tr><th>L-可信度</th><td>方向可信，具体"多了5cm"可能不准确</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>案例二：种子萌发（优秀）</h2>
+<div class="context-box">研究水是否为种子萌发必要条件：两组各10粒绿豆，加水和无水，均放在25°C暗室。5天后记录。</div>
+<table class="data-table">
+<tr><th>J-判断</th><td>✅ 实验设计合理</td></tr>
+<tr><th>E-优点</th><td>① 一个变量不同 ② 有对照组 ③ 每组10粒 ④ 控制温度光照</td></tr>
+<tr><th>A-改进</th><td>可加"无水+有氧"组全面验证，重复2-3次</td></tr>
+<tr><th>L-可信度</th><td>结论可信度高</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>案例三：声音在真空中传播（有缺陷）</h2>
+<div class="context-box">闹钟放玻璃罩内抽气，仍听到微弱声音。结论：声音可在真空中传播。这是错的。</div>
+<table class="data-table">
+<tr><th>J-判断</th><td>❌ 结论错误，实验有缺陷</td></tr>
+<tr><th>E-问题</th><td>① 抽气泵不能完全抽走空气 ② 声音可通过玻璃罩（固体）传播</td></tr>
+<tr><th>A-改进</th><td>用更高效真空泵，闹钟放软垫上减少桌面振动传播</td></tr>
+<tr><th>L-可信度</th><td>结论不可信——不能因设备不够好就否定物理原理</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>实战练习</h2>
+<div class="q-item" onclick="this.classList.toggle('show')">
+<div class="q">练习一：水蚤心率实验 <span class="tag tag-evaluate">evaluate</span></div>
+<div class="context-box">用1只水蚤，先在20°C测心率，然后加热到30°C测同1只。结论：温度升高使心率加快。</div>
+<div class="a"><strong>要点：</strong>J:基本思路可但不够严谨。E优点:控制了同一只(消除个体差异)。E问题:①只用1只 ②温度变化太快可能应激 ③无重复。A:用10只各测一次，适应2分钟再测，重复实验。L:方向可信，具体数据有误差。</div>
+</div>
+
+<div class="q-item" onclick="this.classList.toggle('show')">
+<div class="q">练习二：设计"植物生长需要光照"实验 <span class="tag tag-evaluate">evaluate</span></div>
+<div class="context-box">设计一个实验，说明自变量、因变量、控制变量、对照组。</div>
+<div class="a"><strong>要点：</strong>自变量=光照(有光vs无光)；因变量=高度/叶色；控制变量=同种植物/相同土壤/水量/温度；对照组=正常光照；实验组=完全黑暗；预期:有光组正常，无光组徒长。</div>
+</div>
+
+<div class="q-item" onclick="this.classList.toggle('show')">
+<div class="q">练习三：比较两个酶活性实验方案 <span class="tag tag-evaluate">evaluate</span></div>
+<div class="context-box">方案A:5份独立酶溶液各调到不同pH。方案B:同一份溶液反复调pH。</div>
+<div class="a"><strong>答案：</strong>方案A更好。每份独立样本pH精确可控。方案B反复加酸碱改变体积和浓度，酶可能已失活。</div>
+</div>
+</div>
+
+<script>document.querySelectorAll('.q-item').forEach(function(el){el.addEventListener('click',function(){this.classList.toggle('show')})})</script>
+</div>
+</body>
+</html>
