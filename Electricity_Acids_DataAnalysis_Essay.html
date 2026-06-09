@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡🧪 Electricity & Acids-Alkalis — Data Analysis & Essay Deep Dive</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Noto Sans SC',sans-serif;background:#f5f5f7;color:#1d1d1f;line-height:1.7;padding:20px}
+.container{max-width:860px;margin:0 auto}
+.hero{background:linear-gradient(135deg,#5856d6,#ff3b30);color:#fff;padding:28px;border-radius:16px;margin-bottom:20px}
+.hero h1{font-size:24px;margin-bottom:4px}
+.hero .sub{opacity:.85;font-size:13px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.hero .meta span{display:inline-block;background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:6px;font-size:11px}
+
+.banner{background:#1d1d1f;color:#fff;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:13px;line-height:1.6}
+.banner strong{color:#ff9500}
+.banner code{background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;font-size:12px}
+
+.section{background:#fff;border-radius:12px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,0.08);overflow:hidden}
+.sh{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;cursor:pointer;user-select:none;font-weight:700;font-size:16px;border-bottom:1px solid transparent}
+.sh:hover{opacity:.9}
+.section.open .sh{border-bottom-color:#f0f0f2}
+.sh .arrow{font-size:13px;transition:transform 0.2s;color:rgba(255,255,255,0.7)}
+.section.open .sh .arrow{transform:rotate(90deg)}
+.sb{display:none;padding:16px 18px 18px}
+.section.open .sb{display:block}
+
+.s1 .sh{background:#5856d6;color:#fff}
+.s2 .sh{background:#34c759;color:#fff}
+.s3 .sh{background:#007aff;color:#fff}
+.s4 .sh{background:#ff9500;color:#fff}
+.s5 .sh{background:#ff3b30;color:#fff}
+.s6 .sh{background:#af52de;color:#fff}
+.s7 .sh{background:#1d1d1f;color:#fff}
+
+h3{font-size:15px;color:#1d1d1f;margin:14px 0 6px;padding-bottom:4px;border-bottom:1px solid #e5e5ea}
+h4{font-size:13px;color:#555;margin:10px 0 4px}
+
+/* 框架速查 */
+.fbox{background:#f9f9fb;border-radius:10px;padding:14px;margin:8px 0;border-left:4px solid #5856d6}
+.fbox h4{font-size:14px;color:#1d1d1f;margin:0 0 4px}
+.fbox p{font-size:13px;color:#555;margin:2px 0}
+.fbox .step{display:flex;gap:8px;margin:4px 0;font-size:13px}
+.fbox .step .label{font-weight:700;color:#5856d6;min-width:28px}
+
+/* 數據表 */
+.dtable{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.dtable th{background:#f0f0f2;padding:7px 10px;text-align:center;font-weight:600;font-size:12px}
+.dtable td{padding:6px 10px;text-align:center;border-bottom:1px solid #f0f0f2}
+
+/* 實驗情境 */
+.exp-box{background:#f9f9fb;border:1px solid #e5e5ea;border-radius:10px;padding:12px 14px;margin:8px 0}
+.exp-box .label{font-size:11px;font-weight:700;color:#8e8e93;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.exp-box p{font-size:13px;color:#333}
+
+/* 答題示範 */
+.ans-demo{background:#f0faf0;border-left:4px solid #34c759;border-radius:0 8px 8px 0;padding:10px 14px;margin:8px 0;font-size:13px;line-height:1.7}
+.ans-demo .al{font-size:11px;font-weight:700;color:#34c759;margin-bottom:2px}
+.ans-demo .hl{background:#fff3cd;padding:0 2px}
+.ans-demo .method{display:inline-block;font-size:10px;background:#e8f5e9;padding:1px 8px;border-radius:8px;color:#2e7d32;margin-right:4px}
+
+/* 題目框 */
+.q-box{background:#fff8e1;border-left:4px solid #ff9500;padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0}
+.q-box .ql{font-size:11px;font-weight:700;color:#e65100;margin-bottom:2px}
+.q-box .qt{font-size:14px;font-weight:600;color:#1d1d1f}
+
+/* 圖表佔位 */
+.chart-placeholder{background:linear-gradient(135deg,#f9f9fb,#e5e5ea);border-radius:8px;padding:20px;text-align:center;margin:8px 0;font-size:13px;color:#8e8e93;border:2px dashed #d1d1d6}
+
+/* 口訣卡 */
+.tip-card{background:#fff5e0;border-radius:8px;padding:10px 14px;margin:6px 0;font-size:13px}
+.tip-card strong{color:#e65100}
+
+/* 對比表 */
+.ctable{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+.ctable th{background:#1d1d1f;color:#fff;padding:8px 10px;text-align:left;font-weight:600}
+.ctable td{padding:7px 10px;border-bottom:1px solid #e5e5ea;vertical-align:top}
+.ctable .dim{font-weight:600;color:#5856d6}
+
+/* 公式框 */
+.formula{background:#1d1d1f;color:#fff;border-radius:8px;padding:14px;text-align:center;margin:8px 0;font-size:16px}
+.formula .sub{font-size:12px;color:#8e8e93;margin-top:2px}
+
+.progress{display:flex;gap:4px;justify-content:center;margin:10px 0 14px;flex-wrap:wrap}
+.progress span{font-size:10px;padding:3px 8px;border-radius:10px;font-weight:500}
+.progress .on{background:#5856d6;color:#fff}
+.progress .off{background:#e5e5ea;color:#8e8e93}
+
+.footer{text-align:center;margin-top:24px;font-size:12px;color:#bbb;padding-bottom:24px}
+.footer a{color:#5856d6;text-decoration:none}
+
+@media(max-width:500px){
+  .dtable,.ctable{font-size:12px}
+  .dtable th,.dtable td,.ctable th,.ctable td{padding:5px 6px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <h1>⚡🧪 Electricity & Acids-Alkalis</h1>
+  <div class="sub">Data Analysis & Essay Deep Dive — V-C-D-C · J-E-A-L · Principle + Experiment</div>
+  <div class="meta">
+    <span>📘 Unit 8: Electricity</span>
+    <span>🧪 Unit 9: Acids & Alkalis</span>
+    <span>🎯 Data Analysis + Essay Focus</span>
+  </div>
+</div>
+
+<div class="banner">
+  <strong>🧠 本複習使用兩大科學技能框架</strong><br>
+  <strong>📊 V-C-D-C 四問法</strong>（實驗數據分析）— 變量→條件→數據→結論<br>
+  <strong>🔍 J-E-A-L 四步法</strong>（實驗設計評價）— 判斷→證據→改進→限制<br>
+  每個數據題和問答題旁邊都會標註使用哪個框架。
+  → 完整框架參見 <a href="技能框架_实验数据分析.html" style="color:#ff9500;">數據分析框架</a> · <a href="技能框架_实验设计评价.html" style="color:#ff9500;">實驗評價框架</a>
+</div>
+
+<!-- Framework Refresher -->
+<div class="section s1 open" id="s1">
+  <div class="sh" onclick="toggle(this.parentElement)">
+    <span>📋 Framework Refresher — V-C-D-C & J-E-A-L</span>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="sb">
+
+    <div class="fbox" style="border-left-color:#5856d6;">
+      <h4>📊 V-C-D-C 四問法（數據分析用）</h4>
+      <div class="step"><span class="label">V</span> <strong>Variables</strong> — 辨認自變量（改變）、因變量（測量）、控制變量（不變）</div>
+      <div class="step"><span class="label">C</span> <strong>Conditions</strong> — 檢查實驗條件：有無對照組？有無重複？</div>
+      <div class="step"><span class="label">D</span> <strong>Data</strong> — 分析數據：趨勢？對比？異常值？引用具體數字</div>
+      <div class="step"><span class="label">C</span> <strong>Conclusion</strong> — 基於數據推結論，指出局限性</div>
+      <p style="margin-top:4px;font-weight:600;color:#5856d6;">口訣：看變量 → 查條件 → 讀數據 → 下結論</p>
+    </div>
+
+    <div class="fbox" style="border-left-color:#34c759;">
+      <h4>🔍 J-E-A-L 四步法（實驗評價用）</h4>
+      <div class="step"><span class="label" style="color:#34c759;">J</span> <strong>Judgment</strong> — 判斷：設計合理 / 有缺陷 / 完全不嚴謹</div>
+      <div class="step"><span class="label" style="color:#34c759;">E</span> <strong>Evidence</strong> — 列出優點和問題（變量控制、對照組、重複、樣本量）</div>
+      <div class="step"><span class="label" style="color:#34c759;">A</span> <strong>Adjustment</strong> — 提出具體改進方案</div>
+      <div class="step"><span class="label" style="color:#34c759;">L</span> <strong>Limitations</strong> — 指出實驗的局限性和結論的可信度</div>
+      <p style="margin-top:4px;font-weight:600;color:#34c759;">口訣：先判斷 → 找證據 → 提改進 → 說局限</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== PART 1: ELECTRICITY ====== -->
+<div class="section s2 open" id="s2">
+  <div class="sh" onclick="toggle(this.parentElement)">
+    <span>⚡ PART 1 — Electricity: Data Analysis</span>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="sb">
+
+    <!-- Experiment 1: Ohm's Law -->
+    <div class="exp-box">
+      <div class="label">🔬 Experiment 1 — Ohm's Law (V = IR)</div>
+      <p>A student sets up a circuit with a resistor and a variable power supply. She measures the current at different voltages. The results are shown below.</p>
+    </div>
+
+    <table class="dtable">
+      <tr><th>Voltage (V)</th><td>0</td><td>1.5</td><td>3.0</td><td>4.5</td><td>6.0</td><td>7.5</td><td>9.0</td></tr>
+      <tr><th>Current (A)</th><td>0</td><td>0.10</td><td>0.20</td><td>0.30</td><td>0.41</td><td>0.49</td><td>0.60</td></tr>
+    </table>
+
+    <div class="q-box">
+      <div class="ql">📝 Data Analysis Question</div>
+      <div class="qt">(a) Identify the independent variable and dependent variable in this experiment.<br>
+      (b) Describe the relationship between voltage and current. Quote specific data to support your answer.<br>
+      (c) Calculate the resistance of the resistor. Show your working.<br>
+      (d) Predict the current if the voltage is increased to 12V. Justify your prediction.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">V-C-D-C</span></div>
+      <strong>V — Variables:</strong> IV = Voltage (changed by power supply); DV = Current (measured by ammeter); CV = Same resistor, same circuit.<br><br>
+      <strong>D — Data analysis:</strong><br>
+      (a) <strong>IV</strong> = Voltage, <strong>DV</strong> = Current.<br>
+      (b) The current increases <span class="hl">proportionally</span> with voltage. When voltage increases from 1.5V to 6.0V (4× increase), the current increases from 0.10A to 0.41A (≈4× increase). The graph would be a straight line through the origin.<br>
+      (c) <span class="hl">R = V/I = 6.0 ÷ 0.41 ≈ 14.6 Ω</span> (using another point: 3.0 ÷ 0.20 = 15 Ω, average ≈ 14.8 Ω).<br>
+      (d) Predicted current at 12V: <span class="hl">I = V/R = 12 ÷ 14.8 ≈ 0.81 A</span>. This assumes the resistor obeys Ohm's Law (which it does — the data shows a linear relationship).<br><br>
+      <strong>C — Conclusion:</strong> The current through a resistor is <span class="hl">directly proportional</span> to the voltage across it (Ohm's Law: V = IR).
+    </div>
+
+    <!-- Experiment 2: Series vs Parallel -->
+    <div class="exp-box">
+      <div class="label">🔬 Experiment 2 — Series vs Parallel Circuits</div>
+      <p>A student connects three identical bulbs (each 6V, 0.3A rated) in series and then in parallel with a 6V battery. She measures the brightness (by counting light meter readings) and current in each circuit.</p>
+    </div>
+
+    <table class="dtable">
+      <tr><th>Circuit Type</th><th>Total Current (A)</th><th>Brightness per bulb</th><th>Voltage per bulb (V)</th></tr>
+      <tr><td>Series (3 bulbs)</td><td>0.10</td><td>Dim</td><td>2.0</td></tr>
+      <tr><td>Parallel (3 bulbs)</td><td>0.90</td><td>Bright (normal)</td><td>6.0</td></tr>
+      <tr><td>Single bulb (reference)</td><td>0.30</td><td>Bright (normal)</td><td>6.0</td></tr>
+    </table>
+
+    <div class="q-box">
+      <div class="ql">📝 Data Analysis + Essay Question</div>
+      <div class="qt">(a) Explain why the bulbs in series are dimmer than the bulbs in parallel.<br>
+      (b) Use the data to calculate the resistance of ONE bulb.<br>
+      (c) Calculate the total resistance of the series circuit and the parallel circuit.<br>
+      (d) Why is the total current in the parallel circuit (0.90A) exactly three times that of a single bulb (0.30A)?<br>
+      (e) <strong>Essay:</strong> Compare the advantages and disadvantages of series and parallel circuits in household wiring. Use scientific principles to support your answer.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">V-C-D-C</span> + <span class="method">J-E-A-L</span></div>
+      <strong>(a) Brightness difference:</strong><br>
+      In <strong>series</strong>, voltage is shared: 6V ÷ 3 = 2V per bulb. Each bulb only gets 2V, so it's dim.<br>
+      In <strong>parallel</strong>, each bulb gets the <span class="hl">full 6V</span> — same as the single bulb — so they all shine at normal brightness.<br><br>
+      <strong>(b) Resistance of one bulb:</strong> R = V/I = 6V ÷ 0.30A = <span class="hl">20 Ω</span>.<br><br>
+      <strong>(c) Total resistance:</strong><br>
+      Series: R<sub>total</sub> = 20 + 20 + 20 = <span class="hl">60 Ω</span> (V=6V, I=0.10A → R=6÷0.10=60Ω ✓)<br>
+      Parallel: 1/R<sub>total</sub> = 1/20 + 1/20 + 1/20 → R<sub>total</sub> = <span class="hl">6.67 Ω</span> (V=6V, I=0.90A → R=6÷0.90=6.67Ω ✓)<br><br>
+      <strong>(d) Why 3× current?</strong> In parallel, each bulb draws 0.30A independently. Total current = 0.30 + 0.30 + 0.30 = 0.90A. <span class="hl">Parallel branches are independent</span> — adding more bulbs doesn't reduce voltage per bulb.<br><br>
+      <strong>(e) Essay — Series vs Parallel in Household Wiring:</strong><br>
+      <span class="hl">Household circuits use PARALLEL wiring.</span> This is because:<br>
+      ① Each appliance gets the <strong>full mains voltage (220V)</strong>, ensuring normal operation.<br>
+      ② Appliances can be <strong>switched on/off independently</strong> — one bulb blowing doesn't affect others.<br>
+      ③ Adding more appliances <strong>reduces total resistance</strong> and increases total current — this is why overloading is a risk.<br><br>
+      Series circuits are <strong>not suitable</strong> for households because: voltage is shared (dim lights), one break stops everything (e.g. old Christmas tree lights), and all devices must be on simultaneously.
+    </div>
+
+    <!-- Experiment 3: Factors Affecting Resistance -->
+    <div class="exp-box">
+      <div class="label">🔬 Experiment 3 — Factors Affecting Resistance of a Wire</div>
+      <p>A student investigates how the length of a nichrome wire affects its resistance. She connects different lengths of the same wire to a 3V supply and measures the current.</p>
+    </div>
+
+    <table class="dtable">
+      <tr><th>Length of wire (cm)</th><td>20</td><td>40</td><td>60</td><td>80</td><td>100</td></tr>
+      <tr><th>Current (A)</th><td>2.00</td><td>1.00</td><td>0.67</td><td>0.50</td><td>0.40</td></tr>
+      <tr><th>Resistance (Ω)</th><td>1.5</td><td>3.0</td><td>4.5</td><td>6.0</td><td>7.5</td></tr>
+    </table>
+
+    <div class="q-box">
+      <div class="ql">📝 Data Analysis + Essay Question</div>
+      <div class="qt">(a) Complete the resistance row (using R = V/I, V = 3V).<br>
+      (b) Describe the relationship between wire length and resistance. Quote data.<br>
+      (c) Predict the resistance of a 150 cm wire made of the same material. Show your working.<br>
+      (d) <strong>Essay:</strong> Apart from length, describe TWO other factors that affect the resistance of a wire. For each factor, explain WHY it affects resistance using particle theory / electron movement.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">V-C-D-C</span></div>
+      <strong>V — Variables:</strong> IV = Length of wire; DV = Current (→ calculate Resistance); CV = Same material (nichrome), same thickness, same voltage (3V), same temperature.<br><br>
+      <strong>D — Data analysis:</strong><br>
+      (a) Resistance row already filled: 20cm→1.5Ω, 40cm→3.0Ω, 60cm→4.5Ω, 80cm→6.0Ω, 100cm→7.5Ω<br>
+      (b) Resistance is <span class="hl">directly proportional</span> to length. When length doubles from 20cm to 40cm, resistance doubles from 1.5Ω to 3.0Ω. When length increases 5× (20→100cm), resistance increases 5× (1.5→7.5Ω).<br>
+      (c) Since R ∝ L: R at 150cm = 7.5 × (150/100) = <span class="hl">11.25 Ω</span> (or 1.5 × 150/20 = 11.25 Ω).<br><br>
+      <strong>(d) Essay — Two other factors affecting resistance:</strong><br><br>
+      <strong>① Cross-sectional area (thickness):</strong> Thicker wires have <span class="hl">lower resistance</span>. This is because a thicker wire provides <strong>more space for electrons to flow</strong> — like a wide pipe allows more water to flow than a narrow pipe. Doubling the cross-sectional area halves the resistance.<br><br>
+      <strong>② Temperature:</strong> For most metals, increasing temperature <span class="hl">increases resistance</span>. This is because higher temperature causes <strong>metal atoms to vibrate more</strong>, making it harder for electrons to pass through the lattice — more collisions between electrons and vibrating atoms.<br><br>
+      <span class="hl">Formula summary:</span> R ∝ L (length), R ∝ 1/A (cross-sectional area), and R increases with temperature (for metals).
+    </div>
+
+  </div>
+</div>
+
+<!-- PART 2: Electricity Essay Questions -->
+<div class="section s3 open" id="s3">
+  <div class="sh" onclick="toggle(this.parentElement)">
+    <span>✍️ PART 2 — Electricity: Essay + Experiment Evaluation</span>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="sb">
+
+    <!-- Essay 1: Short circuit + safety -->
+    <div class="q-box">
+      <div class="ql">📝 Essay Question 1 — Short Circuit & Safety</div>
+      <div class="qt">A student connects a wire directly across the terminals of a battery (bypassing the bulb). The wire becomes very hot.<br><br>
+      (a) Explain, using the concept of resistance, why the wire gets hot.<br>
+      (b) Describe TWO safety devices in a household circuit that prevent this type of hazard. Explain how each device works.<br>
+      (c) Why is it dangerous to touch a bare live wire in a household circuit?</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">J-E-A-L</span> for (b)</div>
+      <strong>(a) Why the wire gets hot:</strong><br>
+      When a wire is connected directly across the battery (short circuit), the current bypasses the bulb (which had resistance). The wire itself has <span class="hl">very low resistance</span>. According to I = V/R, when R is very small, the current becomes <span class="hl">very large</span>. This large current causes the wire to heat up rapidly (heating effect of current: P = I²R).<br><br>
+      <strong>(b) Safety devices:</strong><br>
+      <strong>① Fuse:</strong> A thin wire that melts and breaks the circuit if current exceeds a safe value. It is connected in <span class="hl">series</span> with the live wire. If a fault causes high current, the fuse melts first, cutting off the supply and preventing fire.<br>
+      <strong>② Earth wire (grounding):</strong> A low-resistance wire connected to the metal casing of an appliance. If the live wire touches the metal casing, current flows through the earth wire (not through the user), <span class="hl">triggering a large current that blows the fuse</span> and cuts off the supply.<br><br>
+      <strong>(c) Danger of touching a live wire:</strong> The human body provides a <span class="hl">path to earth</span>. Current flows through the body, causing electric shock. Household voltage (220V) can deliver a fatal current > 30 mA.
+    </div>
+
+    <!-- Essay 2: Power -->
+    <div class="q-box">
+      <div class="ql">📝 Essay Question 2 — Electrical Power & Energy</div>
+      <div class="qt">A household has the following appliances:<br>
+      • Refrigerator: 150W, runs 24 hours/day<br>
+      • Air conditioner: 2000W, runs 6 hours/day<br>
+      • LED TV: 100W, runs 4 hours/day<br><br>
+      (a) Calculate the daily energy consumption of each appliance in kWh.<br>
+      (b) If electricity costs $1.2 per kWh, calculate the daily cost of running all three appliances.<br>
+      (c) The air conditioner and the TV are connected to the same 13A socket (220V). Explain whether this is safe, using calculations.<br>
+      (d) <strong>Evaluate:</strong> Suggest TWO ways to reduce electricity bills. For each suggestion, explain the scientific principle behind it.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer</div>
+      <strong>Formulas:</strong> P = VI (Power = Voltage × Current), E = P × t (Energy = Power × Time)<br><br>
+      <strong>(a) Daily energy:</strong><br>
+      Refrigerator: 0.15 kW × 24 h = <span class="hl">3.6 kWh</span><br>
+      AC: 2.0 kW × 6 h = <span class="hl">12.0 kWh</span><br>
+      TV: 0.1 kW × 4 h = <span class="hl">0.4 kWh</span><br><br>
+      <strong>(b) Daily cost:</strong> (3.6 + 12.0 + 0.4) × $1.2 = 16.0 × 1.2 = <span class="hl">$19.20/day</span>.<br><br>
+      <strong>(c) Safety check:</strong><br>
+      AC current: I = P/V = 2000/220 = <span class="hl">9.1 A</span><br>
+      TV current: I = 100/220 = <span class="hl">0.45 A</span><br>
+      Total current = 9.1 + 0.45 = <span class="hl">9.55 A</span><br>
+      Since 9.55 A < 13 A (socket rating), it is <span class="hl">safe</span> — the socket is not overloaded. However, adding more appliances could exceed 13 A, so caution is needed.<br><br>
+      <strong>(d) Energy-saving suggestions:</strong><br>
+      ① <strong>Use energy-efficient appliances</strong> (e.g. LED instead of incandescent bulbs): LEDs produce the same light output using <span class="hl">less power</span> (lower wattage), so energy consumption E = P × t decreases.<br>
+      ② <strong>Turn off appliances when not in use:</strong> Reducing operating time t directly reduces energy E = P × t. Standby mode still consumes power — unplugging eliminates this "phantom load".
+    </div>
+
+    <!-- Essay 3: Experiment Evaluation -->
+    <div class="q-box">
+      <div class="ql">📝 Experiment Evaluation Question — <span class="method">J-E-A-L</span></div>
+      <div class="qt">A student wants to investigate whether the length of a wire affects its resistance. He uses the following setup:<br>
+      • A 3V battery, an ammeter, a voltmeter, and connecting wires<br>
+      • He tests wires of length 20cm, 40cm, 60cm, 80cm, and 100cm<br>
+      • He uses wires of DIFFERENT thicknesses (some thin, some thick)<br>
+      • He only does each measurement ONCE<br><br>
+      Evaluate the experimental design. Identify TWO problems and suggest improvements.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">J-E-A-L</span></div>
+      <strong>J — Judgment:</strong> The experiment has <span class="hl">significant flaws</span> — the results would be unreliable.<br><br>
+      <strong>E — Evidence of problems:</strong><br>
+      <strong>Problem ① — Multiple variables changing:</strong> The student used wires of different thicknesses. <span class="hl">Thickness also affects resistance</span> (R ∝ 1/A). If both length and thickness vary, we cannot tell which factor caused the change in resistance. <span class="hl">Only ONE variable should change at a time</span> (fair test).<br>
+      <strong>Problem ② — No repeats:</strong> Each length was only measured once. The result might be affected by random errors (e.g. poor connection, reading error). Without repeats, we cannot calculate an average or identify anomalous results.<br><br>
+      <strong>A — Adjustment (improvements):</strong><br>
+      ① Use wires of the <strong>same material and same thickness</strong> — only vary the length.<br>
+      ② <strong>Repeat each measurement at least 3 times</strong> and calculate the average current/resistance.<br><br>
+      <strong>L — Limitations:</strong> Even after improvements, the experiment doesn't account for <strong>temperature changes</strong> — longer wires under current may heat up more, increasing resistance. This could affect the accuracy of the conclusion.
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== PART 3: ACIDS & ALKALIS DATA ANALYSIS ====== -->
+<div class="section s4 open" id="s4">
+  <div class="sh" onclick="toggle(this.parentElement)">
+    <span>🧪 PART 3 — Acids & Alkalis: Data Analysis</span>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="sb">
+
+    <!-- Acid-Base Exp 1: pH Titration -->
+    <div class="exp-box">
+      <div class="label">🔬 Experiment 4 — Neutralization: Adding Acid to Alkali</div>
+      <p>A student adds hydrochloric acid (HCl, 0.1M) drop by drop to 50 mL of sodium hydroxide solution (NaOH, 0.1M) containing universal indicator. She measures the pH after each addition.</p>
+    </div>
+
+    <table class="dtable">
+      <tr><th>Volume of acid added (mL)</th><td>0</td><td>10</td><td>20</td><td>30</td><td>40</td><td>45</td><td>48</td><td>50</td><td>52</td><td>55</td><td>60</td></tr>
+      <tr><th>pH</th><td>13</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>7</td><td>5</td><td>3</td><td>2</td><td>2</td></tr>
+      <tr><th>Colour (UI)</th><td>Purple</td><td>Purple</td><td>Blue</td><td>Blue</td><td>Blue-green</td><td>Green</td><td>Green</td><td>Yellow</td><td>Orange</td><td>Red</td><td>Red</td></tr>
+    </table>
+
+    <div class="q-box">
+      <div class="ql">📝 Data Analysis Question</div>
+      <div class="qt">(a) What is the independent variable and dependent variable?<br>
+      (b) At what volume of acid does neutralization occur? How do you know?<br>
+      (c) Describe the pH change pattern. What is special about the region near 48-50 mL?<br>
+      (d) Write the chemical equation for the neutralization reaction.<br>
+      (e) <strong>Essay:</strong> Explain why the pH changes slowly at first, then drops rapidly near the equivalence point. Use the concept of H⁺ and OH⁻ ions.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">V-C-D-C</span></div>
+      <strong>V — Variables:</strong> IV = Volume of acid added; DV = pH (measured by universal indicator / pH meter); CV = Same concentration (0.1M), same volume of NaOH (50mL), room temperature.<br><br>
+      <strong>D — Data analysis:</strong><br>
+      (a) IV = Volume of acid added (mL); DV = pH.<br>
+      (b) Neutralization occurs at <span class="hl">approximately 48 mL</span> — this is where pH = 7 (neutral). The indicator turns green at this point.<br>
+      (c) The pH changes <span class="hl">slowly from 13→9</span> (0-45mL), then <span class="hl">drops sharply from 9→3</span> between 45-52mL (only 7mL span), then levels off at pH 2. The sharp drop near 48mL is called the <span class="hl">equivalence point</span>.<br>
+      (d) <strong>HCl + NaOH → NaCl + H₂O</strong> (acid + alkali → salt + water)<br><br>
+      <strong>(e) Essay — Why the pH drops slowly then sharply:</strong><br>
+      <strong>Before neutralization (0-45mL):</strong> Excess OH⁻ ions from NaOH dominate. Adding H⁺ ions neutralizes some OH⁻, but there are <span class="hl">still plenty of OH⁻ ions left</span>, so pH stays high (alkaline). The pH changes slowly because the solution is buffered by excess OH⁻.<br><br>
+      <strong>Near equivalence point (45-50mL):</strong> Most OH⁻ ions have been neutralized. Adding just a few more mL of acid causes a <span class="hl">dramatic change</span> — the remaining OH⁻ is used up, and suddenly H⁺ ions are in excess. This is why pH drops from 9 to 3 within 5 mL — the "pH jump".<br><br>
+      <strong>After neutralization (>50mL):</strong> Excess H⁺ ions dominate, pH stays around 2 (strongly acidic).
+    </div>
+
+    <!-- Acid-Base Exp 2: Neutralization temperature -->
+    <div class="exp-box">
+      <div class="label">🔬 Experiment 5 — Neutralization: Temperature Change</div>
+      <p>A student measures the temperature change when different volumes of HCl (0.5M) are added to 25 mL of NaOH (0.5M). They start at room temperature (25°C).</p>
+    </div>
+
+    <table class="dtable">
+      <tr><th>Volume of HCl (mL)</th><td>0</td><td>5</td><td>10</td><td>15</td><td>20</td><td>25</td><td>30</td><td>35</td><td>40</td></tr>
+      <tr><th>Temperature (°C)</th><td>25.0</td><td>26.5</td><td>28.0</td><td>29.5</td><td>31.0</td><td>32.5</td><td>32.0</td><td>31.0</td><td>30.0</td></tr>
+    </table>
+
+    <div class="q-box">
+      <div class="ql">📝 Data Analysis Question</div>
+      <div class="qt">(a) Why does the temperature rise when acid and alkali are mixed?<br>
+      (b) At what volume does the temperature peak? What does this tell you?<br>
+      (c) The concentrations are equal (both 0.5M). What volume ratio gives complete neutralization? What is the mole ratio?<br>
+      (d) Why does the temperature decrease after the peak?<br>
+      (e) <strong>Essay:</strong> Explain the relationship between this temperature change experiment and the pH change experiment (Experiment 4). How do they support each other's conclusions?</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">V-C-D-C</span></div>
+      <strong>V — Variables:</strong> IV = Volume of HCl added; DV = Temperature; CV = Same concentration (0.5M), same initial volume of NaOH (25mL), same container.<br><br>
+      <strong>D — Data analysis:</strong><br>
+      (a) Neutralization is an <span class="hl">exothermic reaction</span> — H⁺ + OH⁻ → H₂O releases heat energy, which raises the temperature of the solution.<br>
+      (b) Temperature peaks at <span class="hl">25 mL</span> of HCl (32.5°C). This is the <span class="hl">equivalence point</span> — all OH⁻ has been neutralized by H⁺, maximum heat released.<br>
+      (c) Volume ratio = 25 mL HCl : 25 mL NaOH = <span class="hl">1:1</span>. Since both are 0.5M, the mole ratio is also <span class="hl">1:1</span> — HCl + NaOH → NaCl + H₂O.<br>
+      (d) After the peak, adding more acid dilutes the solution and adds <span class="hl">cooler acid at room temperature</span>. The reaction is complete, so no more heat is produced — the excess acid cools the mixture toward room temperature.<br><br>
+      <strong>(e) Essay — How the two experiments support each other:</strong><br>
+      In Experiment 4, pH changed sharply near 48 mL (0.1M concentrations). In this experiment, temperature peaks at 25 mL (0.5M concentrations). <span class="hl">Both support the same 1:1 mole ratio:</span> the equivalence point is when equal moles of acid and alkali react.<br><br>
+      The <span class="hl">pH change</span> tells us <em>when</em> neutralization is complete (sudden pH drop), while the <span class="hl">temperature change</span> tells us <em>how much</em> energy is released. Together, they provide strong evidence that neutralization involves H⁺ + OH⁻ → H₂O in a 1:1 ratio, and that the reaction is exothermic.
+    </div>
+
+    <!-- Acid-Base Exp 3: Strong vs Weak acid -->
+    <div class="exp-box">
+      <div class="label">🔬 Experiment 6 — Strong Acid vs Weak Acid: Conductivity</div>
+      <p>A student tests the electrical conductivity of 0.1M hydrochloric acid (HCl) and 0.1M ethanoic acid (CH₃COOH) using the same circuit with a bulb. She also measures the pH of each.</p>
+    </div>
+
+    <table class="dtable">
+      <tr><th>Acid</th><th>Concentration (M)</th><th>pH</th><th>Bulb brightness</th><th>Current (mA)</th></tr>
+      <tr><td>Hydrochloric acid (HCl)</td><td>0.1</td><td>1.0</td><td>Bright</td><td>45</td></tr>
+      <tr><td>Ethanoic acid (CH₃COOH)</td><td>0.1</td><td>2.9</td><td>Dim</td><td>8</td></tr>
+    </table>
+
+    <div class="q-box">
+      <div class="ql">📝 Data Analysis + Essay Question</div>
+      <div class="qt">(a) Which acid has a lower pH? Why?<br>
+      (b) Why does HCl produce a brighter bulb and higher current than ethanoic acid, even though they have the same concentration?<br>
+      (c) <strong>Essay:</strong> Explain the difference between "strong acid" and "concentrated acid". Use the data above and scientific reasoning.<br>
+      (d) Design a simple experiment to test whether sulfuric acid (H₂SO₄) is a strong acid. Describe the expected results and explain your reasoning.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">V-C-D-C</span> + <span class="method">J-E-A-L</span></div>
+      <strong>(a) Lower pH:</strong> HCl has pH 1.0, which is much lower than ethanoic acid (pH 2.9). This is because HCl is a <span class="hl">strong acid</span> — it <span class="hl">fully dissociates</span> into H⁺ and Cl⁻ ions in water, producing many H⁺ ions. Ethanoic acid is a <span class="hl">weak acid</span> — it only <span class="hl">partially dissociates</span>, producing far fewer H⁺ ions at the same concentration.<br><br>
+      <strong>(b) Brightness difference:</strong> Conductivity depends on the number of <span class="hl">mobile ions</span> in solution. HCl fully dissociates → lots of H⁺ and Cl⁻ ions → high conductivity → bright bulb. Ethanoic acid only partially dissociates → fewer ions → low conductivity → dim bulb.<br><br>
+      <strong>(c) Essay — Strong vs Concentrated:</strong><br>
+      "Strong acid" refers to the <span class="hl">degree of dissociation</span> (how completely the acid splits into ions). HCl is strong — virtually all HCl molecules dissociate. Ethanoic acid is weak — only about 1% dissociates.<br><br>
+      "Concentrated acid" refers to the <span class="hl">amount of acid dissolved</span> in a given volume of water. You can have <span class="hl">concentrated weak acid</span> (e.g. concentrated ethanoic acid — vinegar) or <span class="hl">dilute strong acid</span> (e.g. 0.01M HCl — dilute but still fully dissociated).<br><br>
+      <strong>(d) Experiment to test if H₂SO₄ is strong:</strong><br>
+      <span class="hl">Method:</span> Prepare 0.1M H₂SO₄ and measure its pH using a pH meter. Compare with 0.1M HCl (known strong acid, pH ≈ 1.0).<br>
+      <span class="hl">Expected result:</span> If H₂SO₄ is strong, pH should be ≈ 1.0 (or slightly lower since H₂SO₄ releases 2 H⁺ per molecule). If pH is closer to 3, it's weak.<br>
+      <span class="hl">Cross-check:</span> Test conductivity — strong acid gives bright bulb; weak acid gives dim bulb.
+    </div>
+
+  </div>
+</div>
+
+<!-- PART 4: ACIDS & ALKALIS ESSAY -->
+<div class="section s5 open" id="s5">
+  <div class="sh" onclick="toggle(this.parentElement)">
+    <span>✍️ PART 4 — Acids & Alkalis: Essay + Experiment Evaluation</span>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="sb">
+
+    <!-- Essay 1: Indicators -->
+    <div class="q-box">
+      <div class="ql">📝 Essay Question — Indicators & pH</div>
+      <div class="qt">A student has three unlabelled solutions: A (pH 2), B (pH 7), and C (pH 11).<br><br>
+      (a) Using ONLY red litmus paper, explain how the student could identify all three solutions.<br>
+      (b) Using ONLY universal indicator solution, explain how the student could identify all three.<br>
+      (c) <strong>Evaluate:</strong> Which method (litmus or universal indicator) gives more information? Explain your answer with reference to the pH scale.<br>
+      (d) <strong>Real-world application:</strong> Farmers sometimes add lime (calcium oxide) to acidic soil. Explain the scientific principle behind this practice. What chemical reaction takes place?</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">J-E-A-L</span> for (c)</div>
+      <strong>(a) Using red litmus:</strong><br>
+      Red litmus turns <strong>blue in alkali</strong> and stays red in acid/neutral.<br>
+      ① Test solution C: red litmus → blue → C is alkali.<br>
+      ② Test A and B: both stay red → cannot distinguish acid from neutral using ONLY red litmus. (If blue litmus were also available, A would turn it red while B would not.)<br><br>
+      <strong>(b) Using universal indicator:</strong><br>
+      Universal indicator gives different colours at different pH levels:<br>
+      Solution A (pH 2) → <strong>red</strong> (strong acid)<br>
+      Solution B (pH 7) → <strong>green</strong> (neutral)<br>
+      Solution C (pH 11) → <strong>purple/blue</strong> (alkali)<br>
+      All three can be identified with one test each.<br><br>
+      <strong>(c) Evaluation — <span class="method">J-E-A-L</span>:</strong><br>
+      <strong>J:</strong> Universal indicator gives <span class="hl">more information</span> than litmus.<br>
+      <strong>E:</strong> Litmus only tells you if a solution is acidic (red) or alkaline (blue) — it <span class="hl">cannot distinguish strength</span> (e.g. pH 2 vs pH 5 both turn red). Universal indicator gives a <span class="hl">range of colours</span> that correspond to specific pH values, so you can estimate the actual pH.<br>
+      <strong>A:</strong> For best accuracy, use a <strong>pH meter</strong> — it gives a numerical reading rather than colour comparison.<br><br>
+      <strong>(d) Farmers adding lime:</strong><br>
+      Lime (calcium oxide, CaO) is a <span class="hl">base</span>. When added to acidic soil, it undergoes neutralization: <span class="hl">CaO + H₂O → Ca(OH)₂</span> (lime reacts with water to form calcium hydroxide), then <span class="hl">Ca(OH)₂ + 2H⁺ → Ca²⁺ + 2H₂O</span> — the OH⁻ ions from lime <span class="hl">neutralize the H⁺ ions</span> in the acidic soil, raising the pH to a level suitable for crop growth.
+    </div>
+
+    <!-- Essay 2: Neutralization in daily life -->
+    <div class="q-box">
+      <div class="ql">📝 Essay Question — Neutralization in Daily Life</div>
+      <div class="qt">Neutralization reactions are widely used in everyday life.<br><br>
+      (a) Explain why antacid tablets (containing magnesium hydroxide) can relieve indigestion. Write the chemical equation.<br>
+      (b) Bee stings are acidic (contain methanoic acid). Wasp stings are alkaline. Explain why different treatments are needed for bee stings vs wasp stings.<br>
+      (c) <strong>Experiment evaluation:</strong> A student wants to test which antacid brand is most effective. He drops antacid tablets into 50 mL of 0.1M HCl and measures the time for the solution to become neutral (pH 7). Identify TWO factors he should control, and explain why.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer — <span class="method">J-E-A-L</span> for (c)</div>
+      <strong>(a) Antacid mechanism:</strong><br>
+      Indigestion is caused by <strong>excess stomach acid</strong> (HCl). Antacids contain <span class="hl">bases</span> like magnesium hydroxide, Mg(OH)₂, which neutralize the excess acid:<br>
+      <span class="hl">Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O</span><br>
+      This reduces the acidity in the stomach, relieving the discomfort.<br><br>
+      <strong>(b) Bee vs wasp stings:</strong><br>
+      <strong>Bee sting</strong> contains <strong>acid</strong> (methanoic acid) → treat with a <span class="hl">weak alkali</span> like baking soda (NaHCO₃) to neutralize it.<br>
+      <strong>Wasp sting</strong> contains <strong>alkali</strong> → treat with a <span class="hl">weak acid</span> like vinegar (ethanoic acid) to neutralize it.<br>
+      Using the wrong treatment would <span class="hl">worsen the sting</span> — e.g. putting alkali on an alkali sting!<br><br>
+      <strong>(c) Experiment evaluation — <span class="method">J-E-A-L</span>:</strong><br>
+      <strong>J:</strong> The design is reasonable but needs strict control of variables.<br>
+      <strong>E:</strong> The student must control:<br>
+      ① <strong>Size/mass of tablet:</strong> Different brands may have different tablet sizes. Use the <span class="hl">same mass</span> of each tablet to ensure fair comparison.<br>
+      ② <strong>Temperature:</strong> Reaction rate increases with temperature. All trials must be at the <span class="hl">same temperature</span> (e.g. room temp 25°C).<br>
+      ③ <strong>Concentration and volume of HCl:</strong> Use <span class="hl">exactly 50 mL of 0.1M HCl</span> for every test.<br>
+      <strong>A:</strong> <span class="hl">Repeat each test 3 times</span> and calculate the average time. Use a pH meter for accurate neutralization detection rather than indicator colour (which is subjective).<br>
+      <strong>L:</strong> This experiment measures <strong>speed of neutralization</strong>, not total neutralizing capacity. A fast but weak antacid might appear better than a slow but strong one.
+    </div>
+
+  </div>
+</div>
+
+<!-- PART 5: MIXED CHALLENGE -->
+<div class="section s6 open" id="s6">
+  <div class="sh" onclick="toggle(this.parentElement)">
+    <span>🏆 PART 5 — Mixed Challenge (Mock Exam Style)</span>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="sb">
+
+    <!-- Challenge 1 -->
+    <div class="q-box">
+      <div class="ql">🏆 Mixed Question 1 — Data Analysis</div>
+      <div class="qt">A student investigates how the number of bulbs in a parallel circuit affects the total current. She connects 1, 2, 3, 4, and 5 identical bulbs in parallel to a 6V battery and measures the total current.</div>
+    </div>
+
+    <table class="dtable">
+      <tr><th>Number of bulbs (parallel)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+      <tr><th>Total current (A)</th><td>0.30</td><td>0.60</td><td>0.90</td><td>1.20</td><td>1.50</td></tr>
+    </table>
+
+    <div class="q-box">
+      <div class="qt">(a) What is the relationship between the number of bulbs and total current?<br>
+      (b) Calculate the resistance of ONE bulb.<br>
+      (c) Predict the total current if 8 bulbs are connected in parallel.<br>
+      (d) If this circuit were connected to a household 220V supply instead, with each bulb rated 60W, calculate the current drawn by ONE bulb.<br>
+      (e) Explain why connecting too many appliances in parallel in a household circuit can be dangerous.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer</div>
+      (a) Total current is <span class="hl">directly proportional</span> to the number of bulbs. Current = 0.30 × N (A). Each additional bulb adds 0.30A.<br>
+      (b) R = V/I = 6V / 0.30A = <span class="hl">20 Ω</span> per bulb.<br>
+      (c) Predicted current for 8 bulbs: 8 × 0.30 = <span class="hl">2.4 A</span>.<br>
+      (d) P = VI → I = P/V = 60W / 220V = <span class="hl">0.27 A</span> per bulb.<br>
+      (e) In parallel, each new appliance <span class="hl">adds its own current</span> to the total. Too many appliances → total current exceeds the circuit's rating → <span class="hl">overloading</span> → wires overheat → risk of electrical fire. This is why fuses and circuit breakers are essential safety devices.
+    </div>
+
+    <!-- Challenge 2 -->
+    <div class="q-box">
+      <div class="ql">🏆 Mixed Question 2 — Essay: Comparing Two Topics</div>
+      <div class="qt">Compare the concept of "concentration" in:<br><br>
+      (a) <strong>Acids:</strong> The difference between concentrated HCl and dilute HCl.<br>
+      (b) <strong>Electricity:</strong> The difference between high current and low current in a wire.<br><br>
+      In your answer, explain:<br>
+      ① How each is measured (units & instruments)<br>
+      ② The relationship between concentration/current and the effect produced (pH / heating effect)<br>
+      ③ A real-world application where controlling concentration/current is important.</div>
+    </div>
+
+    <div class="ans-demo">
+      <div class="al">✅ Model Answer</div>
+      <table class="dtable">
+        <tr><th>Dimension</th><th>Acid Concentration</th><th>Electric Current</th></tr>
+        <tr><td><strong>Measured by</strong></td><td>pH meter / universal indicator; unit: M (mol/L)</td><td>Ammeter; unit: A (ampere)</td></tr>
+        <tr><td><strong>What it tells us</strong></td><td>Amount of H⁺ ions per litre</td><td>Amount of charge flowing per second</td></tr>
+        <tr><td><strong>Effect of increase</strong></td><td>pH decreases (more acidic); more reactive</td><td>Wire heats up more (P = I²R); brighter bulb</td></tr>
+        <tr><td><strong>Real-world control</strong></td><td>Soil pH management for farming: too acidic → add lime to raise pH</td><td>Fuse in household circuit: melts if current exceeds safe limit</td></tr>
+      </table>
+      <p style="margin-top:8px;font-size:13px;">Both concentration and current involve measuring "how much" of something is present per unit (ions per litre / charge per second). Both require careful control to avoid unwanted effects — too much acid in soil kills plants; too much current in a wire starts a fire.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- QUICK REFERENCE -->
+<div class="section s7 open" id="s7">
+  <div class="sh" onclick="toggle(this.parentElement)">
+    <span>📇 Quick Reference Cards</span>
+    <span class="arrow">▶</span>
+  </div>
+  <div class="sb">
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0;">
+      <div class="tip-card" style="background:#f0f5ff;">
+        <strong>⚡ Ohm's Law</strong><br>
+        V = I × R<br>
+        Voltage (V) = Current (A) × Resistance (Ω)<br>
+        Series: R<sub>total</sub> = R₁ + R₂ + …<br>
+        Parallel: 1/R<sub>total</sub> = 1/R₁ + 1/R₂ + …
+      </div>
+      <div class="tip-card" style="background:#fff5e0;">
+        <strong>⚡ Electrical Power</strong><br>
+        P = V × I = I² × R = V²/R<br>
+        Energy: E = P × t (kWh)<br>
+        Cost = kWh × rate ($/kWh)<br>
+        Fuse: melts when I exceeds rating
+      </div>
+      <div class="tip-card" style="background:#f0faf0;">
+        <strong>🧪 pH Scale</strong><br>
+        0-6: Acidic → 7: Neutral → 8-14: Alkaline<br>
+        pH = -log[H⁺]<br>
+        Lower pH = more H⁺ ions<br>
+        Strong acid: fully dissociates<br>
+        Weak acid: partially dissociates
+      </div>
+      <div class="tip-card" style="background:#fce4ec;">
+        <strong>🧪 Neutralization</strong><br>
+        Acid + Alkali → Salt + Water<br>
+        H⁺ + OH⁻ → H₂O (exothermic!)<br>
+        Common uses: antacid, soil treatment, bee sting treatment<br>
+        Indicator: substance that changes colour at different pH
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0;">
+      <div class="tip-card" style="background:#f3e5f5;">
+        <strong>📊 V-C-D-C (Data Analysis)</strong><br>
+        ① <strong>V</strong>ariables — IV, DV, CV<br>
+        ② <strong>C</strong>onditions — control group? repeats?<br>
+        ③ <strong>D</strong>ata — trend? compare? anomaly?<br>
+        ④ <strong>C</strong>onclusion — evidence-based + limits
+      </div>
+      <div class="tip-card" style="background:#fff8e1;">
+        <strong>🔍 J-E-A-L (Experiment Eval)</strong><br>
+        ① <strong>J</strong>udgment — good / flawed / invalid<br>
+        ② <strong>E</strong>vidence — specific problems<br>
+        ③ <strong>A</strong>djustment — concrete improvements<br>
+        ④ <strong>L</strong>imitations — what can't it prove?
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  🔬 F2 Science — Electricity (Unit 8) & Acids-Alkalis (Unit 9) · Data Analysis & Essay Deep Dive<br>
+  Frameworks: <a href="技能框架_实验数据分析.html">V-C-D-C</a> · <a href="技能框架_实验设计评价.html">J-E-A-L</a> · <a href="技能框架_科学因果链分析.html">Causal Chain</a><br><br>
+  <a href="index.html">← Back to Home</a>
+</div>
+
+</div><!-- /container -->
+
+<script>
+function toggle(el) {
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
